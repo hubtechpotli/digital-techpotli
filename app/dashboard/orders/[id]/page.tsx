@@ -52,12 +52,11 @@ interface OrderDetails {
   services: string
   desc_short: string
   desc_long: string
-  hours: string
   logo_url?: string
   gst_number?: string
   website_style?: string
   primary_color?: string
-  domain_preference?: string
+  
   facebook_url?: string
   instagram_url?: string
   linkedin_url?: string
@@ -316,13 +315,7 @@ function OrderDetailsPageContent() {
                     <label className="text-sm font-medium text-slate-600">Business Category</label>
                     <p className="text-slate-700 mt-1">{order.category}</p>
                   </div>
-                  <div>
-                    <label className="text-sm font-medium text-slate-600 flex items-center gap-2">
-                      <TimeIcon className="w-4 h-4" />
-                      Operating Hours
-                    </label>
-                    <p className="text-slate-700 mt-1">{order.hours}</p>
-                  </div>
+                  {/* Operating hours removed from UI */}
                 </div>
               </CardContent>
             </Card>
@@ -353,7 +346,7 @@ function OrderDetailsPageContent() {
             </Card>
 
             {/* Branding & Design Preferences */}
-            {(order.website_style || order.primary_color || order.domain_preference || order.gst_number) && (
+            {(order.website_style || order.primary_color || order.gst_number) && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -382,14 +375,7 @@ function OrderDetailsPageContent() {
                         </div>
                       </div>
                     )}
-                    {order.domain_preference && (
-                      <div>
-                        <label className="text-sm font-medium text-slate-600">Domain Preference</label>
-                        <p className="text-slate-700 mt-1">
-                          {order.domain_preference === 'have_domain' ? 'I have a domain' : 'I need a domain'}
-                        </p>
-                      </div>
-                    )}
+                    {/* Domain preference removed */}
                     {order.gst_number && (
                       <div>
                         <label className="text-sm font-medium text-slate-600">GST Number</label>

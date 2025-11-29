@@ -44,12 +44,10 @@ export async function POST(request: NextRequest) {
       services,
       desc_short,
       desc_long,
-      hours,
       logo_url,
       gst_number,
       website_style,
       primary_color,
-      domain_preference,
       social_links,
       plan,
       payment_type,
@@ -205,7 +203,6 @@ export async function POST(request: NextRequest) {
     }
 
     // Create order data
-    // Provide defaults for removed fields that are still required in database
     const orderData = {
       user_id: userId,
       owner_name,
@@ -219,12 +216,10 @@ export async function POST(request: NextRequest) {
       services,
       desc_short: desc_short || '',
       desc_long: desc_long || desc_short || '', // Use desc_short as fallback if desc_long not provided
-      hours,
       logo_url: finalLogoUrl || null,
       gst_number: gst_number || null,
       website_style: website_style || null,
       primary_color: primary_color || null,
-      domain_preference: domain_preference || null,
       facebook_url: social_links?.facebook || null,
       instagram_url: social_links?.instagram || null,
       linkedin_url: social_links?.linkedin || null,

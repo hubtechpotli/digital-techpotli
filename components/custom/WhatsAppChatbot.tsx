@@ -105,10 +105,14 @@ export function WhatsAppChatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-teal-500/50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-[#25D366]/50 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
           aria-label="Open WhatsApp chat"
         >
-          <MessageCircle className="h-6 w-6" />
+          {/* WhatsApp logo (inline SVG) */}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-6 w-6" fill="white" aria-hidden>
+            <path d="M20.52 3.48A11.86 11.86 0 0012.03.5C6.07.5 1.52 5.05 1.52 11c0 1.93.5 3.81 1.46 5.46L.25 23.5l7.2-2.03a11.6 11.6 0 005.29 1.25h.01c5.96 0 10.53-4.55 10.53-10.5 0-2.8-1.09-5.43-3.01-7.24zM12.03 20.5c-1.7 0-3.34-.46-4.78-1.33l-.34-.2-4.28 1.21 1.2-3.26-.22-.36A8.36 8.36 0 013.7 11c0-4.6 3.74-8.34 8.33-8.34 4.6 0 8.34 3.74 8.34 8.34 0 4.6-3.74 8.34-8.34 8.34z" />
+            <path d="M17.6 14.2c-.3-.15-1.8-.9-2.08-1-.28-.11-.49-.15-.7.15-.21.3-.83 1-.99 1.2-.16.21-.31.24-.59.08-.28-.16-1.18-.43-2.25-1.39-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.46.14-.15.19-.25.28-.42.09-.16.04-.31-.02-.46-.06-.15-.7-1.64-.96-2.25-.25-.59-.5-.51-.7-.52-.18-.01-.39-.01-.6-.01-.2 0-.52.07-.79.31-.27.24-1.04 1.02-1.04 2.48 0 1.46 1.06 2.88 1.2 3.08.14.21 2.06 3.34 5 4.68 2.95 1.34 2.95.9 3.48.84.53-.06 1.72-.7 1.97-1.38.25-.68.25-1.26.17-1.38-.08-.12-.28-.2-.58-.35z" />
+          </svg>
           <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full border-2 border-white animate-ping"></span>
           <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full border-2 border-white"></span>
         </button>
