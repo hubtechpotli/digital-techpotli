@@ -1,6 +1,6 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
-import { Button } from "@/components/ui/button";
+import WhatsAppContactButton from "@/components/custom/WhatsAppContactButton";
 import { socialSeoGmbPackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
@@ -85,17 +85,7 @@ export default function SocialSeoGmbPage() {
                   </a>
                 </p>
               </div>
-              <Button
-                onClick={() => {
-                  const message = encodeURIComponent(
-                    "Hello! I'm interested in Social Media, SEO & GMB packages from Techpotli Digital. Could you please provide more information?"
-                  );
-                  window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
-                }}
-                className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Contact Us on WhatsApp
-              </Button>
+              <WhatsAppContactButton className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300" />
             </div>
           </div>
         </div>

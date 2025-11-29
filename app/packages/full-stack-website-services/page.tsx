@@ -2,7 +2,7 @@ import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
 import { fullStackWebsitePackages } from "@/lib/packages";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+import WhatsAppContactButton from "@/components/custom/WhatsAppContactButton";
 
 export const metadata: Metadata = {
   title: "Full Stack Website Services Packages - Techpotli",
@@ -77,17 +77,7 @@ export default function FullStackWebsiteServicesPage() {
                   </a>
                 </p>
               </div>
-              <Button
-                onClick={() => {
-                  const message = encodeURIComponent(
-                    "Hello! I'm interested in Full Stack Website Services packages from Techpotli Digital. Could you please provide more information and help me choose the right package?"
-                  );
-                  window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
-                }}
-                className="w-full sm:w-auto bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Contact Us on WhatsApp
-              </Button>
+              <WhatsAppContactButton />
             </div>
           </div>
         </div>

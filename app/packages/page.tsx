@@ -1,6 +1,6 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
-import { Button } from "@/components/ui/button";
+import WhatsAppContactButton from "@/components/custom/WhatsAppContactButton";
 import { websiteServicesPackages, websiteLeadsPackages, ecommercePackages, socialSeoGmbPackages, oneTimeSetupPackages, fullStackWebsitePackages } from "@/lib/packages";
 import type { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -301,17 +301,7 @@ export default function PackagesPage() {
               </p>
             </div>
             <div className="text-center">
-              <Button
-                onClick={() => {
-                  const message = encodeURIComponent(
-                    "Hello! I'm interested in learning more about Techpotli Digital packages. Could you please provide more information?"
-                  );
-                  window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
-                }}
-                className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Contact Us on WhatsApp
-              </Button>
+              <WhatsAppContactButton className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300" />
             </div>
           </div>
         </div>

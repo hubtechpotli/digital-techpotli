@@ -56,10 +56,11 @@ export default function Home() {
         }}
         aria-label="Hero animation video"
       >
-        <VideoPlayer 
+        <VideoPlayer
           src="/Video Project 1.mp4"
           className="w-full h-auto"
           priority={true}
+          poster={"https://res.cloudinary.com/dieth2xb3/image/upload/c_fill,w_1200,h_675,q_auto,f_auto/ssimage_bxr8i6.png"}
           style={{
             display: 'block',
             width: '100vw',
