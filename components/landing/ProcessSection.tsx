@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionHeading } from "@/components/custom/SectionHeading";
+import "@/lib/GSAPAnimations";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";

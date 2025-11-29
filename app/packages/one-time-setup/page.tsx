@@ -1,0 +1,107 @@
+import { SectionHeading } from "@/components/custom/SectionHeading";
+import { PackageCard } from "@/components/landing/PackageCard";
+import { oneTimeSetupPackages } from "@/lib/packages";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "One-Time Website Setup Packages - Techpotli",
+  description: "One-time website development packages for business websites, e-commerce stores, and custom solutions. Choose from basic to enterprise-level packages.",
+};
+
+export default function OneTimeSetupPage() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 via-teal-50/30 to-cyan-50/30">
+      {/* Hero Section */}
+      <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-16 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="One-Time Website Setup Cost"
+            heading="One-Time Website Development Packages"
+            description="Get your website developed once with a one-time payment. Perfect for businesses looking for a complete website solution without monthly subscriptions. Choose from business websites to custom e-commerce solutions."
+            size="lg"
+            align="center"
+            as="h1"
+            badgeClassName="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 !text-white border-0 shadow-lg"
+            showDescriptionToScreenReaders={true}
+          />
+        </div>
+      </section>
+
+      {/* Packages Grid */}
+      <section className="py-16 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Choose Your One-Time Setup Package
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              All packages are one-time payment with no monthly fees. Perfect for businesses that want complete ownership.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {oneTimeSetupPackages.map((pkg, index) => (
+              <PackageCard key={pkg.id} pkg={pkg} index={index + 9} />
+            ))}
+          </div>
+
+          {/* Important Information */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl border-2 border-teal-200 p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Important Notes:</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">1.</span>
+                  <span><strong>Hosting & Domain charges extra.</strong></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">2.</span>
+                  <span><strong>Website includes full admin control.</strong></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">3.</span>
+                  <span>Ads budget will be paid by the client.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">4.</span>
+                  <span>Domain for .com & .in charges will be extra applied.</span>
+                </li>
+                <li className="flex items-start gap-3 pt-2 border-t border-gray-200">
+                  <span className="text-teal-600 font-bold mt-1">•</span>
+                  <span>All packages are <strong>one-time payment</strong> with no recurring monthly fees.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">•</span>
+                  <span>Custom packages include complete source code ownership.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">•</span>
+                  <span>All prices are exclusive of GST. Final amount will include applicable taxes.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Information */}
+            <div className="mt-8 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200 p-6 sm:p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Us</h3>
+              <div className="space-y-2 text-gray-700">
+                <p className="font-semibold">Techpotli Digital</p>
+                <p>C52A, LGF, Kalka Ji, New Delhi 110019</p>
+                <p className="pt-2">
+                  <span className="font-semibold">Phone:</span> 011-47200987 / 9911475599 / 9211405666 / 9211404666
+                </p>
+                <p>
+                  <span className="font-semibold">Website:</span>{" "}
+                  <a href="https://www.techpotlidigital.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    www.techpotlidigital.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+

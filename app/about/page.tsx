@@ -1,20 +1,23 @@
 "use client";
 
 import "@/lib/GSAPAnimations";
-import { pageMetadata } from "@/lib/metadata";
+import { SectionHeading } from "@/components/custom/SectionHeading";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
+import { Building2, ShoppingCart, Code, Megaphone, Users, MapPin, Phone, Globe, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
   const heroContentRef = useRef<HTMLDivElement>(null);
-  const workplaceContentRef = useRef<HTMLDivElement>(null);
-  const statsSectionRef = useRef<HTMLDivElement>(null);
-  const statsGridRef = useRef<HTMLDivElement>(null);
-  const imageGroupRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const teamRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     // Animate hero content
@@ -26,198 +29,400 @@ const AboutPage = () => {
       });
     }
 
-    // Animate workplace content
-    if (workplaceContentRef.current) {
-      gsap.effects.fadeUpOnScroll(workplaceContentRef.current, {
+    // Animate services section
+    if (servicesRef.current) {
+      gsap.effects.fadeUpOnScroll(servicesRef.current, {
         duration: 0.8,
         yOffset: 30,
         start: "top 85%",
       });
     }
 
-    // Animate stats section
-    if (statsSectionRef.current) {
-      gsap.effects.fadeUpOnScroll(statsSectionRef.current, {
+    // Animate team section
+    if (teamRef.current) {
+      gsap.effects.fadeUpOnScroll(teamRef.current, {
         duration: 0.8,
         yOffset: 30,
         start: "top 85%",
       });
     }
 
-    // Animate statistics grid with stagger
-    if (statsGridRef.current) {
-      gsap.effects.staggerFadeUpOnScroll(statsGridRef.current, {
-        duration: 0.6,
-        yOffset: 20,
-        stagger: 0.1,
+    // Animate contact section
+    if (contactRef.current) {
+      gsap.effects.fadeUpOnScroll(contactRef.current, {
+        duration: 0.8,
+        yOffset: 30,
         start: "top 85%",
       });
     }
 
-    // Animate images with slight delay
-    imageGroupRefs.current.forEach((ref) => {
-      if (ref) {
-        gsap.effects.fadeUpOnScroll(ref, {
-          duration: 0.7,
-          yOffset: 25,
-          start: "top 80%",
-        });
-      }
-    });
+    // Animate stats with stagger
+    if (statsRef.current) {
+      const stats = statsRef.current.querySelectorAll(".stat-item");
+      gsap.fromTo(
+        stats,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: "top 85%",
+          },
+        }
+      );
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
+  const services = [
+    {
+      icon: ShoppingCart,
+      title: "E-Commerce Platform",
+      description: "Comprehensive e-commerce website providing all types of products and items. We offer a complete online shopping experience with secure payment gateways, user-friendly interface, and seamless order management.",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: Code,
+      title: "IT Services",
+      description: "Full stack website development, custom software solutions, CRM development, and complete IT services. Our experienced developers team transforms your ideas into production-ready code.",
+      color: "from-teal-500 to-cyan-500",
+    },
+    {
+      icon: Megaphone,
+      title: "Digital Marketing Services",
+      description: "Complete digital marketing solutions including SEO, social media marketing, Google & Meta ads management, branding, and lead generation. We help businesses grow their online presence and reach their target audience.",
+      color: "from-purple-500 to-pink-500",
+    },
+  ];
+
+  const values = [
+    "Customer-Centric Approach",
+    "Innovation & Excellence",
+    "Transparent Communication",
+    "Quality Delivery",
+    "24/7 Support",
+    "Scalable Solutions",
+  ];
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pageMetadata.about.structuredData),
-        }}
-      />
-      
-      <main id="main-content" role="main">
-        <section className="py-32 mx-auto max-w-6xl px-5" aria-labelledby="about-heading">
-          <div className="container">
-            <div className="flex flex-col items-center justify-start gap-6 lg:flex-row">
-              <div className="flex w-full flex-col items-start justify-start gap-24 lg:w-1/2">
-                <header ref={heroContentRef} className="pr-6">
-                  <h1 id="about-heading" className="mb-6 text-4xl font-bold md:text-5xl lg:mb-10 lg:text-6xl">
-                    Our Story
-                  </h1>
-                  <p className="mb-9 text-lg font-medium lg:text-xl">
-                    We are driven by people and powered by AI innovation
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    At Ionio, we believe great technology starts with great people.
-                    Our team brings together curious minds, builders, and
-                    problem-solvers who thrive on turning complex ideas into
-                    impactful AI solutions. Collaboration, creativity, and ownership
-                    are at the heart of our culture — we work closely with our
-                    clients and each other to deliver results that feel both
-                    innovative and practical.
-                  </p>
-                </header>
-                <figure ref={(el) => { imageGroupRefs.current[0] = el as HTMLDivElement; }} className="flex flex-col items-center justify-center gap-6 md:flex-row" role="group" aria-label="Company team and workplace images">
-                  <img
-                    src="https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png"
-                    alt="Ionio team members collaborating on AI projects in modern office environment"
-                    className="aspect-[0.7] w-full rounded-lg object-cover md:w-1/2"
-                    loading="eager"
-                    decoding="sync"
-                    width="400"
-                    height="571"
-                  />
-                  <div className="flex w-full flex-col items-center justify-center gap-6 md:w-1/2">
-                    <img
-                      src="https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png"
-                      alt="AI technology and machine learning workspace at Ionio"
-                      className="aspect-[1.1] rounded-lg object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width="300"
-                      height="273"
-                    />
-                    <img
-                      src="https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png"
-                      alt="Ionio team working on innovative AI solutions and technology development"
-                      className="aspect-[0.7] rounded-lg object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width="300"
-                      height="429"
-                    />
-                  </div>
-                </figure>
-          </div>
-              <div className="flex w-full flex-col items-center justify-center gap-12 pt-12 lg:w-1/2 lg:pt-48">
-                <figure ref={(el) => { imageGroupRefs.current[1] = el as HTMLDivElement; }} className="flex flex-col items-center justify-center gap-6 md:flex-row" role="group" aria-label="Additional workplace and team collaboration images">
-                  <img
-                    src="https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png"
-                    alt="Ionio team members in collaborative workspace discussing AI innovation projects"
-                    className="aspect-[0.9] w-full rounded-lg object-cover md:w-1/2"
-                    loading="lazy"
-                    decoding="async"
-                    width="400"
-                    height="444"
-                  />
-                  <div className="flex w-full flex-col items-center justify-center gap-6 md:w-1/2">
-                    <img
-                      src="https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png"
-                      alt="Modern AI development lab with cutting-edge technology at Ionio"
-                      className="aspect-[0.8] rounded-lg object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width="300"
-                      height="375"
-                    />
-                    <img
-                      src="https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png"
-                      alt="Ionio team brainstorming innovative AI solutions in creative workspace"
-                      className="aspect-[0.9] rounded-lg object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width="300"
-                      height="333"
-                    />
-                  </div>
-                </figure>
-                <article ref={workplaceContentRef} className="px-8">
-                  <h2 className="mb-8 text-2xl font-semibold lg:mb-6">
-                    Our Workplace
-                  </h2>
-                  <p className="mb-9 text-lg font-medium lg:text-xl">
-                    Our culture is built on excellence, trust, and speed
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    At Ionio, we foster an environment where innovation thrives through 
-                    collaboration and continuous learning. Our workplace culture emphasizes 
-                    open communication, creative problem-solving, and the freedom to explore 
-                    cutting-edge AI technologies. We believe that the best solutions emerge 
-                    when diverse minds come together with a shared passion for pushing the 
-                    boundaries of what's possible in artificial intelligence.
-                  </p>
-                </article>
-              </div>
+    <main id="main-content" role="main" className="min-h-screen bg-gradient-to-br from-gray-50 via-teal-50/20 to-cyan-50/20">
+      {/* Hero Section */}
+      <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-16 sm:py-20 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-teal-300/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
 
-            <section ref={statsSectionRef} className="container flex flex-col gap-16 mt-24" aria-labelledby="stats-heading">
-              <header>
-                <h2 id="stats-heading" className="max-w-3xl text-4xl font-medium md:text-5xl">
-                  We excel in our field, but skill isn't everything we offer.
-                </h2>
-              </header>
-              <div ref={statsGridRef} className="grid grid-cols-2 gap-6 md:grid-cols-3" role="region" aria-label="Company statistics and achievements">
-                <div className="flex flex-col gap-6 border-b pb-8" role="article" aria-labelledby="stat-1">
-                  <p id="stat-1" className="text-4xl font-medium md:text-5xl" aria-label="21 million">21M</p>
-                  <p className="text-muted-foreground">Global Reach of Users</p>
-                </div>
-                <div className="flex flex-col gap-6 border-b pb-8" role="article" aria-labelledby="stat-2">
-                  <p id="stat-2" className="text-4xl font-medium md:text-5xl" aria-label="8 plus years">8+</p>
-                  <p className="text-muted-foreground">Years of Expertise</p>
-                </div>
-                <div className="flex flex-col gap-6 border-b pb-8" role="article" aria-labelledby="stat-3">
-                  <p id="stat-3" className="text-4xl font-medium md:text-5xl" aria-label="54 projects">54</p>
-                  <p className="text-muted-foreground">Projects Completed</p>
-                </div>
-                <div className="flex flex-col gap-6 border-b pb-8" role="article" aria-labelledby="stat-4">
-                  <p id="stat-4" className="text-4xl font-medium md:text-5xl" aria-label="113 thousand plus">113k+</p>
-                  <p className="text-muted-foreground">Monthly Active Users</p>
-                </div>
-                <div className="flex flex-col gap-6 border-b pb-8" role="article" aria-labelledby="stat-5">
-                  <p id="stat-5" className="text-4xl font-medium md:text-5xl" aria-label="461 thousand">461k</p>
-                  <p className="text-muted-foreground">Registered Accounts</p>
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div ref={heroContentRef}>
+            <SectionHeading
+              badge="About Techpotli"
+              heading="Your Complete Digital Solutions Partner"
+              description="Techpotli is a leading digital solutions company providing e-commerce platforms, IT services, and comprehensive digital marketing solutions. We transform businesses with innovative technology and strategic digital marketing."
+              size="lg"
+              align="center"
+              as="h1"
+              badgeClassName="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 !text-white border-0 shadow-lg"
+              showDescriptionToScreenReaders={true}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Company Story Section */}
+      <section className="py-16 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                Who We Are
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                <strong>Techpotli</strong> is a dynamic digital solutions company based in New Delhi, India. 
+                We specialize in three core areas: <strong>E-Commerce Solutions</strong>, <strong>IT Services</strong>, 
+                and <strong>Digital Marketing Services</strong>.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                Our e-commerce platform provides a comprehensive online marketplace where customers can find 
+                and purchase all types of products and items. We've built a robust, user-friendly platform 
+                that ensures seamless shopping experiences with secure transactions and efficient order management.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                With our experienced team of skilled developers and digital marketing experts, we deliver 
+                high-quality solutions that help businesses establish a strong online presence, reach their 
+                target audience, and achieve sustainable growth in the digital landscape.
+              </p>
+            </div>
+            <div className="relative">
+              <div
+                className="rounded-2xl overflow-hidden shadow-2xl"
+                style={{
+                  backgroundImage: "url(https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  minHeight: "400px",
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-600/80 via-cyan-600/80 to-blue-600/80 backdrop-blur-sm" />
+                <div className="relative p-8 text-white h-full flex flex-col justify-center">
+                  <Building2 className="h-16 w-16 mb-4 text-teal-200" />
+                  <h3 className="text-2xl font-bold mb-4">Techpotli Digital</h3>
+                  <p className="text-lg text-teal-50">
+                    Transforming businesses through innovative digital solutions
+                  </p>
                 </div>
               </div>
-            </section>
+            </div>
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section ref={servicesRef} className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              What We Offer
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive digital solutions to help your business thrive online
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative rounded-2xl bg-gradient-to-br from-gray-50 to-white p-8 border-2 border-gray-200 hover:border-teal-300 transition-all duration-300 hover:shadow-xl"
+                >
+                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Team & Expertise Section */}
+      <section ref={teamRef} className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Our Expertise
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Skilled professionals delivering excellence in every project
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <Users className="h-12 w-12 text-teal-600 mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Experienced Developers Team</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our team of skilled developers has extensive experience in full stack development, 
+                custom software solutions, CRM development, and IT services. We transform your ideas 
+                into production-ready code with attention to detail and best practices.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                  <span>Full Stack Website Development</span>
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                  <span>Custom Software Solutions</span>
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                  <span>CRM Development & Integration</span>
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                  <span>IT Services & Technical Support</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <Megaphone className="h-12 w-12 text-cyan-600 mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Digital Marketing Experts</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our digital marketing team specializes in SEO, social media marketing, paid advertising, 
+                and brand development. We help businesses establish a strong online presence and reach 
+                their target audience effectively.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                  <span>SEO & Search Engine Optimization</span>
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                  <span>Social Media Marketing</span>
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                  <span>Google & Meta Ads Management</span>
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0" />
+                  <span>Branding & Creative Design</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {values.map((value, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200 text-center hover:shadow-lg transition-shadow duration-300"
+              >
+                <CheckCircle2 className="h-8 w-8 text-teal-600 mx-auto mb-3" />
+                <p className="font-semibold text-gray-900">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section ref={statsRef} className="py-16 sm:py-20 bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="stat-item">
+              <p className="text-4xl sm:text-5xl font-bold text-white mb-2">1000+</p>
+              <p className="text-teal-100">Projects Completed</p>
+            </div>
+            <div className="stat-item">
+              <p className="text-4xl sm:text-5xl font-bold text-white mb-2">10+</p>
+              <p className="text-teal-100">Years Experience</p>
+            </div>
+            <div className="stat-item">
+              <p className="text-4xl sm:text-5xl font-bold text-white mb-2">24/7</p>
+              <p className="text-teal-100">Support Available</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section ref={contactRef} className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Get In Touch
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Visit us or reach out to discuss how we can help your business grow
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 rounded-2xl p-8 sm:p-12 shadow-xl border-2 border-teal-200">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg">
+                      <Building2 className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">Techpotli Digital</p>
+                      <p className="text-gray-700">C52A, LGF, Kalka Ji</p>
+                      <p className="text-gray-700">New Delhi 110019</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">Phone Numbers</p>
+                      <p className="text-gray-700">011-47200987</p>
+                      <p className="text-gray-700">9911475599</p>
+                      <p className="text-gray-700">9211405666</p>
+                      <p className="text-gray-700">9211404666</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg">
+                      <Globe className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">Website</p>
+                      <a
+                        href="https://www.techpotlidigital.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-teal-600 hover:text-teal-700 underline font-medium"
+                      >
+                        www.techpotlidigital.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Visit Us</h3>
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <div className="flex items-start gap-4 mb-4">
+                    <MapPin className="h-6 w-6 text-teal-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">Our Location</p>
+                      <p className="text-gray-700 leading-relaxed">
+                        C52A, Lower Ground Floor,<br />
+                        Kalka Ji,<br />
+                        New Delhi - 110019<br />
+                        India
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-6">
+                    <Button
+                      asChild
+                      className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold"
+                    >
+                      <Link href="/#contact">Contact Us Now</Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
 

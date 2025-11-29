@@ -3,21 +3,70 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Github } from "lucide-react";
+import { LogIn, User, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
+import { useSimpleAuth } from "@/lib/auth/SimpleAuthProvider";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const [isPackagesDropdownOpen, setIsPackagesDropdownOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const packagesDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  
+  // Get auth state - safely handle if provider is not available
+  let isAuthenticated = false;
+  let user = null;
+  try {
+    const auth = useSimpleAuth();
+    isAuthenticated = auth.isAuthenticated;
+    user = auth.user;
+  } catch (error) {
+    // Auth provider not available, user is not authenticated
+    isAuthenticated = false;
+  }
+
+  const packageCategories = [
+    {
+      name: "Website Services",
+      href: "/packages/website-services",
+      description: "Professional website design and development packages",
+    },
+    {
+      name: "Website + Leads Guaranteed Services",
+      href: "/packages/website-leads",
+      description: "Website with guaranteed lead generation services",
+    },
+    {
+      name: "E-Commerce Website Services With Admin Panel",
+      href: "/packages/ecommerce",
+      description: "Complete e-commerce solutions with admin panel",
+    },
+    {
+      name: "Social Media, SEO & GMB Services",
+      href: "/packages/social-seo",
+      description: "Social media marketing, SEO, and Google My Business services",
+    },
+    {
+      name: "Website Development One Time Set-up Packages",
+      href: "/packages/one-time-setup",
+      description: "One-time website development and setup packages",
+    },
+    {
+      name: "Full Stack Website Services",
+      href: "/packages/full-stack",
+      description: "Complete full stack website, e-commerce, social media marketing, and lead generation",
+    },
+  ];
 
   const navLinks = [
     {
@@ -29,6 +78,22 @@ function Navbar() {
       name: "About",
       href: "/about",
       description: "Learn more about our company",
+    },
+    {
+      name: "Services",
+      href: "/services",
+      description: "View our services",
+    },
+    {
+      name: "Live Projects",
+      href: "/live-projects",
+      description: "View our completed projects and live demos",
+    },
+    {
+      name: "Our packages",
+      href: "/packages",
+      description: "View our packages and pricing",
+      hasDropdown: true,
     },
     {
       name: "Blog",
@@ -77,8 +142,13 @@ function Navbar() {
   // Handle escape key to close menu
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isMenuOpen) {
-        closeMenu();
+      if (event.key === "Escape") {
+        if (isMenuOpen) {
+          closeMenu();
+        }
+        if (isPackagesDropdownOpen) {
+          setIsPackagesDropdownOpen(false);
+        }
       }
     };
 
@@ -94,7 +164,27 @@ function Navbar() {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "unset";
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isPackagesDropdownOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        packagesDropdownRef.current &&
+        !packagesDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsPackagesDropdownOpen(false);
+      }
+    };
+
+    if (isPackagesDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isPackagesDropdownOpen]);
 
   // Focus management for mobile menu
   useEffect(() => {
@@ -197,19 +287,20 @@ function Navbar() {
               <Link
                 href="/"
                 className="focus:ring-ring flex items-center gap-2 rounded-md transition-opacity hover:opacity-80 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-                aria-label="Ionio - Return to homepage"
+                aria-label="Techpotli - Return to homepage"
                 aria-describedby="logo-description"
               >
-                <img
-                  src="https://cdn.prod.website-files.com/62528d398a42424ab6390ee1/62528d398a42424d6e390f57_horizontal-logo-transperant.png"
-                  alt="Ionio Logo"
-                  className="h-8 w-auto"
-                  width="120"
-                  height="32"
-                  aria-hidden="true"
+                <Image
+                  src="/New_Techpotli_Logo_(2)[2].png"
+                  alt="Techpotli Logo"
+                  width={150}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                  priority
+                  style={{ backgroundColor: 'transparent' }}
                 />
                 <span id="logo-description" className="sr-only">
-                  Ionio - Leading digital solutions provider
+                  Techpotli - Leading digital solutions provider
                 </span>
               </Link>
             </div>
@@ -222,6 +313,69 @@ function Navbar() {
               {navLinks.map((link, index) => {
                 const isActive =
                   pathname === link.href || (link.href.startsWith("/#") && pathname === "/");
+
+                if (link.hasDropdown) {
+                  return (
+                    <li key={link.name} role="none" className="relative">
+                      <div ref={packagesDropdownRef}>
+                      <button
+                        onClick={() => setIsPackagesDropdownOpen(!isPackagesDropdownOpen)}
+                        onMouseEnter={() => setIsPackagesDropdownOpen(true)}
+                        className={`text-text-heading hover:text-foreground focus:ring-ring rounded-md px-2 py-1 !text-sm font-medium transition-colors focus:ring-0 focus:outline-none flex items-center gap-1 ${
+                          isActive ? "text-foreground font-normal" : "text-foreground/70"
+                        }`}
+                        role="menuitem"
+                        aria-expanded={isPackagesDropdownOpen}
+                        aria-haspopup="true"
+                        aria-describedby={`nav-description-${index}`}
+                      >
+                        {link.name}
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            isPackagesDropdownOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                        <span id={`nav-description-${index}`} className="sr-only">
+                          {link.description}
+                        </span>
+                      </button>
+                      {isPackagesDropdownOpen && (
+                        <div
+                          className="absolute top-full left-0 mt-2 w-80 rounded-lg bg-white shadow-xl border border-gray-200 py-2 z-50"
+                          onMouseLeave={() => setIsPackagesDropdownOpen(false)}
+                        >
+                          <div className="px-4 py-2 border-b border-gray-100">
+                            <Link
+                              href={link.href}
+                              className="text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors"
+                              onClick={() => setIsPackagesDropdownOpen(false)}
+                            >
+                              View All Packages
+                            </Link>
+                          </div>
+                          <ul className="py-2" role="menu">
+                            {packageCategories.map((category, catIndex) => (
+                              <li key={category.name} role="none">
+                                <Link
+                                  href={category.href}
+                                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50 hover:text-teal-700 transition-all duration-200"
+                                  role="menuitem"
+                                  onClick={() => setIsPackagesDropdownOpen(false)}
+                                >
+                                  <div className="font-medium">{category.name}</div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {category.description}
+                                  </div>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      </div>
+                    </li>
+                  );
+                }
 
                 return (
                   <li key={link.name} role="none">
@@ -246,24 +400,29 @@ function Navbar() {
             </ul>
 
             <div className="flex items-center gap-3">
-              {/* GitHub Icon */}
-              <Link
-                href="https://github.com/pinak3748"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus:ring-ring flex items-center justify-center rounded-md p-2 transition-colors hover:bg-accent"
-                aria-label="Visit our GitHub repository"
-              >
-                <Github className="h-5 w-5 text-primary" />
-              </Link>
-
-              <Button
-                size={"sm"}
-                className="text-sm"
-                aria-label="Contact us to start working together"
-              >
-                Work with us
-              </Button>
+              {isAuthenticated ? (
+                <Link href="/dashboard">
+                  <Button
+                    size={"sm"}
+                    className="text-sm flex items-center gap-2"
+                    aria-label="Go to dashboard"
+                  >
+                    <User className="h-4 w-4" />
+                    Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/auth/simple">
+                  <Button
+                    size={"sm"}
+                    className="text-sm flex items-center gap-2"
+                    aria-label="Sign in to your account"
+                  >
+                    <LogIn className="h-4 w-4" />
+                    Sign in
+                  </Button>
+                </Link>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -311,6 +470,59 @@ function Navbar() {
                       const isActive =
                         pathname === link.href || (link.href.startsWith("/#") && pathname === "/");
 
+                      if (link.hasDropdown) {
+                        return (
+                          <li key={link.name} role="none" className="space-y-1">
+                            <button
+                              onClick={() => {
+                                const newIndex = activeIndex === index ? -1 : index;
+                                setActiveIndex(newIndex);
+                              }}
+                              className={`hover:bg-accent hover:text-accent-foreground w-full flex items-center justify-between rounded-md px-3 py-2 text-base font-medium transition-colors focus:outline-none ${
+                                activeIndex === index || isActive
+                                  ? "bg-accent text-accent-foreground"
+                                  : "text-foreground/70"
+                              }`}
+                              role="menuitem"
+                              tabIndex={activeIndex === index ? 0 : -1}
+                              aria-expanded={activeIndex === index}
+                              aria-haspopup="true"
+                            >
+                              {link.name}
+                              <ChevronDown
+                                className={`h-4 w-4 transition-transform duration-200 ${
+                                  activeIndex === index ? "rotate-180" : ""
+                                }`}
+                              />
+                            </button>
+                            {activeIndex === index && (
+                              <ul className="pl-4 space-y-1" role="menu">
+                                <li role="none">
+                                  <Link
+                                    href={link.href}
+                                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-accent hover:text-accent-foreground transition-colors"
+                                    onClick={closeMenu}
+                                  >
+                                    View All Packages
+                                  </Link>
+                                </li>
+                                {packageCategories.map((category) => (
+                                  <li key={category.name} role="none">
+                                    <Link
+                                      href={category.href}
+                                      className="block rounded-md px-3 py-2 text-sm text-foreground/70 hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50 hover:text-teal-700 transition-all duration-200"
+                                      onClick={closeMenu}
+                                    >
+                                      {category.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </li>
+                        );
+                      }
+
                       return (
                         <li key={link.name} role="none">
                           <Link
@@ -336,26 +548,29 @@ function Navbar() {
                     })}
                   </ul>
                   <div className="border-t pt-4 space-y-3">
-                    {/* GitHub Link */}
-                    <Link
-                      href="https://github.com/ionio"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none"
-                      aria-label="Visit our GitHub repository"
-                      onClick={closeMenu}
-                    >
-                      <Github className="h-5 w-5 text-primary" />
-                      GitHub
-                    </Link>
-                    
-                    <Button
-                      className="w-full"
-                      aria-label="Contact us to start working together"
-                      onClick={closeMenu}
-                    >
-                      Work with us
-                    </Button>
+                    {isAuthenticated ? (
+                      <Link href="/dashboard" className="w-full">
+                        <Button
+                          className="w-full flex items-center justify-center gap-2"
+                          aria-label="Go to dashboard"
+                          onClick={closeMenu}
+                        >
+                          <User className="h-4 w-4" />
+                          Dashboard
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Link href="/auth/simple" className="w-full">
+                        <Button
+                          className="w-full flex items-center justify-center gap-2"
+                          aria-label="Sign in to your account"
+                          onClick={closeMenu}
+                        >
+                          <LogIn className="h-4 w-4" />
+                          Sign in
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

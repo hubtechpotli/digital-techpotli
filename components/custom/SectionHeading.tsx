@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 import { forwardRef } from "react";
+import type React from "react";
 
 export interface SectionHeadingProps {
   /**
@@ -15,8 +16,9 @@ export interface SectionHeadingProps {
   heading: string;
   /**
    * Optional description text (hidden from screen readers by default)
+   * Can be a string or ReactNode for custom formatting
    */
-  description?: string;
+  description?: string | React.ReactNode;
   /**
    * Optional icon to display in the badge
    */
@@ -43,6 +45,10 @@ export interface SectionHeadingProps {
    * Additional CSS classes for the badge
    */
   badgeClassName?: string;
+  /**
+   * Additional CSS classes for the description
+   */
+  descriptionClassName?: string;
   /**
    * HTML heading level (h1, h2, h3, h4, h5, h6)
    * @default "h2"
@@ -104,6 +110,7 @@ const SectionHeading = forwardRef<HTMLDivElement, SectionHeadingProps>(
       className,
       headingClassName,
       badgeClassName,
+      descriptionClassName,
       as: Component = "h2",
       id,
       showDescriptionToScreenReaders = false,
@@ -131,10 +138,10 @@ const SectionHeading = forwardRef<HTMLDivElement, SectionHeadingProps>(
           )}
           role="banner"
         >
-          <p className="text-tag align-middle font-medium">
+          <p className="text-tag align-middle font-medium [&_svg]:text-current">
             {Icon && (
               <span className="mt-1.5 mr-2 inline-block self-center">
-                <Icon height={12} width={12} aria-hidden="true" />
+                <Icon height={12} width={12} aria-hidden="true" className="text-current" />
               </span>
             )}
             {badge}
@@ -156,17 +163,33 @@ const SectionHeading = forwardRef<HTMLDivElement, SectionHeadingProps>(
 
         {/* Description */}
         {description && (
-          <p
-            className={cn(
-              "text-label",
-              variant.description,
-              align === "center" && "md:mx-auto",
-              !showDescriptionToScreenReaders && "sr-only"
-            )}
-            aria-live="polite"
-          >
-            {description}
-          </p>
+          typeof description === "string" ? (
+            <p
+              className={cn(
+                "text-label",
+                variant.description,
+                align === "center" && "md:mx-auto",
+                !showDescriptionToScreenReaders && "sr-only",
+                descriptionClassName
+              )}
+              aria-live="polite"
+            >
+              {description}
+            </p>
+          ) : (
+            <div
+              className={cn(
+                "text-label",
+                variant.description,
+                align === "center" && "md:mx-auto",
+                !showDescriptionToScreenReaders && "sr-only",
+                descriptionClassName
+              )}
+              aria-live="polite"
+            >
+              {description}
+            </div>
+          )
         )}
       </header>
     );

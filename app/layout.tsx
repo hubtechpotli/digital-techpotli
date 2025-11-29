@@ -1,6 +1,6 @@
 import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/Navbar";
-import "@/lib/GSAPAnimations";
+import { SimpleAuthProvider } from "@/lib/auth/SimpleAuthProvider";
 import { defaultMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -26,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="min-h-screen w-full">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <SimpleAuthProvider>
+          <div className="min-h-screen w-full">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </SimpleAuthProvider>
       </body>
     </html>
   );

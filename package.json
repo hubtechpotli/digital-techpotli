@@ -68,7 +68,9 @@
     "tailwind-merge": "^3.3.1",
     "unified": "^11.0.5",
     "vaul": "^1.1.2",
-    "zod": "^4.1.5"
+    "zod": "^4.1.5",
+    "@supabase/supabase-js": "^2.39.0",
+    "@supabase/ssr": "^0.7.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

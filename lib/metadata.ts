@@ -96,53 +96,61 @@ export const pageMetadata = {
     },
   },
   about: {
-    title: "About Ionio - AI Innovation & Technology Solutions",
-    description: "Learn about Ionio's story, culture, and expertise in AI innovation. We are driven by people and powered by AI technology to deliver impactful solutions.",
+    title: "About Techpotli - Complete Digital Solutions Partner",
+    description: "Learn about Techpotli - your trusted partner for e-commerce platforms, IT services, and digital marketing solutions. Based in New Delhi, we transform businesses with innovative technology.",
     keywords: [
-      "Ionio",
-      "AI innovation",
-      "technology solutions",
-      "artificial intelligence",
-      "machine learning",
-      "company culture",
-      "team expertise",
-      "AI company story"
+      "Techpotli",
+      "Techpotli Digital",
+      "e-commerce platform",
+      "IT services",
+      "digital marketing",
+      "website development",
+      "New Delhi",
+      "full stack development",
+      "CRM development",
+      "SEO services"
     ],
     openGraph: {
-      title: "About Ionio - AI Innovation & Technology Solutions",
-      description: "Learn about Ionio's story, culture, and expertise in AI innovation. We are driven by people and powered by AI technology to deliver impactful solutions.",
-      url: "https://ionio.com/about",
+      title: "About Techpotli - Complete Digital Solutions Partner",
+      description: "Learn about Techpotli - your trusted partner for e-commerce platforms, IT services, and digital marketing solutions. Based in New Delhi, we transform businesses with innovative technology.",
+      url: "https://www.techpotlidigital.com/about",
       type: "website",
     },
     twitter: {
-      title: "About Ionio - AI Innovation & Technology Solutions",
-      description: "Learn about Ionio's story, culture, and expertise in AI innovation. We are driven by people and powered by AI technology to deliver impactful solutions.",
+      title: "About Techpotli - Complete Digital Solutions Partner",
+      description: "Learn about Techpotli - your trusted partner for e-commerce platforms, IT services, and digital marketing solutions. Based in New Delhi, we transform businesses with innovative technology.",
     },
     alternates: {
-      canonical: "https://ionio.com/about",
+      canonical: "https://www.techpotlidigital.com/about",
     },
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Ionio",
-      "description": "AI innovation company driven by people and powered by technology to deliver impactful AI solutions",
-      "url": "https://ionio.com",
-      "logo": "https://ionio.com/logo.png",
-      "foundingDate": "2016",
-      "numberOfEmployees": "50-100",
+      "name": "Techpotli Digital",
+      "description": "Complete digital solutions company providing e-commerce platforms, IT services, and digital marketing solutions",
+      "url": "https://www.techpotlidigital.com",
+      "logo": "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "US"
+        "streetAddress": "C52A, LGF, Kalka Ji",
+        "addressLocality": "New Delhi",
+        "postalCode": "110019",
+        "addressCountry": "IN"
       },
-      "sameAs": [
-        "https://linkedin.com/company/ionio",
-        "https://twitter.com/ionio"
-      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-11-47200987",
+        "contactType": "customer service"
+      },
       "knowsAbout": [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "AI Solutions",
-        "Technology Innovation"
+        "E-Commerce Development",
+        "Full Stack Development",
+        "IT Services",
+        "Digital Marketing",
+        "SEO Services",
+        "Social Media Marketing",
+        "CRM Development",
+        "Custom Software Development"
       ]
     }
   },
