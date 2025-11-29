@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
+import { Button } from "@/components/ui/button";
 import { websiteLeadsPackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
@@ -64,7 +65,7 @@ export default function WebsiteLeadsPage() {
             {/* Contact Information */}
             <div className="mt-8 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200 p-6 sm:p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Us</h3>
-              <div className="space-y-2 text-gray-700">
+              <div className="space-y-2 text-gray-700 mb-6">
                 <p className="font-semibold">Techpotli Digital</p>
                 <p>C52A, LGF, Kalka Ji, New Delhi 110019</p>
                 <p className="pt-2">
@@ -77,6 +78,17 @@ export default function WebsiteLeadsPage() {
                   </a>
                 </p>
               </div>
+              <Button
+                onClick={() => {
+                  const message = encodeURIComponent(
+                    "Hello! I'm interested in Website + Leads packages from Techpotli Digital. Could you please provide more information?"
+                  );
+                  window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                }}
+                className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Contact Us on WhatsApp
+              </Button>
             </div>
           </div>
         </div>

@@ -147,7 +147,7 @@ function ContactUs() {
           ref={headingRef}
           badge="Contact Us"
           heading="Get in Touch"
-          description="Contact Ionio to discuss your AI transformation needs."
+          description="Contact Techpotli to discuss your digital transformation needs. We're here to help grow your business online."
           size="md"
           align="center"
           as="h2"
@@ -171,6 +171,18 @@ function ContactUs() {
                 aria-describedby="contact-form-description"
                 itemScope
                 itemType="https://schema.org/ContactPoint"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const name = formData.get("name") as string;
+                  const email = formData.get("email") as string;
+                  const message = formData.get("message") as string;
+                  
+                  const whatsappMessage = encodeURIComponent(
+                    `Hello Techpotli Team! 👋\n\nI would like to get in touch with you.\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}\n\nPlease get back to me at your earliest convenience. Thank you!`
+                  );
+                  window.open(`https://wa.me/919810659666?text=${whatsappMessage}`, "_blank");
+                }}
               >
                 <div className="space-y-2">
                   <label

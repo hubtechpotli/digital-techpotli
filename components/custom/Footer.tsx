@@ -1,157 +1,225 @@
 "use client";
 
-import { Marquee } from "@/components/magicui/marquee";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 function Footer() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const currentYear = new Date().getFullYear();
 
-  const resourceLinks = [
-    { name: "Blogs", href: "blog" },
-    { name: "About", href: "about" },
+  const quickLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Packages", href: "/packages" },
+    { name: "Live Projects", href: "/live-projects" },
+    { name: "Blog", href: "/blog" },
   ];
 
-  const socialLinks = [
-    { name: "X", href: "https://x.com/Pinak72813632" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/pinakfaldu/" },
-    { name: "Github", href: "https://github.com/pinak3748" },
+  const services = [
+    { name: "Website Design & Development", href: "/services/website-design-development" },
+    { name: "SEO Services", href: "/services/seo-services" },
+    { name: "Social Media Marketing", href: "/services/social-media-marketing" },
+    { name: "Google & Meta Ads", href: "/services/google-meta-ads" },
+    { name: "Branding & Design", href: "/services/branding-creative-design" },
   ];
+
+  const contactInfo = {
+    phone: "011-47200987",
+    mobile: "9911475599",
+    email: "info@techpotlidigital.com",
+    address: "C52A, LGF, Kalka Ji, New Delhi 110019",
+    website: "www.techpotlidigital.com",
+  };
 
   return (
-    <div className="mt-10 bg-[linear-gradient(to_bottom,_white_0%,_white_20%,_rgb(29_39_54/0.8)_22%,_black_100%)]">
-      <div
-        className="relative w-full bg-transparent"
-        role="img"
-        aria-label="Books landscape background decorative banner"
-      >
-        <img
-          ref={imageRef}
-          className="h-[36vh] w-full object-cover sm:h-[48vh] md:h-[64vh] lg:h-[70vh]"
-          src="https://pbs.twimg.com/media/GxtkGthWsAAPR6-?format=jpg&name=4096x4096"
-          alt="Books landscape background"
-        />
-        <h5
-          ref={marqueeRef}
-          className="pointer-events-none absolute -bottom-10 z-10 w-full select-none sm:-bottom-16 md:-bottom-24 lg:-bottom-32"
-        >
-          <Marquee className="[--duration:5s]">
-            {["I", "O", "N", "I", "O"].map((char, idx) => (
-              <span
-                key={`ionio-outline-${idx}`}
-                className={`text-primary-foreground/80 footer-slang font-extrabold uppercase`}
+    <footer
+      className="relative z-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
+      role="contentinfo"
+      itemScope
+      itemType="https://schema.org/Organization"
+    >
+      {/* Top Border */}
+      <div className="h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {/* Company Info */}
+          <div className="space-y-6 lg:col-span-1">
+            <div className="space-y-4">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/New_Techpotli_Logo_(2)[2].png"
+                  alt="Techpotli Digital Logo"
+                  width={180}
+                  height={50}
+                  className="h-12 w-auto object-contain"
+                  priority
+                />
+              </Link>
+              <p className="text-gray-300 text-sm leading-relaxed" itemProp="description">
+                Your trusted partner for complete digital solutions. We design, build, and scale
+                digital systems to help businesses grow online.
+              </p>
+            </div>
+
+            <div className="flex flex-col space-y-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center"
               >
-                {char}
-              </span>
-            ))}
-          </Marquee>
-        </h5>
-      </div>
-
-      <footer
-        className="relative z-10 rounded-3xl bg-transparent p-2"
-        role="contentinfo"
-        itemScope
-        itemType="https://schema.org/Organization"
-      >
-        <div className="rounded-3xl bg-black/20 px-4 py-8 backdrop-blur-sm sm:px-6 md:py-14">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-12 lg:gap-12">
-            <div className="space-y-8 md:col-span-5 lg:col-span-4">
-              <div className="space-y-6">
-                <div
-                  className="space-y-2 text-white/80"
-                  itemScope
-                  itemType="https://schema.org/Organization"
+                <Button
+                  variant="outline"
+                  className="border-teal-500/30 bg-teal-500/10 text-white hover:bg-teal-500/20 hover:border-teal-500/50 cursor-pointer backdrop-blur-sm"
                 >
-                  <p className="text-2xl font-bold" itemProp="name">
-                    Ionio LLC
-                  </p>
-                  <p className="text-sm">Copyrights © All Rights Reserved by Ionio.io</p>
-                  <p className="text-sm">
-                    <span className="sr-only">Phone:</span>
-                    <a href="tel:+19103150746" itemProp="telephone" className="hover:underline">
-                      +1-910-315-0746
-                    </a>
-                  </p>
-                  <p
-                    className="text-sm"
-                    itemProp="address"
-                    itemScope
-                    itemType="https://schema.org/PostalAddress"
-                  >
-                    <span itemProp="streetAddress">2055 Limestone Rd STE 200C IN Wilmington</span>
-                  </p>
-                  <p className="text-sm">
-                    <span itemProp="addressLocality">Wilmington</span>,{" "}
-                    <span itemProp="addressRegion">DE</span>{" "}
-                    <span itemProp="postalCode">19808</span>
-                  </p>
-                </div>
+                  Get Free Consultation
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+            </div>
+          </div>
 
-                <div className="flex">
-                  <a href="#work-with-us">
-                    <Button
-                      variant="outline"
-                      className="border-primary-foreground/5 bg-white/5 cursor-pointer backdrop-blur-2xl text-white hover:bg-white/10 hover:text-white hover:backdrop-blur-2xl"
-                    >
-                      Work with us
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
-                    </Button>
+          {/* Quick Links */}
+          <div className="lg:col-span-1">
+            <h3
+              className="mb-6 text-lg font-semibold text-white"
+              id="footer-quick-links-heading"
+            >
+              Quick Links
+            </h3>
+            <nav className="space-y-3" aria-labelledby="footer-quick-links-heading">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="block text-gray-300 transition-colors duration-200 hover:text-teal-400 text-sm"
+                  aria-label={`Navigate to ${link.name}`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Services */}
+          <div className="lg:col-span-1">
+            <h3
+              className="mb-6 text-lg font-semibold text-white"
+              id="footer-services-heading"
+            >
+              Our Services
+            </h3>
+            <nav className="space-y-3" aria-labelledby="footer-services-heading">
+              {services.map((service) => (
+                <Link
+                  key={service.name}
+                  href={service.href}
+                  className="block text-gray-300 transition-colors duration-200 hover:text-teal-400 text-sm"
+                  aria-label={`Learn more about ${service.name}`}
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div className="lg:col-span-1">
+            <h3
+              className="mb-6 text-lg font-semibold text-white"
+              id="footer-contact-heading"
+            >
+              Contact Us
+            </h3>
+            <div
+              className="space-y-4 text-sm"
+              itemProp="address"
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+            >
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
+                <p className="text-gray-300" itemProp="streetAddress">
+                  {contactInfo.address}
+                </p>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-teal-400 flex-shrink-0" />
+                <div className="space-y-1">
+                  <a
+                    href={`tel:+91${contactInfo.phone.replace(/-/g, "")}`}
+                    className="block text-gray-300 hover:text-teal-400 transition-colors"
+                    itemProp="telephone"
+                  >
+                    {contactInfo.phone}
+                  </a>
+                  <a
+                    href={`tel:+91${contactInfo.mobile}`}
+                    className="block text-gray-300 hover:text-teal-400 transition-colors"
+                  >
+                    {contactInfo.mobile}
                   </a>
                 </div>
               </div>
-            </div>
 
-            <div className="hidden md:col-span-1 md:block lg:col-span-2"></div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-teal-400 flex-shrink-0" />
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="text-gray-300 hover:text-teal-400 transition-colors break-all"
+                  itemProp="email"
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
 
-            <div className="md:col-span-3 lg:col-span-3">
-              <h3
-                className="mb-6 text-sm font-medium tracking-wider text-gray-400 uppercase"
-                id="footer-resources-heading"
-              >
-                Resources
-              </h3>
-              <nav className="space-y-4" aria-labelledby="footer-resources-heading">
-                {resourceLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="block text-gray-300 transition-colors duration-200 hover:text-white"
-                    aria-label={`Resource: ${link.name}`}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            <div className="md:col-span-3 lg:col-span-3">
-              <h3
-                className="mb-6 text-sm font-medium tracking-wider text-gray-400 uppercase"
-                id="footer-connect-heading"
-              >
-                Connect
-              </h3>
-              <nav className="space-y-4" aria-labelledby="footer-connect-heading">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="block text-gray-300 transition-colors duration-200 hover:text-white"
-                    rel="me noopener"
-                    aria-label={`Follow us on ${link.name}`}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </nav>
+              <div className="pt-2">
+                <a
+                  href={`https://${contactInfo.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-400 hover:text-teal-300 transition-colors text-sm"
+                  itemProp="url"
+                >
+                  {contactInfo.website}
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-gray-700/50">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm text-center md:text-left">
+              © {currentYear} Techpotli Digital. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
+              <Link
+                href="/packages"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Packages
+              </Link>
+              <Link
+                href="/live-projects"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Portfolio
+              </Link>
+              <Link
+                href="/about"
+                className="hover:text-teal-400 transition-colors"
+              >
+                About
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }
 

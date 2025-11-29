@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
-import { websiteServicesPackages, websiteLeadsPackages, ecommercePackages, socialSeoGmbPackages, oneTimeSetupPackages } from "@/lib/packages";
+import { Button } from "@/components/ui/button";
+import { websiteServicesPackages, websiteLeadsPackages, ecommercePackages, socialSeoGmbPackages, oneTimeSetupPackages, fullStackWebsitePackages } from "@/lib/packages";
 import type { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -102,6 +103,47 @@ export default function PackagesPage() {
         </div>
       </section>
 
+      {/* Full Stack Website Services Section */}
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Full Stack Website Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Complete full stack website solutions with e-commerce, social media marketing, and lead generation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {fullStackWebsitePackages.map((pkg, index) => (
+              <PackageCard key={pkg.id} pkg={pkg} index={index + 8} />
+            ))}
+          </div>
+
+          {/* Important Notes */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl border-2 border-teal-200 p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Important Notes:</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">1.</span>
+                  <span>Ads budget will be paid by the client.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">2.</span>
+                  <span>Domain for .com & .in charges will be extra applied.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">3.</span>
+                  <span>Full stack development includes frontend, backend, database, and admin panel.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* E-Commerce Services Section */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -116,7 +158,7 @@ export default function PackagesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {ecommercePackages.map((pkg, index) => (
-              <PackageCard key={pkg.id} pkg={pkg} index={index + 6} />
+              <PackageCard key={pkg.id} pkg={pkg} index={index + 11} />
             ))}
           </div>
 
@@ -153,7 +195,7 @@ export default function PackagesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {socialSeoGmbPackages.map((pkg, index) => (
-              <PackageCard key={pkg.id} pkg={pkg} index={index + 8} />
+              <PackageCard key={pkg.id} pkg={pkg} index={index + 13} />
             ))}
           </div>
 
@@ -197,7 +239,7 @@ export default function PackagesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {oneTimeSetupPackages.map((pkg, index) => (
-              <PackageCard key={pkg.id} pkg={pkg} index={index + 9} />
+              <PackageCard key={pkg.id} pkg={pkg} index={index + 14} />
             ))}
           </div>
 
@@ -245,7 +287,7 @@ export default function PackagesPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl border-2 border-teal-200 p-6 sm:p-8 shadow-lg">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Contact Us</h3>
-            <div className="space-y-3 text-gray-700 text-center">
+            <div className="space-y-3 text-gray-700 text-center mb-6">
               <p className="font-semibold text-lg">Techpotli Digital</p>
               <p>C52A, LGF, Kalka Ji, New Delhi 110019</p>
               <p className="pt-2">
@@ -257,6 +299,19 @@ export default function PackagesPage() {
                   www.techpotlidigital.com
                 </a>
               </p>
+            </div>
+            <div className="text-center">
+              <Button
+                onClick={() => {
+                  const message = encodeURIComponent(
+                    "Hello! I'm interested in learning more about Techpotli Digital packages. Could you please provide more information?"
+                  );
+                  window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                }}
+                className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Contact Us on WhatsApp
+              </Button>
             </div>
           </div>
         </div>
