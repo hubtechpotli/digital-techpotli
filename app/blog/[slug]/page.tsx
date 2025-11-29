@@ -22,7 +22,7 @@ export async function generateMetadata({
 
   const { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
 
-  return generateBlogPostMetadata(title, description, publishedTime, params.slug, image);
+  return generateBlogPostMetadata(title, description, publishedTime, slug, image);
 }
 
 export default async function Blog({
