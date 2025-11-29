@@ -13,8 +13,7 @@ function createSafeSupabaseClient() {
       auth: { 
         signIn: () => Promise.reject(new Error('Supabase not configured')),
         getUser: () => Promise.reject(new Error('Supabase not configured')),
-        signOut: () => Promise.reject(new Error('Supabase not configured')),
-        getSession: () => Promise.resolve({ data: { session: null }, error: null })
+        signOut: () => Promise.reject(new Error('Supabase not configured'))
       },
       from: () => ({ 
         select: () => ({ data: [], error: new Error('Supabase not configured') }),
