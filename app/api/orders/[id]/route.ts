@@ -14,7 +14,7 @@ function createSupabaseAdmin() {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // For simple auth, we'll use email/phone from query params instead of JWT
@@ -23,7 +23,8 @@ export async function GET(
     const phone = searchParams.get('phone');
 
     const supabaseAdmin = createSupabaseAdmin();
-    const orderId = params.id;
+    const { id } = await params;
+    const orderId = id;
 
     // If email/phone provided, verify user first
     let userId: string | null = null;
