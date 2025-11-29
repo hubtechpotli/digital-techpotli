@@ -49,7 +49,6 @@ const orderFormSchema = z.object({
   category: z.enum(["Technology", "Healthcare", "Retail", "Education", "Finance", "Manufacturing", "Food & Beverage", "Real Estate", "Entertainment", "Automotive", "Fashion", "Travel", "Sports", "Legal", "Consulting", "Non-Profit", "Government", "Agriculture", "Construction", "Media", "Telecommunications", "Energy", "Transportation", "Hospitality", "Beauty & Wellness", "Home & Garden", "Pets", "Art & Design", "Music", "Photography", "Writing", "Marketing", "Other", "Employed"]).optional(),
   services: z.string().optional(),
   desc_short: z.string().optional(),
-  hours: z.string().optional(),
   
   // Branding
   gst_number: z.string().optional(),
@@ -60,7 +59,7 @@ const orderFormSchema = z.object({
     whatsapp: z.string().optional(),
     youtube: z.string().optional(),
   }),
-  domain_preference: z.enum(["have_domain", "need_domain"]).optional(),
+  
   
   // Plan & Payment
   plan: z.enum(["basic", "silver", "gold", "platinum", "diamond", "titanium", "ultimate", "ecommerce_basic", "ecommerce_premium", "social_seo_gmb"]),
@@ -154,7 +153,6 @@ export default function OrderFormPage() {
       category: undefined,
       services: "",
       desc_short: "",
-      hours: "",
       
       // Branding
       gst_number: "",
@@ -165,7 +163,7 @@ export default function OrderFormPage() {
         whatsapp: "",
         youtube: "",
       },
-      domain_preference: undefined,
+      
       
       // Plan & Payment
       plan: "basic",
@@ -296,7 +294,12 @@ export default function OrderFormPage() {
       const currentData = form.getValues()
       saveDraft(currentData)
       
-      setCurrentStep(currentStep + 1)
+      // Skip the empty Branding step (step 2) and jump from Step 1 to Step 3
+      if (currentStep === 1) {
+        setCurrentStep(3)
+      } else {
+        setCurrentStep(currentStep + 1)
+      }
     }
   }
 
@@ -307,8 +310,12 @@ export default function OrderFormPage() {
       
       const currentData = form.getValues()
       saveDraft(currentData)
-      
-      setCurrentStep(currentStep - 1)
+      // If we're on Step 3 (Plan & Payment) go back to Step 1 (Business Info), skipping the empty Branding step
+      if (currentStep === 3) {
+        setCurrentStep(1)
+      } else {
+        setCurrentStep(currentStep - 1)
+      }
     }
   }
 
@@ -350,9 +357,7 @@ export default function OrderFormPage() {
         category: data.category,
         services: data.services,
         desc_short: data.desc_short,
-        hours: data.hours,
         gst_number: data.gst_number || null,
-        domain_preference: data.domain_preference || null,
         social_links: data.social_links,
         plan: data.plan,
         plan_duration: data.plan_duration,
@@ -920,13 +925,15 @@ export default function OrderFormPage() {
                       markFieldAsTouched("services")
                     }}
                     onBlur={() => markFieldAsTouched("services")}
+                    onInput={(e) => { const t = e.currentTarget as HTMLTextAreaElement; t.style.height = 'auto'; t.style.height = `${t.scrollHeight}px`; }}
                     placeholder="Describe your company services..."
-                    rows={4}
-                    className={`text-base border-2 ${
+                    rows={2}
+                    className={`text-base border-2 overflow-hidden resize-none ${
                       watchedValues.services 
                         ? 'border-green-500 bg-green-50' 
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
+                    style={{minHeight: '3.5rem'}}
                   />
                   {shouldShowError("services") && errors.services && (
                     <p className="text-red-500 text-sm mt-1 flex items-center">
@@ -938,7 +945,7 @@ export default function OrderFormPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="desc_short" className="text-base font-semibold text-gray-900">
-                    Business Description (Short - 2-3 lines)
+                    Business Description (Short)
                     <span className="text-xs text-gray-500 ml-2 font-normal">(Optional)</span>
                   </Label>
                   <Textarea
@@ -949,13 +956,15 @@ export default function OrderFormPage() {
                       markFieldAsTouched("desc_short")
                     }}
                     onBlur={() => markFieldAsTouched("desc_short")}
+                    onInput={(e) => { const t = e.currentTarget as HTMLTextAreaElement; t.style.height = 'auto'; t.style.height = `${t.scrollHeight}px`; }}
                     placeholder="Brief description of your business..."
-                    rows={2}
-                    className={`text-base border-2 ${
+                    rows={1}
+                    className={`text-base border-2 overflow-hidden resize-none ${
                       watchedValues.desc_short 
                         ? 'border-green-500 bg-green-50' 
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
+                    style={{minHeight: '2.25rem'}}
                   />
                   {shouldShowError("desc_short") && errors.desc_short && (
                     <p className="text-red-500 text-sm mt-1 flex items-center">
@@ -964,52 +973,8 @@ export default function OrderFormPage() {
                     </p>
                   )}
                 </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="hours" className="text-base font-semibold text-gray-900">
-                    Operating Hours
-                    <span className="text-xs text-gray-500 ml-2 font-normal">(Optional)</span>
-                  </Label>
-                  <Input
-                    id="hours"
-                    value={watchedValues.hours || ""}
-                    onChange={(e) => {
-                      form.setValue("hours", e.target.value)
-                      markFieldAsTouched("hours")
-                    }}
-                    onBlur={() => markFieldAsTouched("hours")}
-                    placeholder="e.g., Mon-Sat: 10 AM - 8 PM"
-                    className={`h-12 text-base border-2 ${
-                      watchedValues.hours 
-                        ? 'border-green-500 bg-green-50' 
-                        : 'border-gray-300 hover:border-gray-400'
-                    }`}
-                  />
-                  {shouldShowError("hours") && errors.hours && (
-                    <p className="text-red-500 text-sm mt-1 flex items-center">
-                      <AlertCircle className="w-4 h-4 mr-1" />
-                      {errors.hours.message}
-                    </p>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* Step 2: Branding */}
-          {currentStep === 2 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Palette className="w-5 h-5" />
-                  Branding & Design
-                </CardTitle>
-                <CardDescription>
-                  Customize your website branding and design preferences
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
+                {/* GST Number */}
+                <div className="mt-2">
                   <Label htmlFor="gst_number">GST Number (Optional)</Label>
                   <Input
                     id="gst_number"
@@ -1019,21 +984,8 @@ export default function OrderFormPage() {
                   />
                 </div>
 
-
-                <div>
-                  <Label htmlFor="domain_preference">Domain Preference</Label>
-                  <Select onValueChange={(value) => form.setValue("domain_preference", value as any)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select domain preference" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="have_domain">Have domain</SelectItem>
-                      <SelectItem value="need_domain">Need new domain</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
+                {/* Social Media Links on first page */}
+                <div className="mt-4">
                   <Label>Social Media Links (Optional)</Label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                     <div>
@@ -1085,6 +1037,11 @@ export default function OrderFormPage() {
                 </div>
               </CardContent>
             </Card>
+          )}
+
+          {/* Step 2: Branding */}
+          {currentStep === 2 && (
+            <></>
           )}
 
           {/* Step 3: Plan & Payment */}
@@ -1775,7 +1732,7 @@ export default function OrderFormPage() {
                       <p><strong>Pincode:</strong> {watchedValues.pincode}</p>
                       <p><strong>Location:</strong> {watchedValues.location}</p>
                       <p><strong>Category:</strong> {watchedValues.category}</p>
-                      <p><strong>Operating Hours:</strong> {watchedValues.hours || 'Not specified'}</p>
+                      <p><strong>Operating Hours:</strong> {'Not specified'}</p>
                     </div>
                   </div>
                   
@@ -1796,7 +1753,6 @@ export default function OrderFormPage() {
                   <h3 className="font-semibold mb-3">Branding & Design</h3>
                   <div className="space-y-2 text-sm">
                     <p><strong>GST Number:</strong> {watchedValues.gst_number || 'Not provided'}</p>
-                    <p><strong>Domain Preference:</strong> {watchedValues.domain_preference || 'Not specified'}</p>
                   </div>
                 </div>
 
@@ -2004,7 +1960,6 @@ function SuccessScreen({ data, onEditAgain }: { data: OrderFormData; onEditAgain
 • Pincode: ${data.pincode}
 • Location: ${data.location}
 • Category: ${data.category}
-• Operating Hours: ${data.hours}
 
 *Services & Description:*
 • Services: ${data.services}
@@ -2012,7 +1967,6 @@ function SuccessScreen({ data, onEditAgain }: { data: OrderFormData; onEditAgain
 
 *Branding & Design:*
 ${data.gst_number ? `• GST Number: ${data.gst_number}` : ''}
-${data.domain_preference ? `• Domain: ${data.domain_preference === 'have_domain' ? 'I have a domain' : 'I need a domain'}` : ''}
 
 *Social Media Links:*
 ${data.social_links.facebook ? `• Facebook: ${data.social_links.facebook}` : ''}

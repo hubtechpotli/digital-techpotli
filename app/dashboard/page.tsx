@@ -164,16 +164,16 @@ function DashboardContent() {
             {/* Action Cards Section - Mobile First */}
             <div className="max-w-4xl mx-auto">
               {/* Compact Action Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                {/* Create New Order Card - Compact */}
+              <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-3 sm:gap-4">
+                {/* Keep only Create New Order Card */}
                 <div 
                   className="group relative cursor-pointer"
                   onClick={() => handleCardClick('/dashboard/order')}
                 >
                   <div className="relative bg-white/95 backdrop-blur-sm rounded-xl p-4 sm:p-5 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                     <div className="flex items-center space-x-3 sm:space-x-4">
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                       </div>
@@ -182,65 +182,6 @@ function DashboardContent() {
                         <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2">
                           Start a new website project
                         </p>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-500 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* View Orders Card - Compact */}
-                <div 
-                  className="group relative cursor-pointer"
-                  onClick={() => handleCardClick('/dashboard/orders')}
-                >
-                  <div className="relative bg-white/95 backdrop-blur-sm rounded-xl p-4 sm:p-5 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                        </svg>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors duration-300 truncate">View Orders</h3>
-                        <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2">
-                          Track your project progress
-                        </p>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-emerald-500 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Update Profile Card - Compact */}
-                <div 
-                  className="group relative cursor-pointer"
-                  onClick={() => handleCardClick('/dashboard/profile')}
-                >
-                  <div className="relative bg-white/95 backdrop-blur-sm rounded-xl p-4 sm:p-5 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-purple-600 transition-colors duration-300 truncate">Update Profile</h3>
-                        <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2">
-                          Manage your account info
-                        </p>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-purple-500 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
                       </div>
                     </div>
                   </div>

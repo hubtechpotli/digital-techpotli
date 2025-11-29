@@ -42,7 +42,6 @@ interface FormData {
   selectedService?: Service
 
   // Technical Requirements
-  domainPreference: string
   hostingPreference: string
   specialRequirements: string
   additionalFeatures: string[]
@@ -74,7 +73,6 @@ export function OrderForm({ user, services }: OrderFormProps) {
     email: user.email || "",
     address: "",
     serviceId: "",
-    domainPreference: "",
     hostingPreference: "shared",
     specialRequirements: "",
     additionalFeatures: [],
@@ -130,7 +128,6 @@ export function OrderForm({ user, services }: OrderFormProps) {
           phone: formData.phone,
           email: formData.email,
           address: formData.address,
-          domain_preference: formData.domainPreference,
           hosting_preference: formData.hostingPreference,
           special_requirements: formData.specialRequirements,
           additional_features: formData.additionalFeatures,
@@ -188,7 +185,7 @@ export function OrderForm({ user, services }: OrderFormProps) {
       case 2:
         return formData.serviceId
       case 3:
-        return formData.domainPreference && formData.hostingPreference
+        return formData.hostingPreference
       case 4:
         return true
       default:
@@ -353,19 +350,6 @@ export function OrderForm({ user, services }: OrderFormProps) {
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="domainPreference" className="text-slate-700 font-medium">
-                    Domain Preference *
-                  </Label>
-                  <Input
-                    id="domainPreference"
-                    placeholder="e.g., mybusiness.com"
-                    value={formData.domainPreference}
-                    onChange={(e) => updateFormData({ domainPreference: e.target.value })}
-                    className="border-slate-200 focus:border-blue-500"
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="hostingPreference" className="text-slate-700 font-medium">
                     Hosting Preference *
                   </Label>
@@ -464,9 +448,7 @@ export function OrderForm({ user, services }: OrderFormProps) {
                 <div className="space-y-4">
                   <h3 className="font-bold text-slate-800">Technical Details</h3>
                   <div className="space-y-2 text-sm">
-                    <div>
-                      <span className="text-slate-600">Domain:</span> {formData.domainPreference}
-                    </div>
+                    {/* Domain preference removed */}
                     <div>
                       <span className="text-slate-600">Hosting:</span> {formData.hostingPreference}
                     </div>

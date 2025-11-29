@@ -26,7 +26,7 @@ export const portfolioProjects: PortfolioProject[] = [
     description: "Aa vibrant and dynamic website for a professional DJ service showcasing music events, party planning, and entertainment services with modern design and interactive elements.",
     category: "Entertainment Services",
     image: "/Screenshot 2025-09-06 205139.png",
-    liveUrl: "https://dj-ashish.vercel.app/git ",
+    liveUrl: "https://dj-ashish.vercel.app/",
     technologies: ["Next.js", "React", "Tailwind CSS"],
     features: [
       "Professional DJ service showcase",
