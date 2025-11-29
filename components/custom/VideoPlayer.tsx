@@ -7,9 +7,11 @@ interface VideoPlayerProps {
   className?: string;
   style?: React.CSSProperties;
   priority?: boolean; // For hero videos that should load immediately
+  poster?: string;
+  webmSrc?: string;
 }
 
-export function VideoPlayer({ src, className, style, priority = false }: VideoPlayerProps) {
+export function VideoPlayer({ src, className, style, priority = false, poster, webmSrc }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(priority); // Start visible if priority
@@ -124,6 +126,7 @@ export function VideoPlayer({ src, className, style, priority = false }: VideoPl
         muted
         playsInline
         preload={priority ? "auto" : isVisible ? "metadata" : "none"}
+        poster={poster}
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
         className={className}
@@ -139,6 +142,7 @@ export function VideoPlayer({ src, className, style, priority = false }: VideoPl
         aria-label="Background animation video"
         onContextMenu={(e) => e.preventDefault()}
       >
+        {webmSrc ? <source src={webmSrc} type="video/webm" /> : null}
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
