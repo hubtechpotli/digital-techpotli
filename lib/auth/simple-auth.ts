@@ -10,7 +10,7 @@ export interface SimpleUser {
   first_name: string
   last_name: string
   email: string
-  phone?: string
+  phone?: string | null
   created_at: string
   is_new_user?: boolean
 }
