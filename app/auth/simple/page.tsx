@@ -48,7 +48,7 @@ export default function FastAuthPage() {
         )
         return {
           success: !!result.user && !result.error,
-          error: result.error,
+          error: result.error ?? undefined,
           isNewUser: result.is_new_user
         }
       } catch (err: any) {
