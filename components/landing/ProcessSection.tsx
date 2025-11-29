@@ -28,50 +28,54 @@ const ProcessCards: React.FC = () => {
 
   const process: processType[] = [
     {
-      title: "Discovery & Strategy",
-      tagline: "Getting to Know Your Big Idea",
+      title: "Consultation & Requirements",
+      tagline: "Understanding Your Business Needs",
       description:
-        "We begin by diving deep into your vision, your goals, and the problem you’re solving. This stage is all about uncovering the story behind your idea and understanding why it matters. Through thorough market research and a detailed competitor analysis, we identify unique opportunities and define the best way to position your product for long-term success. This step ensures that your foundation is solid before any building begins.",
+        "We start by understanding your business goals, target audience, and specific requirements. Whether you need a website, SEO services, social media marketing, or complete digital solutions, we analyze your needs and create a customized strategy. We discuss your budget, timeline, and expectations to ensure we deliver exactly what your business needs to grow online.",
       deliverables: [
-        { item: "Detailed market insights" },
-        { item: "Comprehensive competitor breakdown" },
-        { item: "A winning strategy tailored to your product" },
+        { item: "Detailed business requirement analysis" },
+        { item: "Target audience research and competitor analysis" },
+        { item: "Customized digital strategy proposal" },
+        { item: "Project timeline and budget planning" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
     },
     {
-      title: "Planning & Wireframes",
-      tagline: "Mapping Out Your Vision",
+      title: "Design & Development",
+      tagline: "Creating Your Digital Presence",
       description:
-        "Once we know where you want to go, we carefully map out how to get there. Our team creates structured wireframes and a detailed project scope so that everyone involved knows exactly what’s being built and how. This stage eliminates guesswork and brings clarity to the entire process. By the end, you’ll have a well-defined roadmap that aligns with your vision and keeps the project on track from start to finish.",
+        "Our expert designers and developers work together to create stunning websites, engaging social media content, and effective SEO strategies. We build responsive, fast-loading websites optimized for search engines. For social media, we create daily content, graphics, and videos. For SEO, we optimize your website structure, content, and build quality backlinks to improve rankings.",
       deliverables: [
-        { item: "Complete project blueprint" },
-        { item: "High-fidelity wireframes" },
-        { item: "Technical implementation plan" },
+        { item: "Modern, responsive website design" },
+        { item: "SEO-optimized content and structure" },
+        { item: "Social media content calendar and graphics" },
+        { item: "Fast-loading, mobile-friendly development" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
     },
     {
-      title: "Design & Development",
-      tagline: "Building Your Dream Into Reality",
+      title: "Implementation & Optimization",
+      tagline: "Launching & Optimizing Your Services",
       description:
-        "This is where ideas start to take shape. Our designers and developers work hand in hand to turn your vision into a functional, scalable, and visually stunning platform. Every detail is thoughtfully crafted — from intuitive user experiences to reliable back-end systems. We combine creativity with technology to deliver a product that not only looks beautiful but also performs seamlessly and grows with your business.",
+        "We launch your website, deploy SEO strategies, and start your social media campaigns. We continuously monitor and optimize performance - tracking website analytics, SEO rankings, social media engagement, and ad campaign results. We make data-driven improvements to ensure maximum ROI and business growth.",
       deliverables: [
-        { item: "A fully designed user-friendly platform" },
-        { item: "Robust, scalable development" },
-        { item: "End-to-end tested product ready for growth" },
+        { item: "Website launch with hosting and SSL setup" },
+        { item: "Ongoing SEO monitoring and optimization" },
+        { item: "Daily social media management and posting" },
+        { item: "Performance analytics and monthly reports" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
     },
     {
-      title: "Launch & Growth",
-      tagline: "Getting You Out There",
+      title: "Growth & Support",
+      tagline: "Scaling Your Business Online",
       description:
-        "Bringing your platform to life is just the beginning of the journey. We provide full support for launch, making sure everything runs smoothly and your product reaches the right audience. Beyond launch day, we help you craft and refine marketing strategies, track performance, and implement optimizations that fuel sustainable growth. Our focus is on making sure your business doesn’t just go live, but thrives in the market.",
+        "We provide ongoing support to help your business grow. This includes website maintenance, content updates, SEO improvements, social media engagement, ad campaign optimization, and 24/7 technical support. We track your growth metrics and continuously refine strategies to drive more leads, sales, and business success.",
       deliverables: [
-        { item: "Hands-on launch support" },
-        { item: "Tailored marketing strategy" },
-        { item: "Actionable tips and ongoing growth guidance" },
+        { item: "24/7 technical support and maintenance" },
+        { item: "Monthly performance reports and insights" },
+        { item: "Continuous optimization and improvements" },
+        { item: "Scalable growth strategies" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
     },
@@ -191,8 +195,8 @@ const ProcessCards: React.FC = () => {
       <SectionHeading
         ref={headingRef}
         badge="Our Proven Process"
-        heading="How We Bring Ideas to Life"
-        description="Explore our latest projects featuring AI-powered platforms, business solutions, and innovative designs that have driven measurable growth for our clients."
+        heading="How We Deliver Your Digital Solutions"
+        description="From consultation to launch and beyond, we follow a proven process to deliver website development, SEO services, social media marketing, and complete digital solutions that drive real business growth."
         size="md"
         align="center"
         as="h2"
@@ -232,13 +236,6 @@ const ProcessCards: React.FC = () => {
                       {dl.item}
                     </li>
                   ))}
-                  <li className="text-heading bg-tag-bg/20 rounded-4xl px-3 py-1 text-xs tracking-wide backdrop-blur-lg sm:px-4">
-                    competitor breakdown
-                  </li>
-                  <li className="text-heading bg-tag-bg/20 rounded-4xl px-3 py-1 text-xs tracking-wide backdrop-blur-lg sm:px-4">
-                    {" "}
-                    your winning strategy
-                  </li>
                 </ul>
               </div>
               <div className="absolute right-4 bottom-4 sm:right-8 sm:bottom-6 md:right-12 md:bottom-8 lg:right-16 lg:bottom-10">

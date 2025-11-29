@@ -26,10 +26,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item, index }) => {
       aria-labelledby={`testimonial-${index}-title`}
       role="article"
     >
-      <div className="flex aspect-video items-center justify-center overflow-hidden rounded-t-md">
+      <div className="flex items-center justify-center overflow-hidden rounded-t-md">
         <img
           src={item.test_img}
-          className="aspect-video h-full w-full object-cover"
+          className="h-auto max-h-64 w-full object-contain"
           alt={`${item.name} project preview image`}
           loading="lazy"
           decoding="async"
@@ -164,7 +164,7 @@ function Testimonial() {
                 data-stat-item="true"
               >
                 <div className="text-heading text-3xl font-semibold sm:text-4xl md:text-5xl">
-                  120+
+                  1200+
                 </div>
                 <p className="text-label mt-1 text-sm sm:mt-2 sm:text-base">
                   AI-powered projects delivered

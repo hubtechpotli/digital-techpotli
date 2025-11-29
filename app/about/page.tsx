@@ -410,10 +410,15 @@ const AboutPage = () => {
                   </div>
                   <div className="mt-6">
                     <Button
-                      asChild
+                      onClick={() => {
+                        const message = encodeURIComponent(
+                          "Hello! I've read about Techpotli Digital and I'd like to get in touch. Could you please provide more information about your services?"
+                        );
+                        window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                      }}
                       className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold"
                     >
-                      <Link href="/#contact">Contact Us Now</Link>
+                      Contact Us Now
                     </Button>
                   </div>
                 </div>

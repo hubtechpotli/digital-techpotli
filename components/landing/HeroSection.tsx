@@ -104,6 +104,12 @@ function HomePage() {
               aria-label="Get a free consultation"
               type="button"
               className="cursor-pointer"
+              onClick={() => {
+                const message = encodeURIComponent(
+                  "Hello! I'm interested in getting a free consultation for digital services. Could you please provide more information?"
+                );
+                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+              }}
             >
               Get a Free Consultation
             </Button>
@@ -112,6 +118,9 @@ function HomePage() {
               type="button"
               className="cursor-pointer"
               variant={"outline"}
+              onClick={() => {
+                window.location.href = "/packages";
+              }}
             >
               Explore Our Packages
             </Button>
@@ -120,6 +129,9 @@ function HomePage() {
               type="button"
               className="cursor-pointer"
               variant={"outline"}
+              onClick={() => {
+                window.location.href = "/live-projects";
+              }}
             >
               View Client Work
             </Button>
@@ -128,6 +140,12 @@ function HomePage() {
               type="button"
               className="cursor-pointer"
               variant={"outline"}
+              onClick={() => {
+                const message = encodeURIComponent(
+                  "Hello! I'd like to talk to an expert about my digital transformation needs. When would be a good time to discuss?"
+                );
+                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+              }}
             >
               Talk to an Expert
             </Button>
@@ -174,9 +192,10 @@ function HomePage() {
                     width={160}
                     height={160}
                     className="max-h-full max-w-full object-contain opacity-100 transition-all duration-300 ease-in-out hover:brightness-110 hover:scale-105"
-                    loading="lazy"
-                    quality={85}
+                    loading={index < 6 ? "eager" : "lazy"}
+                    quality={75}
                     unoptimized={false}
+                    fetchPriority={index < 3 ? "high" : "auto"}
                   />
                 </div>
               </div>

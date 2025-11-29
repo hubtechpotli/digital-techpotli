@@ -2,6 +2,7 @@ import { SectionHeading } from "@/components/custom/SectionHeading";
 import { ServiceCard } from "@/components/landing/ServiceCard";
 import { getAllServices } from "@/lib/services";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Our Services - Techpotli",
@@ -94,18 +95,23 @@ export default function ServicesPage() {
             Let's discuss how our services can help you achieve your business goals and grow online.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/#contact"
+            <button
+              onClick={() => {
+                const message = encodeURIComponent(
+                  "Hello! I'm interested in getting a free consultation for digital services from Techpotli. Could you please provide more information?"
+                );
+                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+              }}
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Get a Free Consultation
-            </a>
-            <a
+            </button>
+            <Link
               href="/packages"
               className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-teal-500 text-teal-600 font-semibold rounded-lg hover:bg-teal-50 transition-all duration-300"
             >
               View Our Packages
-            </a>
+            </Link>
           </div>
         </div>
       </section>

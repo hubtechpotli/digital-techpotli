@@ -1,5 +1,6 @@
 import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/Navbar";
+import { WhatsAppChatbot } from "@/components/custom/WhatsAppChatbot";
 import { SimpleAuthProvider } from "@/lib/auth/SimpleAuthProvider";
 import { defaultMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -9,14 +10,25 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  fallback: ["monospace"],
 });
 
-export const metadata: Metadata = defaultMetadata;
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  other: {
+    "dns-prefetch": "https://wa.me",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -31,6 +43,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <WhatsAppChatbot />
           </div>
         </SimpleAuthProvider>
       </body>

@@ -427,13 +427,16 @@ export default function LiveProjectsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
             <Button
-              asChild
+              onClick={() => {
+                const message = encodeURIComponent(
+                  "Hello! I've viewed your live projects and I'm interested in getting started with Techpotli Digital. Could you please provide more information about your services?"
+                );
+                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+              }}
               className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
             >
-              <Link href="/#contact">
-                <ExternalLink className="w-4 h-4 mr-2 inline" />
-                Get Started Today
-              </Link>
+              <ExternalLink className="w-4 h-4 mr-2 inline" />
+              Get Started Today
             </Button>
             <Button
               asChild

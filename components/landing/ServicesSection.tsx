@@ -46,7 +46,9 @@ const ServicesCards: React.FC = () => {
                       src={slide.serviceImage}
                       alt={slide.title}
                       className="w-full h-auto object-cover"
-                      loading="lazy"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding={index === 0 ? "sync" : "async"}
+                      fetchPriority={index === 0 ? "high" : "auto"}
                     />
                   </div>
                 )}
@@ -101,14 +103,14 @@ const ServicesCards: React.FC = () => {
           asChild
           className="w-full sm:w-auto px-8 py-6 text-base font-medium shadow-sm hover:shadow-md transition-all duration-300"
         >
-          <Link href="#services">View All Services</Link>
+          <Link href="/services">View All Services</Link>
         </Button>
         <Button
           asChild
           variant="outline"
           className="w-full sm:w-auto px-8 py-6 text-base font-medium border-2 hover:bg-gray-50 transition-all duration-300"
         >
-          <Link href="#packages">Explore Our Packages</Link>
+          <Link href="/packages">Explore Our Packages</Link>
         </Button>
       </div>
     </div>

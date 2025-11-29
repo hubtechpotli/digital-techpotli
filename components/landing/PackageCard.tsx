@@ -173,14 +173,19 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
           {/* CTA Button */}
           <div className="pt-4">
             <Button
-              asChild
+              onClick={() => {
+                const message = encodeURIComponent(
+                  `Hello! I'm interested in the *${pkg.name}* package from Techpotli Digital.\n\nPrice: ${pkg.price}${pkg.priceNote ? ` ${pkg.priceNote}` : ""}\n\nCould you please provide more details and help me get started?`
+                );
+                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+              }}
               className={`w-full font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
                 pkg.popular
                   ? "bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white"
                   : "bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-gray-950 text-white"
               }`}
             >
-              <Link href={`/packages/${pkg.id}`}>Get Started</Link>
+              Get Started
             </Button>
           </div>
         </div>

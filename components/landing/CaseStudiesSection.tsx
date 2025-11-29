@@ -91,6 +91,12 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index }) => {
           className="w-full transition-all duration-200 hover:shadow-md focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:w-auto"
           aria-describedby={`case-study-${index}-description`}
           type="button"
+          onClick={() => {
+            const message = encodeURIComponent(
+              `Hello! I'm interested in learning more about your ${caseStudy.name} case study. Could you please share more details about this project?`
+            );
+            window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+          }}
         >
           View case study
           <span className="sr-only"> for {caseStudy.name}</span>
@@ -165,7 +171,7 @@ const CaseStudies: React.FC = () => {
           ref={headingRef}
           badge="Designs That Drive Growth"
           heading="Recent case studies"
-          description="Explore our latest projects featuring AI-powered platforms, business solutions, and innovative designs that have driven measurable growth for our clients."
+          description="Explore our latest projects featuring website development, SEO services, social media marketing, and digital solutions that have driven measurable growth for our clients."
           size="md"
           align="center"
           as="h2"

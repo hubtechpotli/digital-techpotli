@@ -1,24 +1,24 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
-import { Button } from "@/components/ui/button";
-import { websiteServicesPackages } from "@/lib/packages";
+import { fullStackWebsitePackages } from "@/lib/packages";
 import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Website Services Packages - Techpotli",
-  description: "Choose from our website service packages - Basic, Standard, and Premium plans with hosting, SEO, and social media marketing.",
+  title: "Full Stack Website Services Packages - Techpotli",
+  description: "Complete full stack website solutions with e-commerce, social media marketing, and lead generation. Choose from Basic, Standard, and Premium packages.",
 };
 
-export default function WebsiteServicesPage() {
+export default function FullStackWebsiteServicesPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="Website Services"
-            heading="Complete Website Solutions for Your Business"
-            description="Get everything you need to establish and grow your online presence. From domain and hosting to SEO and social media marketing."
+            badge="Full Stack Website Services"
+            heading="Complete Full Stack Website Solutions"
+            description="Get everything you need: full stack website development, e-commerce functionality, social media marketing, and lead generation - all in one comprehensive package."
             size="lg"
             align="center"
             as="h1"
@@ -32,7 +32,7 @@ export default function WebsiteServicesPage() {
       <section className="py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {websiteServicesPackages.map((pkg, index) => (
+            {fullStackWebsitePackages.map((pkg, index) => (
               <PackageCard key={pkg.id} pkg={pkg} index={index} />
             ))}
           </div>
@@ -49,6 +49,14 @@ export default function WebsiteServicesPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-teal-600 font-bold mt-1">2.</span>
                   <span>Domain for .com & .in charges will be extra applied.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">3.</span>
+                  <span>Full stack development includes frontend, backend, database, and admin panel.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-teal-600 font-bold mt-1">4.</span>
+                  <span>E-commerce features include product management, cart, checkout, and order tracking.</span>
                 </li>
               </ul>
             </div>
@@ -72,11 +80,11 @@ export default function WebsiteServicesPage() {
               <Button
                 onClick={() => {
                   const message = encodeURIComponent(
-                    "Hello! I'm interested in Website Services packages from Techpotli Digital. Could you please provide more information?"
+                    "Hello! I'm interested in Full Stack Website Services packages from Techpotli Digital. Could you please provide more information and help me choose the right package?"
                   );
                   window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
                 }}
-                className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full sm:w-auto bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Contact Us on WhatsApp
               </Button>

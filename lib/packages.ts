@@ -157,12 +157,12 @@ export const websiteLeadsPackages: Package[] = [
 ];
 
 export function getPackagesByCategory(category: string): Package[] {
-  const allPackages = [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages];
+  const allPackages = [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages, ...fullStackWebsitePackages];
   return allPackages.filter((pkg) => pkg.category === category);
 }
 
 export function getPackageById(id: string): Package | undefined {
-  const allPackages = [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages];
+  const allPackages = [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages, ...fullStackWebsitePackages];
   return allPackages.find((pkg) => pkg.id === id);
 }
 
@@ -325,7 +325,90 @@ export const oneTimeSetupPackages: Package[] = [
   },
 ];
 
+export const fullStackWebsitePackages: Package[] = [
+  {
+    id: "fullstack-basic",
+    name: "Basic Full Stack Website Package",
+    price: "₹1999",
+    priceNote: "+GST/Month",
+    popular: false,
+    category: "Full Stack Website Services",
+    description: "Complete full stack website solution with e-commerce, social media marketing, and lead generation",
+    features: [
+      { name: "Domain + Hosting", included: true },
+      { name: "Full Stack Website Development", included: true },
+      { name: "E-Commerce Functionality", included: true },
+      { name: "Admin Panel & Dashboard", included: true },
+      { name: "Full SEO (On-Page, Off Page & Technical)", included: true },
+      { name: "Backlinks-100/Month", included: true },
+      { name: "Social Media Marketing (Facebook+Instagram)", included: true },
+      { name: "10 Digital Banners/Month", included: true },
+      { name: "Lead Generation Forms", included: true },
+      { name: "Logo Design", included: true },
+      { name: "Google Business Profile", included: true },
+      { name: "Payment Gateway Integration", included: true },
+      { name: "SSL Certificate", included: true },
+      { name: "24/7 Tech Support", included: true },
+    ],
+  },
+  {
+    id: "fullstack-standard",
+    name: "Standard Full Stack Website Package",
+    price: "₹3499",
+    priceNote: "+GST/Month",
+    popular: true,
+    category: "Full Stack Website Services",
+    description: "Advanced full stack solution with enhanced e-commerce, social media, and lead generation features",
+    features: [
+      { name: "Domain + Hosting", included: true },
+      { name: "Full Stack Website Development", included: true },
+      { name: "Advanced E-Commerce Features", included: true },
+      { name: "Multi-User Admin Panel", included: true },
+      { name: "Full SEO (On-Page, Off Page & Technical)", included: true },
+      { name: "Backlinks-200/Month", included: true },
+      { name: "Blog-1/Month (Content Blog)", included: true },
+      { name: "Social Media Marketing (Facebook+Instagram)", included: true },
+      { name: "15 Digital Banners/Month", included: true },
+      { name: "Advanced Lead Generation System", included: true },
+      { name: "Logo Design", included: true },
+      { name: "Ads Setup (Meta & Google)", included: true },
+      { name: "Google Business Profile", included: true },
+      { name: "Payment Gateway Integration", included: true },
+      { name: "SSL Certificate", included: true },
+      { name: "24/7 Tech Support", included: true },
+    ],
+  },
+  {
+    id: "fullstack-premium",
+    name: "Premium Full Stack Website Package",
+    price: "₹5999",
+    priceNote: "+GST/Month",
+    popular: false,
+    category: "Full Stack Website Services",
+    description: "Enterprise-level full stack solution with maximum features for e-commerce, marketing, and lead generation",
+    features: [
+      { name: "Domain + Hosting", included: true },
+      { name: "Enterprise Full Stack Website Development", included: true },
+      { name: "Complete E-Commerce Platform", included: true },
+      { name: "Advanced Multi-User Admin Panel", included: true },
+      { name: "Full SEO (On-Page, Off Page & Technical)", included: true },
+      { name: "Backlinks-300/Month", included: true },
+      { name: "Blog-2/Month (Content Blog)", included: true },
+      { name: "Social Media Marketing (Facebook+Instagram)", included: true },
+      { name: "30 Digital Banners/Month", included: true },
+      { name: "2 Video Content/Month", included: true },
+      { name: "Advanced Lead Generation & CRM Integration", included: true },
+      { name: "Logo Design & Branding", included: true },
+      { name: "Ads Setup (Meta & Google)", included: true },
+      { name: "Google Business Profile Optimization", included: true },
+      { name: "Multiple Payment Gateway Integration", included: true },
+      { name: "SSL Certificate & Security", included: true },
+      { name: "Priority 24/7 Tech Support", included: true },
+    ],
+  },
+];
+
 export function getAllPackages(): Package[] {
-  return [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages];
+  return [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages, ...fullStackWebsitePackages];
 }
 
