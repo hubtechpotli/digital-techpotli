@@ -1,5 +1,6 @@
 import { getService, getAllServices } from "@/lib/services";
 import { notFound } from "next/navigation";
+import ServiceContactButton from "@/components/custom/ServiceContactButton";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
@@ -125,18 +126,7 @@ export default async function ServiceDetailPage({
                   Let's discuss how {service.title} can help grow your business.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    onClick={() => {
-                      const message = encodeURIComponent(
-                        `Hello! I'm interested in *${service.title}* service from Techpotli Digital. Could you please provide more information and help me get started?`
-                      );
-                      window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
-                    }}
-                    size="lg" 
-                    className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white"
-                  >
-                    Get a Free Consultation
-                  </Button>
+                  <ServiceContactButton title={service.title} className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white" />
                   <Button asChild variant="outline" size="lg">
                     <Link href="/packages">Explore Our Packages</Link>
                   </Button>
