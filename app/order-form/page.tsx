@@ -255,7 +255,7 @@ export default function OrderFormPage() {
 
   // Auto-save on form changes
   useEffect(() => {
-    const subscription = form.watch((data) => {
+    const subscription = form.watch((data: any) => {
       if (Object.keys(data).length > 0) {
         console.log('Form data changed:', data)
         saveDraft(data)
