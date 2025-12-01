@@ -270,30 +270,29 @@ export default function OrderFormPage() {
     }
   }, [loadDraft])
 
-  const nextStep = () => {
+  const nextStep = async () => {
     if (currentStep < STEPS.length) {
       setHasAttemptedStep(prev => new Set(prev).add(currentStep))
-      
+
+      setIsExplicitSubmit(false)
+      setIsSubmitting(false)
+
+      // Trigger validation for all fields before deciding to move forward
+      const triggerResult = await form.trigger()
+      console.log(`Validation trigger result: ${triggerResult}`)
+      console.log('Current form values:', form.getValues())
+
       const isValid = isStepValid()
       console.log(`Step ${currentStep} validation:`, isValid)
-      console.log('Current form values:', form.getValues())
-      
-      if (!isValid) {
+
+      if (!isValid || !triggerResult) {
         console.log('Step validation failed, staying on current step')
         return
       }
-      
-      setIsExplicitSubmit(false)
-      setIsSubmitting(false)
-      
-      form.trigger()
-      
-      console.log('Current form values:', form.getValues())
-      console.log('Step validation:', isStepValid())
-      
+
       const currentData = form.getValues()
       saveDraft(currentData)
-      
+
       // Skip the empty Branding step (step 2) and jump from Step 1 to Step 3
       if (currentStep === 1) {
         setCurrentStep(3)
