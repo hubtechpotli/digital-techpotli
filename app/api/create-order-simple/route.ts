@@ -57,6 +57,9 @@ export async function POST(request: NextRequest) {
       total_amount
     } = body
 
+    // Defensive defaults for removed/optional fields
+    const hours = (body && body.hours) ? body.hours : ''
+
     // Validate required fields
     if (!owner_name || !company_name || !email || !address || !pincode || !location || !category || !plan || !payment_type) {
       return NextResponse.json(
@@ -216,6 +219,8 @@ export async function POST(request: NextRequest) {
       services,
       desc_short: desc_short || '',
       desc_long: desc_long || desc_short || '', // Use desc_short as fallback if desc_long not provided
+      // Ensure hours is always provided to satisfy DB NOT NULL constraint
+      hours: hours || '',
       logo_url: finalLogoUrl || null,
       gst_number: gst_number || null,
       website_style: website_style || null,
