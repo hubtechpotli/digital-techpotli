@@ -13,8 +13,8 @@ export default function ServiceContactButton({ title, className, children }: Pro
   const handleClick = () => {
     const message = encodeURIComponent(
       title
-        ? `Hello! I'm interested in *${title}* service from Techpotli Digital. Could you please provide more information and help me get started?`
-        : "Hello! I'm interested in your services from Techpotli Digital. Could you please provide more information?"
+        ? `Hello! I'm interested in *${title}* service from Techpotli. Could you please provide more information and help me get started?`
+        : "Hello! I'm interested in your services from Techpotli. Could you please provide more information?"
     );
     window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
   };

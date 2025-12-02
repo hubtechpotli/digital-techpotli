@@ -200,12 +200,6 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           </div>
         </div>
 
-        {/* Number Badge */}
-        <div className="absolute top-4 right-4">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 backdrop-blur-md border-2 border-teal-400/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <span className="text-2xl font-bold text-white drop-shadow-lg">{index + 1}</span>
-          </div>
-        </div>
 
         {/* Glow Effect on Hover */}
         <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10" />

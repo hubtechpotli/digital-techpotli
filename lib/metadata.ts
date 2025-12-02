@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Ionio",
-  description: "AI innovation company driven by people and powered by technology to deliver impactful AI solutions",
-  url: "https://ionio.com",
+      name: "Techpotli",
+  description: "Complete digital solutions company in New Delhi, India. We provide website development, e-commerce platforms, SEO services, social media marketing, Google & Meta ads, custom software, CRM development, and full IT services.",
+  url: "https://www.techpotlidigital.com",
   ogImage: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
-  logo: "https://ionio.com/logo.png",
+  logo: "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
   keywords: [
-    "AI innovation",
-    "artificial intelligence",
-    "machine learning",
-    "technology solutions",
-    "AI consulting",
-    "machine learning engineering",
-    "LLM development",
-    "AI strategy"
+    "Techpotli",
+    "website development company India",
+    "e-commerce development",
+    "SEO services New Delhi",
+    "social media marketing",
+    "Google ads management",
+    "Meta ads management",
+    "custom software development",
+    "CRM development",
+    "full stack development",
+    "IT services",
+    "digital marketing services",
+    "web design New Delhi",
+    "online business solutions"
   ],
   authors: [
     {
-      name: "Ionio Team",
-      url: "https://ionio.com",
+      name: "Techpotli",
+      url: "https://www.techpotlidigital.com",
     },
   ],
-  creator: "Ionio",
-  publisher: "Ionio",
+  creator: "Techpotli",
+  publisher: "Techpotli",
   robots: {
     index: true,
     follow: true,
@@ -38,31 +44,31 @@ export const siteConfig = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ionio.com",
-    siteName: "Ionio",
-    title: "Ionio - AI Innovation & Technology Solutions",
-    description: "AI innovation company driven by people and powered by technology to deliver impactful AI solutions",
+    url: "https://www.techpotlidigital.com",
+    siteName: "Techpotli",
+    title: "Techpotli - Complete Digital Solutions & Web Development Services",
+    description: "Complete digital solutions company in New Delhi, India. We provide website development, e-commerce platforms, SEO services, social media marketing, Google & Meta ads, custom software, CRM development, and full IT services.",
     images: [
       {
         url: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
         width: 1200,
         height: 630,
-        alt: "Ionio - AI Innovation & Technology Solutions",
+        alt: "Techpotli - Complete Digital Solutions & Web Development Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ionio - AI Innovation & Technology Solutions",
-    description: "AI innovation company driven by people and powered by technology to deliver impactful AI solutions",
+    title: "Techpotli - Complete Digital Solutions & Web Development Services",
+    description: "Complete digital solutions company in New Delhi, India. We provide website development, e-commerce platforms, SEO services, social media marketing, Google & Meta ads, custom software, CRM development, and full IT services.",
     images: ["https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png"],
-    creator: "@ionio",
+    creator: "@techpotlidigital",
   },
   verification: {
     google: "your-google-verification-code", 
   },
   alternates: {
-    canonical: "https://ionio.com",
+    canonical: "https://www.techpotlidigital.com",
   },
   category: "technology",
 };
@@ -70,29 +76,32 @@ export const siteConfig = {
 
 export const pageMetadata = {
   home: {
-    title: "Ionio - AI Innovation & Technology Solutions",
-    description: "Transform your business with cutting-edge AI solutions. Ionio delivers innovative artificial intelligence technologies that drive growth and efficiency.",
+    title: "Techpotli - Complete Digital Solutions & Web Development Services in New Delhi",
+    description: "Techpotli helps businesses in New Delhi and across India grow online. We build websites, e-commerce stores, handle SEO, manage social media, run Google & Meta ads, develop custom software, and provide complete IT services. Get your business online today.",
     keywords: [
-      "AI solutions",
-      "artificial intelligence consulting",
-      "machine learning services",
-      "AI innovation",
-      "technology transformation",
-      "business AI",
-      "AI strategy"
+      "Techpotli",
+      "website development New Delhi",
+      "e-commerce development India",
+      "SEO services",
+      "social media marketing",
+      "Google ads management",
+      "web development company",
+      "digital marketing services",
+      "custom software development",
+      "IT services New Delhi"
     ],
     openGraph: {
-      title: "Ionio - AI Innovation & Technology Solutions",
-      description: "Transform your business with cutting-edge AI solutions. Ionio delivers innovative artificial intelligence technologies that drive growth and efficiency.",
-      url: "https://ionio.com",
+      title: "Techpotli - Complete Digital Solutions & Web Development Services",
+      description: "Techpotli helps businesses in New Delhi and across India grow online. We build websites, e-commerce stores, handle SEO, manage social media, run Google & Meta ads, develop custom software, and provide complete IT services.",
+      url: "https://www.techpotlidigital.com",
       type: "website",
     },
     twitter: {
-      title: "Ionio - AI Innovation & Technology Solutions",
-      description: "Transform your business with cutting-edge AI solutions. Ionio delivers innovative artificial intelligence technologies that drive growth and efficiency.",
+      title: "Techpotli - Complete Digital Solutions & Web Development Services",
+      description: "Techpotli helps businesses in New Delhi and across India grow online. We build websites, e-commerce stores, handle SEO, manage social media, run Google & Meta ads, develop custom software, and provide complete IT services.",
     },
     alternates: {
-      canonical: "https://ionio.com",
+      canonical: "https://www.techpotlidigital.com",
     },
   },
   about: {
@@ -100,7 +109,7 @@ export const pageMetadata = {
     description: "Learn about Techpotli - your trusted partner for e-commerce platforms, IT services, and digital marketing solutions. Based in New Delhi, we transform businesses with innovative technology.",
     keywords: [
       "Techpotli",
-      "Techpotli Digital",
+      "Techpotli",
       "e-commerce platform",
       "IT services",
       "digital marketing",
@@ -126,7 +135,7 @@ export const pageMetadata = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Techpotli Digital",
+      "name": "Techpotli",
       "description": "Complete digital solutions company providing e-commerce platforms, IT services, and digital marketing solutions",
       "url": "https://www.techpotlidigital.com",
       "logo": "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
@@ -155,30 +164,30 @@ export const pageMetadata = {
     }
   },
   blog: {
-    title: "AI Insights & Research - Ionio Blog",
-    description: "Stay updated with the latest trends, research, and insights in artificial intelligence, machine learning, and emerging technologies that are shaping the future of business.",
+    title: "Digital Marketing & Web Development Blog - Techpotli",
+    description: "Learn about website development, SEO tips, social media marketing strategies, Google ads best practices, and digital marketing insights from Techpotli's expert team.",
     keywords: [
-      "AI blog",
-      "artificial intelligence insights",
-      "machine learning research",
-      "AI trends",
-      "technology insights",
-      "AI articles",
-      "ML engineering",
-      "LLM development"
+      "digital marketing blog",
+      "SEO tips",
+      "website development blog",
+      "social media marketing tips",
+      "Google ads strategies",
+      "web development insights",
+      "digital marketing articles",
+      "online business growth"
     ],
     openGraph: {
-      title: "AI Insights & Research - Ionio Blog",
-      description: "Stay updated with the latest trends, research, and insights in artificial intelligence, machine learning, and emerging technologies that are shaping the future of business.",
-      url: "https://ionio.com/blog",
+      title: "Digital Marketing & Web Development Blog - Techpotli",
+      description: "Learn about website development, SEO tips, social media marketing strategies, Google ads best practices, and digital marketing insights from Techpotli's expert team.",
+      url: "https://www.techpotlidigital.com/blog",
       type: "website",
     },
     twitter: {
-      title: "AI Insights & Research - Ionio Blog",
-      description: "Stay updated with the latest trends, research, and insights in artificial intelligence, machine learning, and emerging technologies that are shaping the future of business.",
+      title: "Digital Marketing & Web Development Blog - Techpotli",
+      description: "Learn about website development, SEO tips, social media marketing strategies, Google ads best practices, and digital marketing insights from Techpotli's expert team.",
     },
     alternates: {
-      canonical: "https://ionio.com/blog",
+      canonical: "https://www.techpotlidigital.com/blog",
     },
   },
 };
@@ -216,21 +225,21 @@ export function generateBlogPostMetadata(
   slug: string,
   image?: string
 ): Metadata {
-  const blogUrl = `https://ionio.com/blog/${slug}`;
+  const blogUrl = `https://www.techpotlidigital.com/blog/${slug}`;
   const ogImage = image || siteConfig.ogImage;
 
   return {
-    title: `${title} - Ionio Blog`,
+    title: `${title} - Techpotli Blog`,
     description,
     keywords: [
       ...siteConfig.keywords,
-      "AI blog post",
-      "artificial intelligence article",
-      "machine learning insights"
+      "digital marketing blog post",
+      "web development article",
+      "SEO insights"
     ],
     openGraph: {
       ...siteConfig.openGraph,
-      title: `${title} - Ionio Blog`,
+      title: `${title} - Techpotli Blog`,
       description,
       url: blogUrl,
       type: "article",
@@ -246,7 +255,7 @@ export function generateBlogPostMetadata(
     },
     twitter: {
       ...siteConfig.twitter,
-      title: `${title} - Ionio Blog`,
+      title: `${title} - Techpotli Blog`,
       description,
       images: [ogImage],
     },
@@ -272,14 +281,14 @@ export function generateBlogPostStructuredData(
     datePublished: publishedTime,
     dateModified: publishedTime,
     description,
-    url: `https://ionio.com/blog/${slug}`,
+    url: `https://www.techpotlidigital.com/blog/${slug}`,
     author: {
       "@type": "Person",
-      name: author || "Ionio Team",
+      name: author || "Techpotli Team",
     },
     publisher: {
       "@type": "Organization",
-      name: "Ionio",
+      name: "Techpotli",
       logo: {
         "@type": "ImageObject",
         url: siteConfig.logo,
@@ -287,7 +296,7 @@ export function generateBlogPostStructuredData(
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://ionio.com/blog/${slug}`,
+      "@id": `https://www.techpotlidigital.com/blog/${slug}`,
     },
   };
 }

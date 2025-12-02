@@ -429,7 +429,7 @@ export default function LiveProjectsPage() {
             <Button
               onClick={() => {
                 const message = encodeURIComponent(
-                  "Hello! I've viewed your live projects and I'm interested in getting started with Techpotli Digital. Could you please provide more information about your services?"
+                  "Hello! I've viewed your live projects and I'm interested in getting started with Techpotli. Could you please provide more information about your services?"
                 );
                 window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
               }}

@@ -55,9 +55,12 @@ function HomePage() {
     <div className="item-center flex flex-col flex-nowrap">
       <div
         ref={heroRef}
-        className="relative h-fit w-full rounded-lg bg-cover p-4 sm:p-6 md:p-8 lg:p-10"
+        className="relative h-fit w-full p-4 sm:p-6 md:p-8 lg:p-10"
         style={{ 
-          backgroundImage: `url(https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png)`,
+          backgroundImage: `url(https://img.freepik.com/premium-photo/scene-showcasing-team-software-developers-coding_941600-16247.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           marginTop: '25px',
           marginLeft: 'calc(50% - 50vw)',
           marginRight: 'calc(50% - 50vw)',
@@ -67,20 +70,20 @@ function HomePage() {
       >
         <div className="hero space-y-4 pt-[48px] pb-[48px] md:pt-[64px] md:pb-[128px] md:text-center lg:pt-[80px] lg:pb-[96px]">
           <SectionHeading
-            badge="Digital Strategy & Growth Solutions"
-            heading="Your Online Transformation Partner for Business Growth"
+            badge="Complete Digital Solutions"
+            heading="Get Your Business Online and Growing"
             description={
               <div className="max-w-4xl mx-auto">
-                <div className="inline-block rounded-lg bg-white/30 backdrop-blur-md px-6 py-4 sm:px-8 sm:py-5">
-                  <span className="!text-black text-lg sm:text-xl md:text-2xl font-medium drop-shadow-sm block">
-                    We design, build, and scale complete digital systems — from{" "}
-                    <span className="text-blue-600 font-semibold">modern websites</span>,{" "}
-                    <span className="text-purple-600 font-semibold">SEO</span>,{" "}
-                    <span className="text-teal-600 font-semibold">social media marketing</span>,{" "}
-                    <span className="text-indigo-600 font-semibold">ads</span>,{" "}
-                    <span className="text-cyan-600 font-semibold">branding</span>, and{" "}
-                    <span className="text-pink-600 font-semibold">lead generation</span>. 
-                    Techpotli helps businesses go online, get visible, and grow their customer base with proven digital strategies.
+                <div className="inline-block rounded-lg px-6 py-4 sm:px-8 sm:py-5">
+                  <span className="text-white text-lg sm:text-xl md:text-2xl font-medium drop-shadow-lg block">
+                    We build{" "}
+                    <span className="font-semibold">websites</span>, handle{" "}
+                    <span className="font-semibold">SEO</span>, manage{" "}
+                    <span className="font-semibold">social media</span>, run{" "}
+                    <span className="font-semibold">Google and Facebook ads</span>, create{" "}
+                    <span className="font-semibold">brands</span>, and help you{" "}
+                    <span className="font-semibold">get more customers</span>. 
+                    Based in New Delhi, Techpotli helps businesses across India establish a strong online presence and grow their customer base.
                   </span>
                 </div>
               </div>
@@ -91,7 +94,7 @@ function HomePage() {
             as="h1"
             className="heading max-w-4/5 mx-auto"
             headingClassName="md:mx-auto md:w-2/3 leading-tight text-white drop-shadow-lg"
-            badgeClassName="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 !text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600"
+            badgeClassName="bg-white/90 !text-gray-900 border-0 shadow-lg"
             descriptionClassName=""
             showDescriptionToScreenReaders={true}
           />
@@ -188,7 +191,7 @@ function HomePage() {
                 <div className="relative flex h-32 items-center justify-center p-4 transition-all duration-300 ease-in-out md:h-36 lg:h-40">
                   <Image
                     src={imagePath}
-                    alt={`Partner ${index + 1}`}
+                    alt={`Techpotli client partner logo ${index + 1}`}
                     width={160}
                     height={160}
                     className="max-h-full max-w-full object-contain opacity-100 transition-all duration-300 ease-in-out hover:brightness-110 hover:scale-105"

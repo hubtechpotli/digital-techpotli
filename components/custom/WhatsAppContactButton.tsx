@@ -11,7 +11,7 @@ type Props = {
 
 export default function WhatsAppContactButton({ className, message, children }: Props) {
   const defaultMessage =
-    "Hello! I'm interested in your services from Techpotli Digital. Could you please provide more information?";
+    "Hello! I'm interested in your services from Techpotli. Could you please provide more information?";
 
   const handleClick = () => {
     const encoded = encodeURIComponent(message ?? defaultMessage);

@@ -6,8 +6,24 @@ import type { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
-  title: "Our Packages - Techpotli",
-  description: "Explore our comprehensive digital service packages designed to grow your business online.",
+  title: "Digital Service Packages - Website, SEO, Social Media & More | Techpotli",
+  description: "Choose from our digital service packages: website development, e-commerce, SEO, social media marketing, Google ads, and more. Packages designed for businesses in New Delhi and across India. See pricing and what's included.",
+  keywords: [
+    "website packages",
+    "SEO packages",
+    "social media marketing packages",
+    "e-commerce packages",
+    "digital marketing packages",
+    "website development packages"
+  ],
+  openGraph: {
+    title: "Digital Service Packages - Website, SEO, Social Media & More | Techpotli",
+    description: "Choose from our digital service packages: website development, e-commerce, SEO, social media marketing, Google ads, and more.",
+    url: "https://www.techpotlidigital.com/packages",
+  },
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages",
+  },
 };
 
 export default function PackagesPage() {
@@ -19,7 +35,7 @@ export default function PackagesPage() {
           <SectionHeading
             badge="Our Packages"
             heading="Choose the Perfect Package for Your Business"
-            description="Comprehensive digital solutions tailored to help your business grow online. Select a package that fits your needs and budget."
+            description="Pick a package that works for your business. We offer website services, e-commerce solutions, SEO and social media packages, and more. Everything you need to get online and start growing."
             size="lg"
             align="center"
             as="h1"
@@ -288,7 +304,7 @@ export default function PackagesPage() {
           <div className="bg-white rounded-xl border-2 border-teal-200 p-6 sm:p-8 shadow-lg">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Contact Us</h3>
             <div className="space-y-3 text-gray-700 text-center mb-6">
-              <p className="font-semibold text-lg">Techpotli Digital</p>
+              <p className="font-semibold text-lg">Techpotli</p>
               <p>C52A, LGF, Kalka Ji, New Delhi 110019</p>
               <p className="pt-2">
                 <span className="font-semibold">Phone:</span> 011-47200987 / 9911475599 / 9211405666 / 9211404666

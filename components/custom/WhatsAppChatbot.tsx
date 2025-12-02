@@ -20,7 +20,7 @@ export function WhatsAppChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello! 👋 Welcome to Techpotli Digital. I'm here to help you choose the perfect service for your business. Please select a service from the options below:",
+      text: "Hello! 👋 Welcome to Techpotli. I'm here to help you choose the perfect service for your business. Please select a service from the options below:",
       sender: "bot",
       timestamp: new Date(),
     },
@@ -67,7 +67,7 @@ export function WhatsAppChatbot() {
       // Redirect to WhatsApp after 2 seconds
       setTimeout(() => {
         const whatsappMessage = encodeURIComponent(
-          `Hello! I'm interested in *${service.title}* service from Techpotli Digital.\n\nCould you please provide more information about this service and discuss how it can help my business?`
+          `Hello! I'm interested in *${service.title}* service from Techpotli.\n\nCould you please provide more information about this service and discuss how it can help my business?`
         );
         window.open(`https://wa.me/919810659666?text=${whatsappMessage}`, "_blank");
       }, 2000);
@@ -82,7 +82,7 @@ export function WhatsAppChatbot() {
       setMessages([
         {
           id: "1",
-          text: "Hello! 👋 Welcome to Techpotli Digital. I'm here to help you choose the perfect service for your business. Please select a service from the options below:",
+          text: "Hello! 👋 Welcome to Techpotli. I'm here to help you choose the perfect service for your business. Please select a service from the options below:",
           sender: "bot",
           timestamp: new Date(),
         },
@@ -144,7 +144,7 @@ export function WhatsAppChatbot() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-white font-semibold text-sm truncate">
-                  Techpotli Digital
+                  Techpotli
                 </h3>
                 <p className="text-teal-100 text-xs">
                   {isMinimized ? "Click to expand" : "Online • Usually replies instantly"}

@@ -163,7 +163,7 @@ function ContactUs() {
                 Contact us form
               </h3>
               <p id="contact-form-description" className="sr-only">
-                Use this form to contact Ionio. All fields are required.
+                Use this form to contact Techpotli. All fields are required.
               </p>
               <form
                 className="space-y-4 sm:space-y-6"

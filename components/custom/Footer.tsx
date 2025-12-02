@@ -51,7 +51,7 @@ function Footer() {
               <Link href="/" className="inline-block">
                 <Image
                   src="/New_Techpotli_Logo_(2)[2].png"
-                  alt="Techpotli Digital Logo"
+                  alt="Techpotli Logo"
                   width={180}
                   height={50}
                   className="h-12 w-auto object-contain"
@@ -194,7 +194,7 @@ function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-700/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} Techpotli Digital. All rights reserved.
+              © {currentYear} Techpotli. All rights reserved.
             </p>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <Link

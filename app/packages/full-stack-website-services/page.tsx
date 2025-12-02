@@ -65,7 +65,7 @@ export default function FullStackWebsiteServicesPage() {
             <div className="mt-8 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200 p-6 sm:p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Us</h3>
               <div className="space-y-2 text-gray-700 mb-6">
-                <p className="font-semibold">Techpotli Digital</p>
+                <p className="font-semibold">Techpotli</p>
                 <p>C52A, LGF, Kalka Ji, New Delhi 110019</p>
                 <p className="pt-2">
                   <span className="font-semibold">Phone:</span> 011-47200987 / 9911475599 / 9211405666 / 9211404666

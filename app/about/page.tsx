@@ -124,7 +124,7 @@ const AboutPage = () => {
             <SectionHeading
               badge="About Techpotli"
               heading="Your Complete Digital Solutions Partner"
-              description="Techpotli is a leading digital solutions company providing e-commerce platforms, IT services, and comprehensive digital marketing solutions. We transform businesses with innovative technology and strategic digital marketing."
+              description="Techpotli is a digital solutions company in New Delhi, India. We build websites, create e-commerce stores, handle SEO, manage social media, run ads, develop custom software, and provide IT services. We help businesses get online and grow."
               size="lg"
               align="center"
               as="h1"
@@ -144,19 +144,19 @@ const AboutPage = () => {
                 Who We Are
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                <strong>Techpotli</strong> is a dynamic digital solutions company based in New Delhi, India. 
-                We specialize in three core areas: <strong>E-Commerce Solutions</strong>, <strong>IT Services</strong>, 
-                and <strong>Digital Marketing Services</strong>.
+                <strong>Techpotli</strong> is based in New Delhi, India. We do three main things: 
+                build <strong>e-commerce websites</strong>, provide <strong>IT services and custom software</strong>, 
+                and handle <strong>digital marketing</strong> (SEO, social media, ads).
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Our e-commerce platform provides a comprehensive online marketplace where customers can find 
-                and purchase all types of products and items. We've built a robust, user-friendly platform 
-                that ensures seamless shopping experiences with secure transactions and efficient order management.
+                We've built our own e-commerce platform where businesses can sell products online. It's secure, 
+                easy to use, and handles everything from product listings to payments and order management. 
+                We also use this platform for our clients who need online stores.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                With our experienced team of skilled developers and digital marketing experts, we deliver 
-                high-quality solutions that help businesses establish a strong online presence, reach their 
-                target audience, and achieve sustainable growth in the digital landscape.
+                Our team includes developers who write code and digital marketing experts who know SEO, social media, 
+                and ads. We work with businesses in New Delhi and across India to help them get online, 
+                get found, and get customers.
               </p>
             </div>
             <div className="relative">
@@ -172,7 +172,7 @@ const AboutPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-600/80 via-cyan-600/80 to-blue-600/80 backdrop-blur-sm" />
                 <div className="relative p-8 text-white h-full flex flex-col justify-center">
                   <Building2 className="h-16 w-16 mb-4 text-teal-200" />
-                  <h3 className="text-2xl font-bold mb-4">Techpotli Digital</h3>
+                  <h3 className="text-2xl font-bold mb-4">Techpotli</h3>
                   <p className="text-lg text-teal-50">
                     Transforming businesses through innovative digital solutions
                   </p>
@@ -355,7 +355,7 @@ const AboutPage = () => {
                       <Building2 className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900 mb-1">Techpotli Digital</p>
+                      <p className="font-semibold text-gray-900 mb-1">Techpotli</p>
                       <p className="text-gray-700">C52A, LGF, Kalka Ji</p>
                       <p className="text-gray-700">New Delhi 110019</p>
                     </div>
@@ -412,7 +412,7 @@ const AboutPage = () => {
                     <Button
                       onClick={() => {
                         const message = encodeURIComponent(
-                          "Hello! I've read about Techpotli Digital and I'd like to get in touch. Could you please provide more information about your services?"
+                          "Hello! I've read about Techpotli and I'd like to get in touch. Could you please provide more information about your services?"
                         );
                         window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
                       }}

@@ -14,33 +14,40 @@ export interface ServiceType {
 export const services: ServiceType[] = [
   {
     title: "Website Design & Development",
-    tagline: "Building Your Digital Presence",
+    tagline: "Your Vision, Our Expertise",
     description:
-      "Modern, responsive websites built to convert visitors into customers. We create fast, secure, and user-friendly websites that help your business stand out online.",
-    bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+      "Transforming Ideas Into Stunning Web Realities. At Techpotli, we don't just design websites we produce digital experiences that connect with your audience and drive measurable growth.",
+    bg_image: "https://wallpapercave.com/wp/wp5085063.jpg",
+    serviceImage: "https://wallpapercave.com/wp/wp5085063.jpg",
     slug: "website-design-development",
     fullDescription:
-      "Our team combines cutting-edge design principles with robust development practices to deliver websites that not only look stunning but also perform exceptionally. From custom WordPress sites to fully custom web applications, we build scalable solutions that grow with your business. Every website we create is optimized for speed, mobile responsiveness, and search engine visibility, ensuring your online presence drives real business results. We work closely with you to understand your brand, target audience, and business goals, then craft a digital experience that converts visitors into loyal customers.",
+      "Website Development - Your Vision, Our Expertise\n\nTransforming Ideas Into Stunning Web Realities\n\nAt Techpotli, we don't just design websites we produce digital experiences that connect with your audience and drive measurable growth.\n\nOur expert team combines creativity, strategy, and technology to deliver visually stunning, user-friendly, and high-performance websites tailored to your business goals.\n\nWhether you need a sleek corporate site, a dynamic e-commerce store, or a powerful web application, Techpotli is your trusted partner for end-to-end web design and development.\n\nWhy Choose Techpotli for Website Development?\n\n• Tailor-Made Solutions: Every project is built from scratch to match your unique brand identity.\n\n• Responsive Design: Your website will look perfect on every screen — desktop, tablet, and mobile.\n\n• SEO-Friendly Code: We build websites optimized for search engines from day one.\n\n• Lightning Speed Performance: Fast-loading pages that enhance user experience and improve ranking.\n\n• Secure & Scalable: Strong architecture that grows with your business.\n\n• Dedicated Support: Continuous updates, backups, and technical assistance whenever you need it.\n\nWEBSITE DEVELOPMENT SERVICES IN INDIA\n\nOur Custom Web Development Services\n\nBringing unique ideas to life can be challenging, especially when you aim to disrupt the industry with innovation. That's where we come in. Our smart and custom-made website development services in India, the USA, Australia, and globally are designed to turn your vision into a reality, whether you need a powerful business website or a scalable eCommerce store. We develop personalized websites that perfectly reflect your goals and reach your targeted audience across the world.\n\n• Web Application: We offer end-to-end web development solutions to turn your vision into a fully functional website that's attractive, responsive, and scalable.\n\n• E-commerce Website Development: We design fast, secure, and conversion-driven online stores that attract visitors and encourage convenient purchases.\n\n• Custom Website Development: We create tailored websites built from scratch, using in-depth research and the latest trends to ensure your brand stands out.\n\n• Multi-vendor Website Development: We help you launch your own marketplace where multiple vendors can register, manage products, and control everything from one dashboard.\n\n• CMS Development: We design flexible and responsive CMS platforms that let you manage your content – news, blogs, and media – with ease.\n\n• CRM Development: We build smart CRM systems to enhance customer experiences, streamline marketing, and improve business relationships.\n\n• WordPress Development: Our professional developers create custom WordPress websites with SEO-friendly designs, custom themes, and powerful plugins.\n\n• Website Maintenance: We provide ongoing maintenance to keep your website secure, updated, and optimized for performance — so you can focus on growth.\n\n• Customized Portal Solution: We develop dynamic portals for employees, vendors, or customers with secure access, efficient management, and top-tier performance.",
     deliverables: [
       { item: "Custom responsive website design" },
       { item: "Fast loading performance optimization" },
       { item: "Mobile-first responsive development" },
-      { item: "User experience (UX) optimization" },
-      { item: "Content management system setup" },
+      { item: "SEO-friendly code from day one" },
+      { item: "Secure & scalable architecture" },
       { item: "E-commerce integration & functionality" },
-      { item: "Contact forms & lead capture systems" },
-      { item: "Website security & backup solutions" },
+      { item: "Content management system setup" },
+      { item: "Website maintenance & dedicated support" },
+      { item: "Web application development" },
+      { item: "Multi-vendor marketplace development" },
+      { item: "CRM development" },
+      { item: "WordPress development" },
+      { item: "Customized portal solutions" },
     ],
   },
   {
     title: "SEO (On-Page, Off-Page & Technical)",
     tagline: "Ranking Higher on Google",
     description:
-      "Rank higher on Google with proven SEO strategies that improve visibility. We optimize your website for search engines to drive organic traffic and increase conversions.",
+      "Get your business showing up when people search for what you offer. We handle all the technical stuff, optimize your content, and build the right connections so Google ranks you higher. More visibility means more customers finding you naturally.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    serviceImage: "https://wallpapercave.com/wp/wp5459907.jpg",
     slug: "seo-services",
     fullDescription:
-      "Our comprehensive SEO approach covers every aspect of search engine optimization, from technical website audits to content strategy and link building. We conduct thorough keyword research, optimize your site's structure and content, build quality backlinks, and continuously monitor performance to ensure your business appears at the top of search results for relevant queries. Our data-driven approach helps you attract qualified leads and grow your organic traffic month over month. We stay updated with the latest search engine algorithms and best practices to keep your website competitive in the ever-evolving digital landscape.",
+      "Here's how we do SEO: First, we check what's working and what's not on your site. We look at speed, mobile-friendliness, and technical issues that might be holding you back.\n\nThen we figure out what words your customers actually use when they search. We optimize your pages, write better content, and fix technical problems. We also build quality links from other websites because Google trusts sites that others reference.\n\nWe track everything and send you monthly reports showing what's working. When Google updates their rules, we adjust. The goal is simple: get you ranking higher so more people find you when they're looking for what you sell.\n\nIt's not magic, it's consistent work. But done right, SEO brings customers who are already looking for what you offer.",
     deliverables: [
       { item: "Complete SEO audit & analysis" },
       { item: "On-page optimization (meta tags, headings)" },
@@ -56,11 +63,12 @@ export const services: ServiceType[] = [
     title: "Social Media Marketing",
     tagline: "Growing Your Brand Online",
     description:
-      "Grow your brand across Facebook and Instagram with content & creatives. We create engaging social media campaigns that connect with your audience and drive results.",
+      "Build a real presence on Facebook and Instagram. We create posts, stories, and videos that your audience actually wants to see. Consistent posting, smart engagement, and content that gets people interested in your business.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
+    serviceImage: "https://wallpapers.com/images/hd/4k-social-media-3840-x-2160-wallpaper-7c5hgffr0u5d3l2y.jpg",
     slug: "social-media-marketing",
     fullDescription:
-      "Our social media experts develop comprehensive strategies tailored to your brand, creating compelling content that resonates with your target audience. From daily posts and stories to reels and video content, we maintain a consistent brand voice while keeping your audience engaged. We manage your social media presence, respond to comments and messages, run targeted ad campaigns, and provide detailed analytics to track growth and engagement. Our goal is to build a loyal community around your brand and turn followers into customers. We understand the unique dynamics of each platform and craft content that performs best on each one.",
+      "Social media isn't just posting random stuff. We figure out what your customers care about, then create content that speaks to them. Posts, stories, reels - whatever works for your audience.\n\nWe handle the daily posting, respond to comments and messages, and keep your brand voice consistent. When you need to run ads, we set those up too. Every month, you'll see reports showing what's working: which posts got attention, how many people engaged, and what's bringing in leads.\n\nThe real goal? Build a community that knows and trusts your brand. When people follow you, they should want to buy from you. We make that happen by being consistent, authentic, and strategic.\n\nDifferent platforms need different approaches. What works on Facebook might not work on Instagram. We know the difference and create content that fits each platform.",
     deliverables: [
       { item: "Social media strategy & planning" },
       { item: "Daily content creation & posting" },
@@ -76,11 +84,12 @@ export const services: ServiceType[] = [
     title: "Google & Meta Ads Management",
     tagline: "Driving Quality Leads",
     description:
-      "ROI-focused ad campaigns designed to bring high-quality business leads. We manage your Google and Meta ads to maximize conversions and minimize costs.",
+      "Run ads that actually make money. We manage your Google and Facebook/Instagram ads, test what works, and keep optimizing so you get quality leads without wasting budget.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    serviceImage: "https://supcreative.com/wp-content/uploads/2025/02/Meta-Ads-vs-Google-Ads-1.webp",
     slug: "google-meta-ads",
     fullDescription:
-      "Our paid advertising experts create, optimize, and manage campaigns across Google Search, Google Display, Facebook, and Instagram to reach your ideal customers at the right moment. We conduct thorough audience research, create compelling ad copy and visuals, set up conversion tracking, and continuously test and optimize campaigns for better performance. With advanced targeting options, A/B testing, and detailed analytics, we ensure every advertising dollar is spent efficiently to generate maximum return on investment. Our transparent reporting keeps you informed about campaign performance and lead quality, helping you make data-driven decisions for your business growth.",
+      "Here's the truth about ads: most businesses waste money because they don't know what they're doing. We fix that.\n\nWe figure out who your ideal customers are, then create ads that speak directly to them. We test different messages, images, and targeting to find what works. Then we keep optimizing based on real results.\n\nEvery dollar you spend, we track. You'll see exactly what you're getting: how many clicks, how many leads, what it costs per lead, and whether those leads actually turn into customers. No guessing, just real numbers.\n\nWe run campaigns on Google Search (when people actively search for what you offer), Google Display (banner ads), Facebook, and Instagram. Each platform works differently, and we know how to make each one profitable.\n\nBottom line: we make your ad budget work harder. Better leads, lower costs, clear results.",
     deliverables: [
       { item: "Campaign strategy & setup" },
       { item: "Ad copywriting & creative design" },
@@ -96,11 +105,12 @@ export const services: ServiceType[] = [
     title: "Branding, Logos & Creative Design",
     tagline: "Standing Out in the Market",
     description:
-      "Logos, banners, videos, and brand identity that help your business stand out. We create memorable visual identities that resonate with your target audience.",
+      "Give your business a look that people remember. We design logos, create your brand style, make banners and videos, and build a visual identity that makes you stand out from competitors.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+    serviceImage: "https://www.zephyrmedia.com.au/wp-content/uploads/2021/06/brand-elements.jpeg",
     slug: "branding-creative-design",
     fullDescription:
-      "Our creative team works closely with you to understand your brand values, target market, and competitive landscape, then develops a comprehensive brand identity that sets you apart. From logo design and color palettes to typography and brand guidelines, we create a cohesive visual language that communicates your brand story effectively. We also produce marketing materials including business cards, brochures, social media graphics, video content, and digital banners that maintain brand consistency across all touchpoints. Our designs are not just visually appealing—they're strategically crafted to connect with your audience and drive brand recognition. Every element is designed to reinforce your brand message and create lasting impressions.",
+      "Your brand is how people see you. We help you figure out what that should look like.\n\nWe start by understanding your business: what you do, who you serve, what makes you different. Then we design a logo and brand style that actually represents you. Colors, fonts, the whole look.\n\nOnce we have your brand identity, we use it everywhere: business cards, social media graphics, videos, banners, brochures. Everything should look like it's from the same company - that's how people remember you.\n\nGood design isn't just pretty pictures. It's strategic. Every color, every font choice, every image should help people understand who you are and why they should choose you. We make sure your brand tells the right story.\n\nWhen people see your logo or your posts, they should immediately think of your business. That's the goal, and that's what we build.",
     deliverables: [
       { item: "Logo design & brand identity" },
       { item: "Brand guidelines & style guide" },
@@ -116,11 +126,12 @@ export const services: ServiceType[] = [
     title: "Domain, Hosting & SSL + Support",
     tagline: "Keeping Your Site Secure",
     description:
-      "Secure hosting, SSL setup, site maintenance, and 24/7 technical support. We ensure your website is always running smoothly and securely.",
+      "Keep your website running smoothly. We handle hosting, set up security, do regular backups, and fix problems when they come up. You focus on your business, we handle the technical stuff.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
+    serviceImage: "https://www.interactivewebstation.com/wp-content/uploads/2020/04/hosting_and_ssl.jpeg",
     slug: "domain-hosting-support",
     fullDescription:
-      "Our comprehensive hosting and support services take the technical burden off your shoulders, allowing you to focus on growing your business. We handle domain registration and management, set up reliable hosting with fast servers, install SSL certificates for secure connections, and perform regular backups to protect your data. Our 24/7 monitoring ensures your website stays online, and our technical support team is always available to help with updates, security patches, performance optimization, and any technical issues that arise. We also provide ongoing maintenance including software updates, security scans, and performance monitoring to keep your website running at peak performance. Your peace of mind is our priority.",
+      "Running a website means dealing with technical stuff: hosting, security, updates, backups. Most business owners don't have time for that, and honestly, you shouldn't have to.\n\nWe handle it all. We register your domain, set up reliable hosting, install SSL certificates (that little lock icon that makes your site secure), and do regular backups so you never lose your data.\n\nWe monitor your site 24/7. If something breaks, we fix it. When updates are needed, we do them. If there's a security issue, we handle it. We also keep an eye on performance - slow sites lose customers.\n\nYou get monthly reports showing everything's running smoothly. If you ever have questions or problems, we're here. The goal is simple: your website should just work, and you shouldn't have to think about it.\n\nFocus on your business. We'll keep your website fast, secure, and online.",
     deliverables: [
       { item: "Domain registration & DNS management" },
       { item: "Premium hosting with fast servers" },
@@ -136,11 +147,12 @@ export const services: ServiceType[] = [
     title: "Full Stack Website Development",
     tagline: "Complete Web Solutions",
     description:
-      "End-to-end full stack development services. From frontend to backend, database to deployment, we build complete web applications that scale with your business.",
+      "Need a complete web application? We build everything: the part users see, the server that powers it, the database that stores information, and we get it all running online. Full solutions from start to finish.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    serviceImage: "https://www.sitehatchery.com/wp-content/uploads/2023/02/MollyBrown82_web_development_company_real_photo_e8438c9f-af62-417d-b00b-1186fa7a6530.png",
     slug: "full-stack-development",
     fullDescription:
-      "Our experienced full stack developers build complete web applications from scratch. We handle everything from user interface design to server-side logic, database architecture, API development, and cloud deployment. Whether you need a custom web application, SaaS platform, or enterprise solution, our team delivers scalable, secure, and high-performance applications. We use modern technologies like React, Next.js, Node.js, Python, and more to turn your ideas into fully functional code. Our full stack solutions are optimized for performance, security, and scalability.",
+      "Full stack means we build everything: the frontend (what users see and interact with), the backend (the server and logic that makes it work), the database (where information is stored), and we deploy it all so it's live and working.\n\nOur developers know multiple technologies: React, Next.js, Node.js, Python, and others. We pick the right tools for your project. Need a custom web app? SaaS platform? Enterprise solution? We build it.\n\nEverything we build is designed to grow with you. Fast performance, secure code, scalable architecture. Your app should handle 10 users or 10,000 users without breaking.\n\nWe take your idea, turn it into working code, test it thoroughly, and get it online. Then we maintain it. Simple as that.",
     deliverables: [
       { item: "Frontend development (React, Next.js, Vue)" },
       { item: "Backend development (Node.js, Python, PHP)" },
@@ -156,11 +168,12 @@ export const services: ServiceType[] = [
     title: "Custom Software Development",
     tagline: "Turning Ideas Into Code",
     description:
-      "Custom software solutions tailored to your business needs. Our skilled developers transform your ideas into powerful, scalable software applications.",
+      "Need software built specifically for your business? We create custom applications that solve your unique problems. Our developers write clean, maintainable code that does exactly what you need.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+    serviceImage: "https://bdtask.com/sp/custom-soft/img/custom-software-development-service-company.webp",
     slug: "custom-software-development",
     fullDescription:
-      "Our experienced development team specializes in building custom software solutions that solve your unique business challenges. From desktop applications to web platforms, mobile apps to enterprise systems, we deliver high-quality code that meets your exact requirements. We follow industry best practices, use modern development frameworks, and ensure your software is maintainable, scalable, and secure. Our developers work closely with you to understand your vision and deliver solutions that exceed expectations. We turn your ideas into production-ready code.",
+      "Off-the-shelf software doesn't always fit. Sometimes you need something built just for your business.\n\nWe build custom software: web applications, desktop programs, mobile apps, enterprise systems. Whatever you need, we can create it.\n\nHere's how it works: we talk to you about what you actually need. What problems are you trying to solve? What would make your work easier? Then we build it using modern, reliable technologies.\n\nThe code we write is clean, well-documented, and maintainable. Future you (or your team) will thank us. We also make sure it's secure and can grow with your business.\n\nWe don't just code - we solve problems. Your ideas become working software that makes your business run better.",
     deliverables: [
       { item: "Custom web applications" },
       { item: "Desktop software development" },
@@ -176,11 +189,12 @@ export const services: ServiceType[] = [
     title: "CRM Development & Integration",
     tagline: "Streamline Your Business Operations",
     description:
-      "Custom CRM solutions and integrations to manage your customer relationships effectively. Built by experienced developers to streamline your sales and support processes.",
+      "Keep track of your customers, leads, and sales in one place. We build custom CRM systems or connect you with existing ones. Manage contacts, track deals, and never lose a lead again.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
+    serviceImage: "https://static.vecteezy.com/system/resources/previews/028/705/267/large_2x/crm-isometric-flowchart-vector.jpg",
     slug: "crm-development",
     fullDescription:
-      "Our skilled developers create custom CRM systems tailored to your business workflow. We build comprehensive customer relationship management solutions that help you track leads, manage contacts, automate sales processes, and improve customer service. Whether you need a custom CRM from scratch or integration with existing systems like Salesforce, HubSpot, or Zoho, our experienced team delivers solutions that enhance your business operations. We ensure seamless data flow, automated workflows, and powerful analytics to help you make data-driven decisions.",
+      "A good CRM keeps you organized. You know who your customers are, where your leads came from, what deals are in progress, and who needs follow-up.\n\nWe can build you a custom CRM that fits exactly how you work. Or we can integrate you with existing systems like Salesforce, HubSpot, or Zoho if that makes more sense.\n\nEither way, you get: lead tracking, contact management, sales pipeline visibility, automated workflows (so you don't forget to follow up), and reports that show you what's working.\n\nWhen everything's in one place and automated, you close more deals and provide better customer service. That's the point, and that's what we build.",
     deliverables: [
       { item: "Custom CRM development" },
       { item: "CRM integration & migration" },
@@ -196,11 +210,12 @@ export const services: ServiceType[] = [
     title: "IT Services & Technical Solutions",
     tagline: "Complete IT Support",
     description:
-      "Comprehensive IT services including system administration, cloud solutions, network management, and technical support. Our experienced team handles all your IT needs.",
+      "All your IT needs covered. We handle servers, cloud setup, network management, security, backups, and technical support. Keep your systems running so you can focus on your business.",
     bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    serviceImage: "https://www.accuit.ca/wp-content/uploads/2022/09/accuit-blog-new.png",
     slug: "it-services",
     fullDescription:
-      "Our skilled IT professionals provide comprehensive technical services to keep your business running smoothly. From cloud infrastructure setup to network management, system administration to cybersecurity, we offer end-to-end IT solutions. Our experienced team ensures your systems are secure, optimized, and always available. We handle server management, backup solutions, security audits, and provide 24/7 technical support. Whether you need infrastructure setup, migration services, or ongoing IT management, our team delivers reliable solutions.",
+      "IT problems can shut down your business. We prevent that.\n\nWe handle everything technical: setting up cloud infrastructure, managing servers, maintaining networks, keeping things secure, doing backups, and providing support when things break.\n\nWhen you work with us, your systems stay online, secure, and optimized. We monitor everything, apply security updates, and fix problems before they become disasters.\n\nNeed to migrate to the cloud? Set up new infrastructure? Get ongoing IT management? We do it all. The goal is simple: your technology should help your business, not hold it back.\n\nYou shouldn't have to worry about servers crashing or security breaches. We handle that. You run your business.",
     deliverables: [
       { item: "Cloud infrastructure setup & management" },
       { item: "Network setup & administration" },
