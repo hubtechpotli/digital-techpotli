@@ -72,7 +72,7 @@ export function AnimatedHeroSection({ post }: AnimatedHeroSectionProps) {
         <div ref={backgroundRef} className="absolute inset-0">
           <img
             src={post.metadata.image}
-            alt={post.metadata.title}
+            alt={`${post.metadata.title} - Techpotli blog post featured image`}
             className="h-full w-full object-cover"
             loading="eager"
             decoding="sync"

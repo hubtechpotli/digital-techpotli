@@ -1,5 +1,5 @@
 import { VideoPlayer } from "@/components/custom/VideoPlayer";
-import { generatePageMetadata } from "@/lib/metadata";
+import { generatePageMetadata, pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -38,8 +38,73 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const organizationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Techpotli",
+    "description": "Complete digital solutions company in New Delhi, India. We provide website development, e-commerce platforms, SEO services, social media marketing, Google & Meta ads, custom software, CRM development, and full IT services.",
+    "url": "https://www.techpotlidigital.com",
+    "logo": "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C52A, LGF, Kalka Ji",
+      "addressLocality": "New Delhi",
+      "postalCode": "110019",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9810659666",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": "en"
+    },
+    "sameAs": [
+      "https://www.techpotlidigital.com"
+    ],
+    "knowsAbout": [
+      "Website Development",
+      "E-Commerce Development",
+      "SEO Services",
+      "Social Media Marketing",
+      "Google Ads Management",
+      "Meta Ads Management",
+      "Custom Software Development",
+      "CRM Development",
+      "Full Stack Development",
+      "IT Services",
+      "Digital Marketing"
+    ]
+  };
+
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Techpotli",
+    "url": "https://www.techpotlidigital.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.techpotlidigital.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <main id="main-content" role="main" className="relative overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteStructuredData),
+        }}
+      />
       {/* Full-width video section after header - edge to edge */}
       <section 
         className="relative overflow-hidden"

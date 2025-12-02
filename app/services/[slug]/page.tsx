@@ -28,14 +28,24 @@ export async function generateMetadata({
   return {
     title: `${service.title} - Techpotli`,
     description: service.description,
+    keywords: [
+      service.title.toLowerCase(),
+      "Techpotli",
+      "New Delhi",
+      "India"
+    ],
     openGraph: {
       title: `${service.title} - Techpotli`,
       description: service.description,
+      url: `https://www.techpotlidigital.com/services/${slug}`,
       images: service.serviceImage ? [service.serviceImage] : [],
     },
     twitter: {
       title: `${service.title} - Techpotli`,
       description: service.description,
+    },
+    alternates: {
+      canonical: `https://www.techpotlidigital.com/services/${slug}`,
     },
   };
 }
@@ -52,12 +62,49 @@ export default async function ServiceDetailPage({
     notFound();
   }
 
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "Techpotli",
+      "url": "https://www.techpotlidigital.com",
+      "logo": "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C52A, LGF, Kalka Ji",
+        "addressLocality": "New Delhi",
+        "postalCode": "110019",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9810659666",
+        "contactType": "customer service"
+      }
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    },
+    "serviceType": service.title
+  };
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceStructuredData),
+        }}
+      />
       {/* Hero Section */}
       <section
         className="relative w-full bg-cover bg-center py-16 sm:py-20 md:py-24 lg:py-28"
-        style={{ backgroundImage: `url(${service.bg_image})` }}
+        style={{ backgroundImage: `url(${service.serviceImage || service.bg_image})` }}
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

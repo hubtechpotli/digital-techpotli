@@ -175,7 +175,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
             <Button
               onClick={() => {
                 const message = encodeURIComponent(
-                  `Hello! I'm interested in the *${pkg.name}* package from Techpotli Digital.\n\nPrice: ${pkg.price}${pkg.priceNote ? ` ${pkg.priceNote}` : ""}\n\nCould you please provide more details and help me get started?`
+                  `Hello! I'm interested in the *${pkg.name}* package from Techpotli.\n\nPrice: ${pkg.price}${pkg.priceNote ? ` ${pkg.priceNote}` : ""}\n\nCould you please provide more details and help me get started?`
                 );
                 window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
               }}

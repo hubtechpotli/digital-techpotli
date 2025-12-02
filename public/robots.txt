@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.techpotlidigital.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /order-form/
+
+# Allow important pages
+Allow: /
+Allow: /services
+Allow: /packages
+Allow: /about
+Allow: /blog
+Allow: /live-projects
+
