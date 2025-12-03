@@ -76,14 +76,14 @@ export default function ServicesPage() {
         }}
       />
       {/* Hero Section */}
-      <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-16 sm:py-20 md:py-24 overflow-hidden">
+      <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 pt-24 pb-16 sm:pt-28 sm:pb-20 md:py-24 overflow-hidden">
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-teal-300/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-40 h-40 sm:w-72 sm:h-72 bg-teal-300/20 rounded-full blur-3xl animate-pulse -z-10" />
+          <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-56 h-56 sm:w-96 sm:h-96 bg-cyan-300/20 rounded-full blur-3xl animate-pulse delay-1000 -z-10" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Services"
             heading="Complete Digital Solutions for Your Business"
@@ -98,8 +98,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Skilled Developers Team Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section 
+        className="relative py-12 sm:py-16 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(https://cdn.prod.website-files.com/645daf43a3ee21e994d55d2f/64927815c4b7189b315d7084_careers-1200x627px.jpg)` }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-600/80 via-cyan-600/80 to-blue-600/80"></div>
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-lg">
               Experienced Developers Team
