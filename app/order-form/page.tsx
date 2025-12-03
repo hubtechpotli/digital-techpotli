@@ -268,12 +268,154 @@ export default function OrderFormPage() {
     }
   }, [loadDraft])
 
+  // Autofill detection and sync - Comprehensive solution for Google autofill
+  useEffect(() => {
+    if (!isClient || currentStep !== 1) return
+
+    const syncAutofillValue = (fieldName: string, inputElement: HTMLInputElement | HTMLTextAreaElement) => {
+      const currentValue = inputElement.value
+      const formValue = form.getValues(fieldName as any)
+      
+      // If input has value but form doesn't, sync it
+      if (currentValue && currentValue !== formValue) {
+        console.log(`Autofill detected for ${fieldName}:`, currentValue)
+        form.setValue(fieldName as any, currentValue, { shouldValidate: true, shouldDirty: true })
+        markFieldAsTouched(fieldName)
+        
+        // Trigger validation for this specific field
+        form.trigger(fieldName as any).then(() => {
+          // Trigger validation for all step 1 fields after autofill
+          setTimeout(() => {
+            form.trigger(['owner_name', 'company_name', 'email', 'address', 'pincode', 'location']).then(() => {
+              console.log('Validation triggered after autofill')
+            })
+          }, 100)
+        })
+      }
+    }
+
+    // Function to check all inputs for autofill
+    const checkForAutofill = () => {
+      const fields = [
+        { id: 'owner_name', name: 'owner_name' },
+        { id: 'company_name', name: 'company_name' },
+        { id: 'mobile', name: 'mobile' },
+        { id: 'email', name: 'email' },
+        { id: 'address', name: 'address' },
+        { id: 'pincode', name: 'pincode' },
+        { id: 'location', name: 'location' },
+      ]
+
+      fields.forEach(({ id, name }) => {
+        const element = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null
+        if (element) {
+          syncAutofillValue(name, element)
+        }
+      })
+    }
+
+    // Strategy 1: Polling - Check for autofill every 500ms for first 5 seconds
+    const pollingInterval = setInterval(checkForAutofill, 500)
+    const pollingTimeout = setTimeout(() => {
+      clearInterval(pollingInterval)
+    }, 5000)
+
+    // Strategy 2: MutationObserver - Watch for DOM changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' || mutation.type === 'childList') {
+          checkForAutofill()
+        }
+      })
+    })
+
+    // Observe the form container
+    const formContainer = document.querySelector('form')
+    if (formContainer) {
+      observer.observe(formContainer, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        attributeFilter: ['value'],
+      })
+    }
+
+    // Strategy 3: Window focus/blur - Check when user interacts
+    const handleWindowFocus = () => {
+      setTimeout(checkForAutofill, 200)
+    }
+    window.addEventListener('focus', handleWindowFocus)
+    window.addEventListener('blur', handleWindowFocus)
+
+    // Strategy 4: Input event listeners - Autofill sometimes triggers input events
+    const inputHandlers: Array<{ element: HTMLElement; handler: () => void }> = []
+    const fields = ['owner_name', 'company_name', 'mobile', 'email', 'address', 'pincode', 'location']
+    
+    fields.forEach((fieldId) => {
+      const element = document.getElementById(fieldId)
+      if (element) {
+        const handler = () => {
+          setTimeout(() => checkForAutofill(), 100)
+        }
+        element.addEventListener('input', handler)
+        element.addEventListener('change', handler)
+        inputHandlers.push({ element, handler })
+      }
+    })
+
+    return () => {
+      clearInterval(pollingInterval)
+      clearTimeout(pollingTimeout)
+      observer.disconnect()
+      window.removeEventListener('focus', handleWindowFocus)
+      window.removeEventListener('blur', handleWindowFocus)
+      inputHandlers.forEach(({ element, handler }) => {
+        element.removeEventListener('input', handler)
+        element.removeEventListener('change', handler)
+      })
+    }
+  }, [isClient, currentStep, form])
+
   const nextStep = async () => {
     if (currentStep < STEPS.length) {
       setHasAttemptedStep(prev => new Set(prev).add(currentStep))
 
       setIsExplicitSubmit(false)
       setIsSubmitting(false)
+
+      // Final autofill sync before validation - especially important for mobile
+      if (currentStep === 1 && typeof window !== 'undefined') {
+        const syncAutofillValue = (fieldName: string, inputElement: HTMLInputElement | HTMLTextAreaElement) => {
+          const currentValue = inputElement.value
+          const formValue = form.getValues(fieldName as any)
+          
+          if (currentValue && currentValue !== formValue) {
+            console.log(`Final autofill sync for ${fieldName}:`, currentValue)
+            form.setValue(fieldName as any, currentValue, { shouldValidate: true, shouldDirty: true })
+            markFieldAsTouched(fieldName)
+          }
+        }
+
+        const fields = [
+          { id: 'owner_name', name: 'owner_name' },
+          { id: 'company_name', name: 'company_name' },
+          { id: 'mobile', name: 'mobile' },
+          { id: 'email', name: 'email' },
+          { id: 'address', name: 'address' },
+          { id: 'pincode', name: 'pincode' },
+          { id: 'location', name: 'location' },
+        ]
+
+        fields.forEach(({ id, name }) => {
+          const element = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null
+          if (element) {
+            syncAutofillValue(name, element)
+          }
+        })
+
+        // Wait a moment for form state to update
+        await new Promise(resolve => setTimeout(resolve, 100))
+      }
 
       // Trigger validation for all fields before deciding to move forward
       const triggerResult = await form.trigger()
@@ -622,12 +764,27 @@ export default function OrderFormPage() {
                     </Label>
                     <Input
                       id="owner_name"
+                      name="owner_name"
+                      autoComplete="name"
                       value={watchedValues.owner_name || ""}
                       onChange={(e) => {
-                        form.setValue("owner_name", e.target.value)
+                        form.setValue("owner_name", e.target.value, { shouldValidate: true })
                         markFieldAsTouched("owner_name")
                       }}
-                      onBlur={() => markFieldAsTouched("owner_name")}
+                      onInput={(e) => {
+                        const value = (e.target as HTMLInputElement).value
+                        if (value && value !== watchedValues.owner_name) {
+                          form.setValue("owner_name", value, { shouldValidate: true })
+                          markFieldAsTouched("owner_name")
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = e.target.value
+                        if (value && value !== watchedValues.owner_name) {
+                          form.setValue("owner_name", value, { shouldValidate: true })
+                        }
+                        markFieldAsTouched("owner_name")
+                      }}
                       placeholder="Enter owner name"
                       className={`h-12 text-base border-2 ${
                         shouldShowError("owner_name") && errors.owner_name 
@@ -653,12 +810,27 @@ export default function OrderFormPage() {
                     </Label>
                     <Input
                       id="company_name"
+                      name="company_name"
+                      autoComplete="organization"
                       value={watchedValues.company_name || ""}
                       onChange={(e) => {
-                        form.setValue("company_name", e.target.value)
+                        form.setValue("company_name", e.target.value, { shouldValidate: true })
                         markFieldAsTouched("company_name")
                       }}
-                      onBlur={() => markFieldAsTouched("company_name")}
+                      onInput={(e) => {
+                        const value = (e.target as HTMLInputElement).value
+                        if (value && value !== watchedValues.company_name) {
+                          form.setValue("company_name", value, { shouldValidate: true })
+                          markFieldAsTouched("company_name")
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = e.target.value
+                        if (value && value !== watchedValues.company_name) {
+                          form.setValue("company_name", value, { shouldValidate: true })
+                        }
+                        markFieldAsTouched("company_name")
+                      }}
                       placeholder="Enter company name"
                       className={`h-12 text-base border-2 ${
                         shouldShowError("company_name") && errors.company_name 
@@ -683,12 +855,28 @@ export default function OrderFormPage() {
                     </Label>
                     <Input
                       id="mobile"
+                      name="mobile"
+                      type="tel"
+                      autoComplete="tel"
                       value={watchedValues.mobile || ""}
                       onChange={(e) => {
-                        form.setValue("mobile", e.target.value)
+                        form.setValue("mobile", e.target.value, { shouldValidate: true })
                         markFieldAsTouched("mobile")
                       }}
-                      onBlur={() => markFieldAsTouched("mobile")}
+                      onInput={(e) => {
+                        const value = (e.target as HTMLInputElement).value
+                        if (value !== watchedValues.mobile) {
+                          form.setValue("mobile", value, { shouldValidate: true })
+                          markFieldAsTouched("mobile")
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = e.target.value
+                        if (value !== watchedValues.mobile) {
+                          form.setValue("mobile", value, { shouldValidate: true })
+                        }
+                        markFieldAsTouched("mobile")
+                      }}
                       placeholder="Enter mobile number"
                       className={`h-12 text-base border-2 ${
                         watchedValues.mobile 
@@ -712,13 +900,28 @@ export default function OrderFormPage() {
                     </Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
+                      autoComplete="email"
                       value={watchedValues.email || ""}
                       onChange={(e) => {
-                        form.setValue("email", e.target.value)
+                        form.setValue("email", e.target.value, { shouldValidate: true })
                         markFieldAsTouched("email")
                       }}
-                      onBlur={() => markFieldAsTouched("email")}
+                      onInput={(e) => {
+                        const value = (e.target as HTMLInputElement).value
+                        if (value && value !== watchedValues.email) {
+                          form.setValue("email", value, { shouldValidate: true })
+                          markFieldAsTouched("email")
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = e.target.value
+                        if (value && value !== watchedValues.email) {
+                          form.setValue("email", value, { shouldValidate: true })
+                        }
+                        markFieldAsTouched("email")
+                      }}
                       placeholder="Enter email address"
                       className={`h-12 text-base border-2 ${
                         shouldShowError("email") && errors.email 
@@ -741,12 +944,27 @@ export default function OrderFormPage() {
                   <Label htmlFor="address">Full Address *</Label>
                   <Textarea
                     id="address"
+                    name="address"
+                    autoComplete="street-address"
                     value={watchedValues.address || ""}
                     onChange={(e) => {
-                      form.setValue("address", e.target.value)
+                      form.setValue("address", e.target.value, { shouldValidate: true })
                       markFieldAsTouched("address")
                     }}
-                    onBlur={() => markFieldAsTouched("address")}
+                    onInput={(e) => {
+                      const value = (e.target as HTMLTextAreaElement).value
+                      if (value && value !== watchedValues.address) {
+                        form.setValue("address", value, { shouldValidate: true })
+                        markFieldAsTouched("address")
+                      }
+                    }}
+                    onBlur={(e) => {
+                      const value = e.target.value
+                      if (value && value !== watchedValues.address) {
+                        form.setValue("address", value, { shouldValidate: true })
+                      }
+                      markFieldAsTouched("address")
+                    }}
                     placeholder="Enter complete address"
                     rows={3}
                   />
@@ -760,12 +978,27 @@ export default function OrderFormPage() {
                     <Label htmlFor="pincode">Pincode *</Label>
                     <Input
                       id="pincode"
+                      name="pincode"
+                      autoComplete="postal-code"
                       value={watchedValues.pincode || ""}
                       onChange={(e) => {
-                        form.setValue("pincode", e.target.value)
+                        form.setValue("pincode", e.target.value, { shouldValidate: true })
                         markFieldAsTouched("pincode")
                       }}
-                      onBlur={() => markFieldAsTouched("pincode")}
+                      onInput={(e) => {
+                        const value = (e.target as HTMLInputElement).value
+                        if (value && value !== watchedValues.pincode) {
+                          form.setValue("pincode", value, { shouldValidate: true })
+                          markFieldAsTouched("pincode")
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = e.target.value
+                        if (value && value !== watchedValues.pincode) {
+                          form.setValue("pincode", value, { shouldValidate: true })
+                        }
+                        markFieldAsTouched("pincode")
+                      }}
                       placeholder="Enter pincode"
                     />
                     {shouldShowError("pincode") && errors.pincode && (
@@ -777,12 +1010,27 @@ export default function OrderFormPage() {
                     <Label htmlFor="location">Location (City/District/State) *</Label>
                     <Input
                       id="location"
+                      name="location"
+                      autoComplete="address-level2"
                       value={watchedValues.location || ""}
                       onChange={(e) => {
-                        form.setValue("location", e.target.value)
+                        form.setValue("location", e.target.value, { shouldValidate: true })
                         markFieldAsTouched("location")
                       }}
-                      onBlur={() => markFieldAsTouched("location")}
+                      onInput={(e) => {
+                        const value = (e.target as HTMLInputElement).value
+                        if (value && value !== watchedValues.location) {
+                          form.setValue("location", value, { shouldValidate: true })
+                          markFieldAsTouched("location")
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = e.target.value
+                        if (value && value !== watchedValues.location) {
+                          form.setValue("location", value, { shouldValidate: true })
+                        }
+                        markFieldAsTouched("location")
+                      }}
                       placeholder="Enter location"
                     />
                     {shouldShowError("location") && errors.location && (
