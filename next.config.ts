@@ -59,6 +59,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'pbs.twimg.com',
       },
+      {
+        protocol: 'https',
+        hostname: '4.bp.blogspot.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.rawpixel.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'createaprowebsite.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+      },
     ],
   },
   // Enable compression
@@ -69,6 +93,16 @@ const nextConfig: NextConfig = {
   },
   // Production optimizations
   swcMinify: true,
+  // Remove console.logs in production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'], // Keep error and warn logs
+    } : false,
+  },
+  // Output configuration
+  output: 'standalone',
+  // Power optimizations
+  poweredByHeader: false,
   // Headers for caching and performance
   async headers() {
     return [
@@ -108,6 +142,14 @@ const nextConfig: NextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
           },
         ],
       },

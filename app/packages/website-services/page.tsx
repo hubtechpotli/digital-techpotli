@@ -4,6 +4,10 @@ import WhatsAppContactButton from "@/components/custom/WhatsAppContactButton";
 import { websiteServicesPackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
+// Force static generation for better performance
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidate every hour
+
 export const metadata: Metadata = {
   title: "Website Services Packages - Techpotli",
   description: "Choose from our website service packages - Basic, Standard, and Premium plans with hosting, SEO, and social media marketing.",

@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import GetConsultationButton from "@/components/custom/GetConsultationButton";
 
+// Use ISR for services page - revalidate every hour
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Digital Services - Website Development, SEO, Social Media & More | Techpotli",
   description: "Techpotli offers complete digital solutions in New Delhi, India. Website development, e-commerce, SEO services, social media marketing, Google & Meta ads, custom software, CRM development, and IT services. Get your business online today.",

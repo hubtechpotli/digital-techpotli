@@ -8,6 +8,7 @@ import { caseStudies } from "@/data/caseStudies";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 // Register ScrollTrigger plugin
@@ -40,12 +41,14 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, caseStudyName }) => {
             imgIndex === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <img
+          <Image
             src={image}
             alt={`${caseStudyName} project screenshot ${imgIndex + 1}`}
-            className="w-full h-full object-contain rounded-lg bg-gray-100"
-            loading={imgIndex === 0 ? "eager" : "lazy"}
-            decoding={imgIndex === 0 ? "sync" : "async"}
+            fill
+            className="object-contain rounded-lg bg-gray-100"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+            priority={imgIndex === 0}
+            quality={85}
           />
         </div>
       ))}
@@ -90,12 +93,14 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index }) => {
       <div ref={contentRef} className="col-span-1 space-y-6 lg:col-span-5">
         <div className="space-y-6">
           <div className="flex items-center">
-            <img
+            <Image
               src={caseStudy.logo_src}
-              className="aspect-auto max-h-8 w-auto"
               alt={`${caseStudy.name} company logo`}
+              width={120}
+              height={32}
+              className="aspect-auto max-h-8 w-auto"
               loading="lazy"
-              decoding="async"
+              quality={75}
             />
           </div>
 

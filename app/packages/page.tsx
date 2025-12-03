@@ -5,6 +5,10 @@ import { websiteServicesPackages, websiteLeadsPackages, ecommercePackages, socia
 import type { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
 
+// Force static generation for better performance
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidate every hour
+
 export const metadata: Metadata = {
   title: "Digital Service Packages - Website, SEO, Social Media & More | Techpotli",
   description: "Choose from our digital service packages: website development, e-commerce, SEO, social media marketing, Google ads, and more. Packages designed for businesses in New Delhi and across India. See pricing and what's included.",

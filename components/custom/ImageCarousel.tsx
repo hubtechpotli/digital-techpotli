@@ -1,4 +1,5 @@
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 import type React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
@@ -37,14 +38,14 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, caseStudyName }) 
               aria-label={`${index + 1} of ${images.length}`}
             >
               <div className="relative h-full w-full">
-                <img
+                <Image
                   src={image}
                   alt={`${caseStudyName} project screenshot ${index + 1}: Showcasing the user interface and design`}
-                  className="h-full w-full rounded-lg object-cover"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding={index === 0 ? "sync" : "async"}
-                  width="800"
-                  height="600"
+                  fill
+                  className="rounded-lg object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+                  priority={index === 0}
+                  quality={85}
                 />
               </div>
             </CarouselItem>
