@@ -27,7 +27,7 @@ export const caseStudies = [
   },
   {
     main_image_src:
-      "https://i.ytimg.com/vi/4m4na4cQU1Y/maxresdefault.jpg",
+      "https://www.nextscreen.in/blog/wp-content/uploads/2023/04/Blog_1-1.jpg",
     project_title: "From Zero Followers to Getting Real Customers Through Social Media",
     logo_src:
       "/New_Techpotli_Logo_(2)[2].png",
@@ -42,7 +42,7 @@ export const caseStudies = [
     case_study_link: "#",
     name: "Social Media Marketing",
     demo_images: [
-      "https://i.ytimg.com/vi/4m4na4cQU1Y/maxresdefault.jpg",
+      "https://www.nextscreen.in/blog/wp-content/uploads/2023/04/Blog_1-1.jpg",
     ],
     test_img:
       "https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA4L3Jhd3BpeGVsX29mZmljZV8zNV9iZWF1dGlmdWxfc21pbGluZ195b3VuZ19pbmRpYW5fYnVzaW5lc3Nfd29tYV8yYWM3MjMyNS1jZmU3LTQ5ODgtODBkNi03YjViZTg3ODYzNjNfMS5qcGc.jpg",
@@ -52,7 +52,7 @@ export const caseStudies = [
   },
   {
     main_image_src:
-      "https://createaprowebsite.com/wp-content/uploads/2019/06/capw-how-to-make-an-online-store-ecommerce-sbs-v2.jpg",
+      "https://clicktodoit.com/wp-content/uploads/2022/01/how-to-build-an-online-store.webp",
     project_title: "Building an Online Store That Actually Sells Products",
     logo_src:
       "/New_Techpotli_Logo_(2)[2].png",
@@ -67,7 +67,7 @@ export const caseStudies = [
     case_study_link: "#",
     name: "E-Commerce Development",
     demo_images: [
-      "https://createaprowebsite.com/wp-content/uploads/2019/06/capw-how-to-make-an-online-store-ecommerce-sbs-v2.jpg",
+      "https://clicktodoit.com/wp-content/uploads/2022/01/how-to-build-an-online-store.webp",
     ],
     test_img:
       "https://i.pinimg.com/originals/58/f4/ca/58f4ca68576f9e444b7bf97960f8957e.png",
