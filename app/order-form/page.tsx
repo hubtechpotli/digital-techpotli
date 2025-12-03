@@ -62,7 +62,7 @@ const orderFormSchema = z.object({
   
   
   // Plan & Payment
-  plan: z.enum(["basic", "silver", "gold", "platinum", "diamond", "titanium", "ultimate", "ecommerce_basic", "ecommerce_premium", "social_seo_gmb"]),
+  plan: z.enum(["gold", "platinum", "diamond", "titanium", "ultimate", "ecommerce_basic", "ecommerce_premium", "social_seo_gmb"]),
   plan_duration: z.enum(["1", "3", "6", "9", "12"]),
   payment_type: z.enum(["upi", "cash"]),
   payment_screenshot: z.any().optional(),
@@ -73,8 +73,6 @@ type OrderFormData = z.infer<typeof orderFormSchema>
 
 // Plan pricing
 const PLAN_PRICES = {
-  basic: 499,
-  silver: 799,
   gold: 999,
   platinum: 1499,
   diamond: 2499,
@@ -90,7 +88,7 @@ const getSafePlanValue = (plan: any): string => {
   if (plan && typeof plan === 'string' && plan.trim()) {
     return plan.trim()
   }
-  return 'basic'
+  return 'gold'
 }
 
 // Steps configuration
@@ -166,7 +164,7 @@ export default function OrderFormPage() {
       
       
       // Plan & Payment
-      plan: "basic",
+      plan: "gold",
       plan_duration: "3",
       payment_type: "upi",
       payment_screenshot: undefined,
@@ -190,7 +188,7 @@ export default function OrderFormPage() {
   // Calculate pricing
   const planValue = getSafePlanValue(watchedValues.plan)
   const planDuration = watchedValues.plan_duration || "3"
-  const basePrice = (PLAN_PRICES[planValue as keyof typeof PLAN_PRICES] || PLAN_PRICES.basic) * parseInt(planDuration as string)
+  const basePrice = (PLAN_PRICES[planValue as keyof typeof PLAN_PRICES] || PLAN_PRICES.gold) * parseInt(planDuration as string)
   const gst = Math.round(basePrice * 0.18)
   const total = basePrice + gst
 
@@ -341,7 +339,7 @@ export default function OrderFormPage() {
       
       // Calculate pricing
       const planDuration = data.plan_duration || "3"
-      const basePrice = (PLAN_PRICES[data.plan as keyof typeof PLAN_PRICES] || PLAN_PRICES.basic) * parseInt(planDuration as string);
+      const basePrice = (PLAN_PRICES[data.plan as keyof typeof PLAN_PRICES] || PLAN_PRICES.gold) * parseInt(planDuration as string);
       const gstAmount = Math.round(basePrice * 0.18);
       const totalAmount = basePrice + gstAmount;
 
@@ -1062,66 +1060,6 @@ export default function OrderFormPage() {
                     Choose Your Plan *
                   </Label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {/* Basic Plan */}
-                    <div 
-                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                        watchedValues.plan === 'basic' 
-                          ? 'border-green-500 bg-green-50 shadow-lg' 
-                          : 'border-gray-200 hover:border-green-300 hover:shadow-md bg-white'
-                      }`}
-                      onClick={() => form.setValue("plan", "basic")}
-                    >
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                          <span className="text-white font-bold text-lg">B</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-green-700 mb-2">BASIC</h3>
-                        <div className="text-2xl font-bold text-green-600 mb-3">₹499</div>
-                        <div className="text-sm text-gray-600 space-y-1">
-                          <p>• Website @499/Month+GST</p>
-                          <p>• Domain+Hosting Free</p>
-                        </div>
-                        {watchedValues.plan === 'basic' && (
-                          <div className="mt-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            ✓ SELECTED
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Silver Plan */}
-                    <div 
-                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                        watchedValues.plan === 'silver' 
-                          ? 'border-blue-500 bg-blue-50 shadow-lg' 
-                          : 'border-gray-200 hover:border-blue-300 hover:shadow-md bg-white'
-                      }`}
-                      onClick={() => form.setValue("plan", "silver")}
-                    >
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                          <span className="text-white font-bold text-lg">S</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-gray-700 mb-2">SILVER</h3>
-                        <div className="text-2xl font-bold text-gray-600 mb-3">₹799</div>
-                        <div className="text-sm text-gray-600 space-y-1">
-                          <p>• Domain + Hosting + Website Development</p>
-                          <p>• Basic SEO</p>
-                          <p>• Social Media Marketing (Facebook+Instagram)</p>
-                          <p>• 5 Digital Banners/Month</p>
-                          <p>• Logo Design</p>
-                          <p>• Google Business Profile</p>
-                          <p>• SSL Certificate</p>
-                          <p>• 24/7 Tech Support</p>
-                        </div>
-                        {watchedValues.plan === 'silver' && (
-                          <div className="mt-3 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            ✓ SELECTED
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
                     {/* Gold Plan */}
                     <div 
                       className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
@@ -1545,7 +1483,7 @@ export default function OrderFormPage() {
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span>Plan ({getSafePlanValue(watchedValues.plan).toUpperCase()}):</span>
-                        <span>₹{PLAN_PRICES[planValue as keyof typeof PLAN_PRICES] || PLAN_PRICES.basic}/month</span>
+                        <span>₹{PLAN_PRICES[planValue as keyof typeof PLAN_PRICES] || PLAN_PRICES.gold}/month</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Duration:</span>
