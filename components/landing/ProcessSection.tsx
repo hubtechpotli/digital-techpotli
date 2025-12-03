@@ -25,6 +25,18 @@ const ProcessCards: React.FC = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  const handleCardClick = (processStep: processType, stepNumber: number) => {
+    const deliverablesList = processStep.deliverables
+      .map((item, idx) => `${idx + 1}. ${item.item}`)
+      .join("\n");
+
+    const message = encodeURIComponent(
+      `Hello Techpotli Team! 👋\n\nI'm interested in learning more about Step ${stepNumber} of your process: *${processStep.title}*\n\n*Process Step Details:*\n${processStep.tagline}\n\n${processStep.description}\n\n*What's Included in This Step:*\n${deliverablesList}\n\nCould you please provide more information about this step and how it works? Thank you!`
+    );
+    
+    window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+  };
+
   const process: processType[] = [
     {
       title: "We Talk and Understand What You Need",
@@ -126,7 +138,8 @@ const ProcessCards: React.FC = () => {
           {process.map((item, index) => (
             <div
               key={`process-${index}`}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => handleCardClick(item, index + 1)}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-[1.02]"
             >
               {/* Image Section */}
               <div className="relative h-64 overflow-hidden">
