@@ -217,11 +217,14 @@ const CaseStudies: React.FC = () => {
           badge="Real Results for Real Businesses"
           heading="Recent case studies"
           description="Here are some real projects we've worked on. See how we helped businesses in Delhi get more customers, improve their online presence, and grow their sales."
-          size="md"
+          size="lg"
           align="center"
           as="h2"
           id="case-studies-heading"
           className="mb-8 md:mb-14"
+          badgeClassName="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 !text-white border-0 shadow-lg font-semibold"
+          headingClassName="bg-gradient-to-r from-gray-900 via-orange-700 to-gray-900 bg-clip-text text-transparent font-extrabold text-shadow-lg"
+          descriptionClassName="text-gray-600 font-medium max-w-3xl mx-auto"
         />
 
         {/* Case Studies */}

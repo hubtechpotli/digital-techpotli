@@ -15,11 +15,14 @@ const ServicesCards: React.FC = () => {
         badge="Core Digital Services"
         heading="Everything Your Business Needs to Grow Online"
         description="Techpotli delivers a complete suite of digital solutions — built to launch, scale, and grow your brand online."
-        size="md"
+        size="lg"
         align="center"
         as="h2"
         id="services-heading"
         className="mb-6 md:mb-14"
+        badgeClassName="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 !text-white border-0 shadow-lg font-semibold"
+        headingClassName="bg-gradient-to-r from-gray-900 via-teal-700 to-gray-900 bg-clip-text text-transparent font-extrabold text-shadow-lg"
+        descriptionClassName="text-gray-600 font-medium max-w-3xl mx-auto"
       />
 
       <div className="relative">

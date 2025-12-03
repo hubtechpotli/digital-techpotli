@@ -111,11 +111,14 @@ const ProcessCards: React.FC = () => {
         badge="Our Process"
         heading="How We Deliver Your Digital Solutions"
         description="Four simple steps: We understand your needs, build your solution, launch it, and help you grow. That's it."
-        size="md"
+        size="lg"
         align="center"
         as="h2"
         id="process-heading"
         className="mb-6 md:mb-14"
+        badgeClassName="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 !text-white border-0 shadow-lg font-semibold"
+        headingClassName="bg-gradient-to-r from-gray-900 via-purple-700 to-gray-900 bg-clip-text text-transparent font-extrabold text-shadow-lg"
+        descriptionClassName="text-gray-600 font-medium max-w-3xl mx-auto"
       />
 
       <div ref={containerRef} className="relative">

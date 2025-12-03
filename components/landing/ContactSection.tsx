@@ -148,12 +148,15 @@ function ContactUs() {
           badge="Contact Us"
           heading="Get in Touch"
           description="Contact Techpotli to discuss your digital transformation needs. We're here to help grow your business online."
-          size="md"
+          size="lg"
           align="center"
           as="h2"
           id="contact-heading"
           className="mb-6 sm:mb-8 md:mb-14"
           showDescriptionToScreenReaders={true}
+          badgeClassName="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 !text-white border-0 shadow-lg font-semibold"
+          headingClassName="bg-gradient-to-r from-gray-900 via-cyan-700 to-gray-900 bg-clip-text text-transparent font-extrabold text-shadow-lg"
+          descriptionClassName="text-gray-600 font-medium max-w-3xl mx-auto"
         />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8 xl:gap-10">

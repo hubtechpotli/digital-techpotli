@@ -127,12 +127,15 @@ function Testimonial() {
           badge="Testimonials"
           heading="Meet our happy clients"
           description="Read what our clients say about working with Techpotli."
-          size="md"
+          size="lg"
           align="center"
           as="h2"
           id="testimonials-heading"
           className="mb-6 sm:mb-8 md:mb-14"
           showDescriptionToScreenReaders={true}
+          badgeClassName="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 !text-white border-0 shadow-lg font-semibold"
+          headingClassName="bg-gradient-to-r from-gray-900 via-green-700 to-gray-900 bg-clip-text text-transparent font-extrabold text-shadow-lg"
+          descriptionClassName="text-gray-600 font-medium max-w-3xl mx-auto"
         />
 
         <div
