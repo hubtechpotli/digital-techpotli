@@ -5,9 +5,22 @@ import { SectionHeading } from "@/components/custom/SectionHeading";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getAllServices } from "@/lib/services";
+import type { ServiceType } from "@/lib/services";
 
 const ServicesCards: React.FC = () => {
   const services = getAllServices();
+
+  const handleCardClick = (service: ServiceType) => {
+    const deliverablesList = service.deliverables
+      .map((item, idx) => `${idx + 1}. ${item.item}`)
+      .join("\n");
+
+    const message = encodeURIComponent(
+      `Hello Techpotli Team! 👋\n\nI'm interested in learning more about your *${service.title}* service.\n\n*Service Details:*\n${service.tagline}\n\n${service.description}\n\n*What's Included:*\n${deliverablesList}\n\nCould you please provide more information and help me get started? Thank you!`
+    );
+    
+    window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+  };
 
   return (
     <div className="relative space-y-4 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
@@ -32,7 +45,8 @@ const ServicesCards: React.FC = () => {
             className="relative mb-6 flex h-fit w-full items-center justify-center sm:mb-8 md:mb-10"
           >
             <div
-              className="relative h-fit w-full rounded-lg bg-cover p-4 sm:p-6 md:p-8 lg:p-10"
+              onClick={() => handleCardClick(slide)}
+              className="relative h-fit w-full rounded-lg bg-cover p-4 sm:p-6 md:p-8 lg:p-10 cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
               style={{ backgroundImage: `url(${slide.slug === 'domain-hosting-support' || slide.slug === 'it-services' ? slide.bg_image : (slide.serviceImage || slide.bg_image)})` }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
@@ -63,14 +77,17 @@ const ServicesCards: React.FC = () => {
                   </ul>
 
                   <div className="mt-4">
-                    <Link
-                      href={`/services/${slide.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-md px-2 py-1 -ml-2"
-                      aria-label={`Learn more about ${slide.title}`}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCardClick(slide);
+                      }}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30"
+                      aria-label={`Contact about ${slide.title} on WhatsApp`}
                     >
-                      Learn More
+                      Contact on WhatsApp
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
                 </div>
 
