@@ -28,54 +28,54 @@ const ProcessCards: React.FC = () => {
 
   const process: processType[] = [
     {
-      title: "Consultation & Requirements",
-      tagline: "Understanding Your Business Needs",
+      title: "Step 1: We Talk and Understand What You Need",
+      tagline: "Starting with a Conversation",
       description:
-        "We start by understanding your business goals, target audience, and specific requirements. Whether you need a website, SEO services, social media marketing, or complete digital solutions, we analyze your needs and create a customized strategy. We discuss your budget, timeline, and expectations to ensure we deliver exactly what your business needs to grow online.",
+        "First thing we do? We call you or meet you in person in Delhi. We listen to what you want - maybe you need a website, or help with Google rankings, or someone to manage your social media. We ask questions about your business, your customers, and what you're trying to achieve. Then we figure out a plan that makes sense for you and fits your budget.",
       deliverables: [
-        { item: "Detailed business requirement analysis" },
-        { item: "Target audience research and competitor analysis" },
-        { item: "Customized digital strategy proposal" },
-        { item: "Project timeline and budget planning" },
+        { item: "We discuss your business goals and what you want to achieve" },
+        { item: "We look at your competitors and see what's working in your industry" },
+        { item: "We create a simple plan showing what we'll do and when" },
+        { item: "We agree on the budget and timeline that works for you" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
     },
     {
-      title: "Design & Development",
-      tagline: "Creating Your Digital Presence",
+      title: "Step 2: We Build What You Need",
+      tagline: "Creating Your Website and Content",
       description:
-        "Our expert designers and developers work together to create stunning websites, engaging social media content, and effective SEO strategies. We build responsive, fast-loading websites optimized for search engines. For social media, we create daily content, graphics, and videos. For SEO, we optimize your website structure, content, and build quality backlinks to improve rankings.",
+        "Once we know what you want, we get to work. If you need a website, we design it and build it. We make sure it looks good on phones and computers. If you need social media help, we create posts, photos, and videos. If you need SEO, we fix your website so Google can find you better. We do all of this while keeping you updated along the way.",
       deliverables: [
-        { item: "Modern, responsive website design" },
-        { item: "SEO-optimized content and structure" },
-        { item: "Social media content calendar and graphics" },
-        { item: "Fast-loading, mobile-friendly development" },
+        { item: "We design and build your website so it looks professional" },
+        { item: "We write content that helps Google find your website" },
+        { item: "We create social media posts and graphics you can use" },
+        { item: "We make sure everything works fast and looks good on mobile phones" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
     },
     {
-      title: "Implementation & Optimization",
-      tagline: "Launching & Optimizing Your Services",
+      title: "Step 3: We Launch Everything and Start Running It",
+      tagline: "Going Live and Making It Work",
       description:
-        "We launch your website, deploy SEO strategies, and start your social media campaigns. We continuously monitor and optimize performance - tracking website analytics, SEO rankings, social media engagement, and ad campaign results. We make data-driven improvements to ensure maximum ROI and business growth.",
+        "When everything's ready, we put it online. Your website goes live, your social media posts start going out, and your SEO work begins. But we don't just launch and leave - we keep an eye on things. We check if people are visiting your site, if your social media is getting engagement, and if your SEO is working. Then we tweak things to make them better.",
       deliverables: [
-        { item: "Website launch with hosting and SSL setup" },
-        { item: "Ongoing SEO monitoring and optimization" },
-        { item: "Daily social media management and posting" },
-        { item: "Performance analytics and monthly reports" },
+        { item: "We put your website online with proper hosting and security" },
+        { item: "We keep checking your Google rankings and fix things if needed" },
+        { item: "We post on your social media every day and respond to comments" },
+        { item: "We send you monthly reports showing what's working and what's not" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
     },
     {
-      title: "Growth & Support",
-      tagline: "Scaling Your Business Online",
+      title: "Step 4: We Keep Helping You Grow",
+      tagline: "Staying with You for the Long Run",
       description:
-        "We provide ongoing support to help your business grow. This includes website maintenance, content updates, SEO improvements, social media engagement, ad campaign optimization, and 24/7 technical support. We track your growth metrics and continuously refine strategies to drive more leads, sales, and business success.",
+        "After launch, we stick around. Your website needs updates? We do that. Your social media needs fresh content? We handle it. Something breaks? We fix it. We watch your numbers - how many people visit your site, how many call you, how many buy from you. Then we suggest changes to help you get even more customers. You can call us anytime if something comes up.",
       deliverables: [
-        { item: "24/7 technical support and maintenance" },
-        { item: "Monthly performance reports and insights" },
-        { item: "Continuous optimization and improvements" },
-        { item: "Scalable growth strategies" },
+        { item: "We're available to help you anytime - day or night" },
+        { item: "Every month we send you a report showing your progress" },
+        { item: "We keep improving things based on what's working" },
+        { item: "We help you grow step by step as your business gets bigger" },
       ],
       bg_image: "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
     },
@@ -194,9 +194,9 @@ const ProcessCards: React.FC = () => {
     <div ref={sectionRef} className="relative space-y-4 px-4 sm:px-6 lg:px-8">
       <SectionHeading
         ref={headingRef}
-        badge="Our Proven Process"
+        badge="How We Work"
         heading="How We Deliver Your Digital Solutions"
-        description="From consultation to launch and beyond, we follow a proven process to deliver website development, SEO services, social media marketing, and complete digital solutions that drive real business growth."
+        description="Here's exactly how we work with you from start to finish. We sit down, understand what you need, build it step by step, launch it, and then help you grow. Simple and straightforward."
         size="md"
         align="center"
         as="h2"

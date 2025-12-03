@@ -8,10 +8,50 @@ import { caseStudies } from "@/data/caseStudies";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
+
+interface ImageSliderProps {
+  images: string[];
+  caseStudyName: string;
+}
+
+const ImageSlider: React.FC<ImageSliderProps> = ({ images, caseStudyName }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 1000); // Change image every 1 second
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="relative h-full w-full rounded-lg overflow-hidden">
+      {images.map((image, imgIndex) => (
+        <div
+          key={imgIndex}
+          className={`absolute inset-0 transition-opacity duration-500 ${
+            imgIndex === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
+          <img
+            src={image}
+            alt={`${caseStudyName} project screenshot ${imgIndex + 1}`}
+            className="w-full h-full object-contain rounded-lg bg-gray-100"
+            loading={imgIndex === 0 ? "eager" : "lazy"}
+            decoding={imgIndex === 0 ? "sync" : "async"}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudyType;
@@ -113,11 +153,16 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index }) => {
         role="region"
         aria-label={`${caseStudy.name} project screenshots`}
       >
-        <ImageCarousel
-          images={caseStudy.demo_images}
-          caseStudyId={index}
-          caseStudyName={caseStudy.name}
-        />
+        {index === 0 ? (
+          <ImageSlider images={caseStudy.demo_images} caseStudyName={caseStudy.name} />
+        ) : (
+          // Carousel for other case studies
+          <ImageCarousel
+            images={caseStudy.demo_images}
+            caseStudyId={index}
+            caseStudyName={caseStudy.name}
+          />
+        )}
       </div>
     </section>
   );
@@ -169,9 +214,9 @@ const CaseStudies: React.FC = () => {
         {/* Header */}
         <SectionHeading
           ref={headingRef}
-          badge="Designs That Drive Growth"
+          badge="Real Results for Real Businesses"
           heading="Recent case studies"
-          description="Explore our latest projects featuring website development, SEO services, social media marketing, and digital solutions that have driven measurable growth for our clients."
+          description="Here are some real projects we've worked on. See how we helped businesses in Delhi get more customers, improve their online presence, and grow their sales."
           size="md"
           align="center"
           as="h2"
