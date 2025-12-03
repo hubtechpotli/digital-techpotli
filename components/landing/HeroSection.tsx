@@ -55,12 +55,8 @@ function HomePage() {
     <div className="item-center flex flex-col flex-nowrap">
       <div
         ref={heroRef}
-        className="relative h-fit w-full p-4 sm:p-6 md:p-8 lg:p-10"
+        className="relative h-fit w-full p-4 sm:p-6 md:p-8 lg:p-10 bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 overflow-hidden"
         style={{ 
-          backgroundImage: `url(https://img.freepik.com/premium-photo/scene-showcasing-team-software-developers-coding_941600-16247.jpg)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
           marginTop: '25px',
           marginLeft: 'calc(50% - 50vw)',
           marginRight: 'calc(50% - 50vw)',
@@ -68,21 +64,27 @@ function HomePage() {
           maxWidth: '100vw'
         }}
       >
-        <div className="hero space-y-4 pt-[48px] pb-[48px] md:pt-[64px] md:pb-[128px] md:text-center lg:pt-[80px] lg:pb-[96px]">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-teal-300/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-300/10 rounded-full blur-3xl" />
+        </div>
+        <div className="hero space-y-4 pt-[48px] pb-[48px] md:pt-[64px] md:pb-[128px] md:text-center lg:pt-[80px] lg:pb-[96px] relative z-10">
           <SectionHeading
             badge="Complete Digital Solutions"
             heading="Get Your Business Online and Growing"
             description={
               <div className="max-w-4xl mx-auto">
-                <div className="inline-block rounded-lg px-6 py-4 sm:px-8 sm:py-5">
-                  <span className="text-white text-lg sm:text-xl md:text-2xl font-medium drop-shadow-lg block">
+                <div className="inline-block rounded-lg bg-white/80 backdrop-blur-sm px-6 py-4 sm:px-8 sm:py-5 shadow-lg border border-white/50">
+                  <span className="text-gray-800 text-lg sm:text-xl md:text-2xl font-medium block">
                     We build{" "}
-                    <span className="font-semibold">websites</span>, handle{" "}
-                    <span className="font-semibold">SEO</span>, manage{" "}
-                    <span className="font-semibold">social media</span>, run{" "}
-                    <span className="font-semibold">Google and Facebook ads</span>, create{" "}
-                    <span className="font-semibold">brands</span>, and help you{" "}
-                    <span className="font-semibold">get more customers</span>. 
+                    <span className="font-semibold text-teal-600">websites</span>, handle{" "}
+                    <span className="font-semibold text-cyan-600">SEO</span>, manage{" "}
+                    <span className="font-semibold text-blue-600">social media</span>, run{" "}
+                    <span className="font-semibold text-indigo-600">Google and Facebook ads</span>, create{" "}
+                    <span className="font-semibold text-purple-600">brands</span>, and help you{" "}
+                    <span className="font-semibold text-pink-600">get more customers</span>. 
                     Based in New Delhi, Techpotli helps businesses across India establish a strong online presence and grow their customer base.
                   </span>
                 </div>
@@ -93,7 +95,7 @@ function HomePage() {
             align="center"
             as="h1"
             className="heading max-w-4/5 mx-auto"
-            headingClassName="md:mx-auto md:w-2/3 leading-tight text-white drop-shadow-lg"
+            headingClassName="md:mx-auto md:w-2/3 leading-tight text-gray-900"
             badgeClassName="bg-white/90 !text-gray-900 border-0 shadow-lg"
             descriptionClassName=""
             showDescriptionToScreenReaders={true}

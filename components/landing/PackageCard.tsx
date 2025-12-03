@@ -93,6 +93,15 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
         pkg.popular ? "md:-mt-4 md:mb-4" : ""
       }`}
     >
+      {/* Popular Badge - Outside overflow container */}
+      {pkg.popular && (
+        <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-20">
+          <span className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-lg animate-pulse whitespace-nowrap">
+            Most Popular
+          </span>
+        </div>
+      )}
+
       <div
         className={`relative h-full w-full rounded-2xl bg-white border-2 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl ${
           pkg.popular
@@ -110,15 +119,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
         />
 
         {/* Content */}
-        <div ref={contentRef} className="relative p-6 sm:p-8 space-y-6">
-          {/* Popular Badge */}
-          {pkg.popular && (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-              <span className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-lg animate-pulse">
-                Most Popular
-              </span>
-            </div>
-          )}
+        <div ref={contentRef} className={`relative p-6 sm:p-8 space-y-6 ${pkg.popular ? "pt-8 sm:pt-10" : ""}`}>
 
           {/* Number Badge */}
           <div className="absolute top-4 right-4">
