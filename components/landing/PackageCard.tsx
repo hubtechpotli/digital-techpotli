@@ -34,9 +34,13 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
       });
     }
 
-    // Hover animation
+    // Hover animation - Different for popular vs regular cards
     const card = cardRef.current;
     const handleMouseEnter = () => {
+      if (pkg.popular) {
+        // Premium card uses CSS scale(0.9) - no GSAP animation needed
+        return;
+      }
       gsap.to(card, {
         y: -8,
         scale: 1.02,
@@ -46,6 +50,10 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
     };
 
     const handleMouseLeave = () => {
+      if (pkg.popular) {
+        // Premium card uses CSS scale(0.9) - no GSAP animation needed
+        return;
+      }
       gsap.to(card, {
         y: 0,
         scale: 1,
@@ -93,60 +101,88 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
         pkg.popular ? "md:-mt-4 md:mb-4" : ""
       }`}
     >
-      {/* Popular Badge - Outside overflow container */}
+      {/* Premium Card Design for Popular Packages */}
       {pkg.popular && (
-        <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-20">
-          <span className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-lg animate-pulse whitespace-nowrap">
+        <>
+          {/* Premium Badge - Diagonal Corner */}
+          <span className="absolute -top-[10px] -left-[10px] w-[150px] h-[150px] overflow-hidden z-20 pointer-events-none flex items-center justify-center">
+            <span 
+              className="absolute w-[150%] h-10 flex items-center justify-center text-white font-semibold text-xs tracking-[0.1em] uppercase shadow-[0_5px_10px_rgba(0,0,0,0.23)]"
+              style={{
+                backgroundImage: 'linear-gradient(45deg, #ff6547 0%, #ffb144 51%, #ff7053 100%)',
+                transform: 'rotate(-45deg) translateY(-20px)',
+              }}
+            >
+              Premium
+            </span>
+          </span>
+
+          {/* Corner Decorative Element */}
+          <span 
+            className="absolute bottom-0 left-0 w-2.5 h-2.5 z-[-1]"
+            style={{
+              boxShadow: '140px -140px #cc3f47',
+              backgroundImage: 'linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%)',
+            }}
+          />
+        </>
+      )}
+
+      {/* Regular Badge for non-popular packages */}
+      {!pkg.popular && (
+        <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-20 opacity-0 pointer-events-none">
+          <span className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-lg whitespace-nowrap">
             Most Popular
           </span>
         </div>
       )}
 
       <div
-        className={`relative h-full w-full rounded-2xl bg-white border-2 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl ${
+        className={`relative h-full w-full rounded-[20px] border-2 transition-all duration-300 overflow-hidden cursor-pointer ${
           pkg.popular
-            ? "border-teal-400 shadow-teal-100/50"
-            : "border-gray-200 hover:border-teal-300"
+            ? "bg-gradient-to-br from-[rgba(58,56,56,0.623)] to-[rgb(31,31,31)] border-gray-700/50 shadow-[0_25px_50px_rgba(0,0,0,0.55)] hover:scale-[0.9]"
+            : "bg-white border-gray-200 hover:border-teal-300 shadow-lg hover:shadow-2xl"
         }`}
       >
-        {/* Gradient background overlay */}
-        <div
-          className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-            pkg.popular
-              ? "bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50"
-              : "bg-gradient-to-br from-gray-50 to-teal-50/30"
-          }`}
-        />
+        {/* Gradient background overlay - only for non-popular packages */}
+        {!pkg.popular && (
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-gray-50 to-teal-50/30" />
+        )}
 
         {/* Content */}
         <div ref={contentRef} className={`relative p-6 sm:p-8 space-y-6 ${pkg.popular ? "pt-8 sm:pt-10" : ""}`}>
 
-          {/* Number Badge */}
-          <div className="absolute top-4 right-4">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center border-2 border-teal-200">
-              <span className="text-xl font-bold text-teal-700">{index + 1}</span>
-            </div>
-          </div>
-
           {/* Header */}
           <div className="space-y-3 pt-2">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+            <h3 className={`text-2xl sm:text-3xl font-bold leading-tight ${
+              pkg.popular ? "text-white" : "text-gray-900"
+            }`}>
               {pkg.name}
             </h3>
             {pkg.description && (
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+              <p className={`text-sm sm:text-base leading-relaxed ${
+                pkg.popular ? "text-gray-300" : "text-gray-600"
+              }`}>
                 {pkg.description}
               </p>
             )}
           </div>
 
           {/* Pricing */}
-          <div className="flex items-baseline gap-2 pb-4 border-b border-gray-200">
-            <span className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
+          <div className={`flex items-baseline gap-2 pb-4 border-b ${
+            pkg.popular ? "border-gray-600/50" : "border-gray-200"
+          }`}>
+            <span className={`text-4xl sm:text-5xl font-extrabold ${
+              pkg.popular
+                ? "bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent"
+                : "bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent"
+            }`}>
               {pkg.price}
             </span>
             {pkg.priceNote && (
-              <span className="text-base sm:text-lg text-gray-600 font-medium">
+              <span className={`text-base sm:text-lg font-medium ${
+                pkg.popular ? "text-gray-300" : "text-gray-600"
+              }`}>
                 {pkg.priceNote}
               </span>
             )}
@@ -154,16 +190,26 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
 
           {/* Features */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-gray-900">What's Included:</h4>
+            <h4 className={`text-lg font-semibold ${
+              pkg.popular ? "text-white" : "text-gray-900"
+            }`}>
+              What's Included:
+            </h4>
             <ul className="space-y-3">
               {pkg.features.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-0.5">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 ${
+                      pkg.popular
+                        ? "bg-gradient-to-r from-orange-500 to-red-500"
+                        : "bg-gradient-to-r from-teal-500 to-cyan-500"
+                    }`}>
                       <Check className="h-4 w-4 text-white" />
                     </div>
                   </div>
-                  <span className="text-sm sm:text-base text-gray-700 leading-relaxed flex-1">
+                  <span className={`text-sm sm:text-base leading-relaxed flex-1 ${
+                    pkg.popular ? "text-gray-200" : "text-gray-700"
+                  }`}>
                     {feature.name}
                   </span>
                 </li>
@@ -182,7 +228,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
               }}
               className={`w-full font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
                 pkg.popular
-                  ? "bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white"
+                  ? "bg-gradient-to-r from-[#ff6547] via-[#ffb144] to-[#ff7053] hover:from-[#ff7053] hover:via-[#ffb144] hover:to-[#ff6547] text-white"
                   : "bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-gray-950 text-white"
               }`}
             >
@@ -192,9 +238,18 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
         </div>
 
         {/* Decorative gradient border on hover */}
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400/20 via-cyan-400/20 to-blue-400/20 blur-xl" />
-        </div>
+        {!pkg.popular && (
+          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-400/20 via-cyan-400/20 to-blue-400/20 blur-xl" />
+          </div>
+        )}
+        
+        {/* Premium glow effect for popular packages */}
+        {pkg.popular && (
+          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#ff6547]/20 via-[#ffb144]/20 to-[#ff7053]/20 blur-xl" />
+          </div>
+        )}
       </div>
     </div>
   );
