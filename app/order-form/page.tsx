@@ -285,6 +285,15 @@ export default function OrderFormPage() {
 
       if (!isValid || !triggerResult) {
         console.log('Step validation failed, staying on current step')
+        // Mark all fields as touched to show errors
+        if (currentStep === 1) {
+          const fields = ['owner_name', 'company_name', 'email', 'address', 'pincode', 'location', 'category']
+          fields.forEach(field => markFieldAsTouched(field))
+        }
+        // Show validation error message
+        if (typeof window !== 'undefined') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
         return
       }
 
@@ -566,6 +575,17 @@ export default function OrderFormPage() {
             </div>
           )}
           
+          {/* Validation Error Message */}
+          {hasAttemptedStep.has(currentStep) && !isStepValid() && currentStep === 1 && (
+            <div className="p-4 bg-yellow-50 border border-yellow-300 rounded-xl flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <p className="text-yellow-800 font-semibold mb-1">Please complete all required fields</p>
+                <p className="text-yellow-700 text-sm">Fill in all fields marked with * to continue to the next step.</p>
+              </div>
+            </div>
+          )}
+          
           {/* Error Display */}
           {error && (
             <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2">
@@ -579,7 +599,7 @@ export default function OrderFormPage() {
         </div>
 
         {/* Form */}
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-24 sm:pb-8">
           {/* Step 1: Business Info */}
           {currentStep === 1 && (
             <Card>
@@ -1747,7 +1767,7 @@ export default function OrderFormPage() {
           </div>
 
           {/* Navigation */}
-          <div className="pt-6 border-t">
+          <div className="sticky bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pt-4 pb-4 px-4 -mx-2 sm:mx-0 sm:relative sm:bg-transparent sm:border-t sm:shadow-none sm:pt-6">
             <div className="flex flex-col gap-3 sm:hidden">
               {currentStep < STEPS.length ? (
                 <div className="flex gap-3">
@@ -1768,7 +1788,12 @@ export default function OrderFormPage() {
                   <Button
                     type="button"
                     onClick={nextStep}
-                    className="flex items-center gap-2 flex-1 h-12 text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200"
+                    disabled={!isStepValid()}
+                    className={`flex items-center gap-2 flex-1 h-12 text-base font-semibold transition-all duration-200 ${
+                      !isStepValid()
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
+                    }`}
                   >
                     Next
                     <ChevronRight className="w-5 h-5" />
