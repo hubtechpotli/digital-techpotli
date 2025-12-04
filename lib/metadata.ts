@@ -65,7 +65,7 @@ export const siteConfig = {
     creator: "@techpotlidigital",
   },
   verification: {
-    google: "your-google-verification-code", 
+    google: "nyg13cTb8PvldsHAxhpOvHSLkCsCn8IkFyX83AZ7GOE", 
   },
   alternates: {
     canonical: "https://www.techpotlidigital.com",
@@ -268,6 +268,7 @@ export function generateBlogPostMetadata(
       canonical: blogUrl,
     },
     robots: siteConfig.robots,
+    verification: siteConfig.verification,
   };
 }
 

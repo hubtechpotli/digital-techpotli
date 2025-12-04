@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   ...defaultMetadata,
   other: {
     "dns-prefetch": "https://wa.me",
+    "google-site-verification": "nyg13cTb8PvldsHAxhpOvHSLkCsCn8IkFyX83AZ7GOE",
   },
 };
 
