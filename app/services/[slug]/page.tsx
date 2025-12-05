@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ServiceContactButton from "@/components/custom/ServiceContactButton";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/custom/SectionHeading";
+import { ServiceContentParser } from "@/components/custom/ServiceContentParser";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -151,17 +152,7 @@ export default async function ServiceDetailPage({
               )}
 
               <div className="prose prose-lg max-w-none">
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  {service.fullDescription.split(". ").map((sentence, index) => {
-                    if (!sentence.trim()) return null;
-                    const fullSentence = sentence.endsWith(".") ? sentence : `${sentence}.`;
-                    return (
-                      <p key={index} className="text-lg sm:text-xl leading-8">
-                        {fullSentence}
-                      </p>
-                    );
-                  })}
-                </div>
+                <ServiceContentParser content={service.fullDescription} />
               </div>
 
               {/* CTA Section */}
