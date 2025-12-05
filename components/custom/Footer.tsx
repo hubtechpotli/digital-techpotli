@@ -196,7 +196,7 @@ function Footer() {
             <p className="text-gray-400 text-sm text-center md:text-left">
               © {currentYear} Techpotli. All rights reserved.
             </p>
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-gray-400">
               <Link
                 href="/packages"
                 className="hover:text-teal-400 transition-colors"
@@ -214,6 +214,37 @@ function Footer() {
                 className="hover:text-teal-400 transition-colors"
               >
                 About
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link
+                href="/terms-conditions"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                href="/privacy-policy"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/shipping-policy"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Shipping Policy
+              </Link>
+              <Link
+                href="/refund-return-policy"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Refund Policy
+              </Link>
+              <Link
+                href="/disclaimer"
+                className="hover:text-teal-400 transition-colors"
+              >
+                Disclaimer
               </Link>
             </div>
           </div>
