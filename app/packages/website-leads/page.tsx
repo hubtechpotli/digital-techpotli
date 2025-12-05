@@ -5,8 +5,12 @@ import { websiteLeadsPackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Website + Leads Guaranteed Services - Techpotli",
-  description: "Get guaranteed business leads with our comprehensive website and lead generation packages. Choose from Basic, Standard, and Premium plans.",
+  title: "Website With Guaranteed Lead Generation Services India | High-Converting Sites",
+  description:
+    "Get a high-converting website with guaranteed lead generation services in India. Perfect for small businesses needing real inquiries, calls, and WhatsApp leads.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages/website-leads",
+  },
 };
 
 export default function WebsiteLeadsPage() {

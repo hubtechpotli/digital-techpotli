@@ -3,7 +3,7 @@ import { getAllServices } from '@/lib/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.techpotlidigital.com';
-  const now = new Date();
+  const now = new Date('2025-12-05T09:29:10+00:00');
   
   // Static pages
   const staticPages = [
@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: baseUrl,
       lastModified: now,
       changeFrequency: 'weekly' as const,
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
@@ -23,13 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services`,
       lastModified: now,
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/packages`,
+      url: `${baseUrl}/live-projects`,
       lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
@@ -38,10 +38,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/live-projects`,
+      url: `${baseUrl}/packages`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
     },
     // Package pages
     {
@@ -87,16 +87,64 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/services/website-design`,
+      url: `${baseUrl}/services/website-design-development`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/digital-marketing`,
+      url: `${baseUrl}/services/seo-services`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/social-media-marketing`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/google-meta-ads`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/branding-creative-design`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/domain-hosting-support`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.64,
+    },
+    {
+      url: `${baseUrl}/services/full-stack-development`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.64,
+    },
+    {
+      url: `${baseUrl}/services/custom-software-development`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.64,
+    },
+    {
+      url: `${baseUrl}/services/crm-development`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.64,
+    },
+    {
+      url: `${baseUrl}/services/it-services`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.64,
     },
     // Legal pages
     {

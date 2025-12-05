@@ -11,20 +11,8 @@ export const revalidate = 3600; // Revalidate every hour
 
 export const metadata: Metadata = {
   title: "Digital Service Packages - Website, SEO, Social Media & More | Techpotli",
-  description: "Choose from our digital service packages: website development, e-commerce, SEO, social media marketing, Google ads, and more. Packages designed for businesses in New Delhi and across India. See pricing and what's included.",
-  keywords: [
-    "website packages",
-    "SEO packages",
-    "social media marketing packages",
-    "e-commerce packages",
-    "digital marketing packages",
-    "website development packages"
-  ],
-  openGraph: {
-    title: "Digital Service Packages - Website, SEO, Social Media & More | Techpotli",
-    description: "Choose from our digital service packages: website development, e-commerce, SEO, social media marketing, Google ads, and more.",
-    url: "https://www.techpotlidigital.com/packages",
-  },
+  description:
+    "Choose from our digital service packages: website development, e-commerce, SEO, social media marketing, Google ads, and more. Packages designed for businesses in New Delhi and across India. See pricing and what's included.",
   alternates: {
     canonical: "https://www.techpotlidigital.com/packages",
   },

@@ -5,8 +5,12 @@ import { socialSeoGmbPackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Social Media, SEO & GMB Services - Techpotli",
-  description: "Complete digital marketing solution with social media marketing, SEO optimization, and Google My Business management. All-in-one package for ₹2499+GST/Month.",
+  title: "SMM, SEO & GMB Combo Package India | Complete Digital Marketing Solution",
+  description:
+    "Get a complete digital marketing combo package for India-based businesses—SEO, social media marketing, and GMB optimization to boost visibility and daily inquiries.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages/social-seo",
+  },
 };
 
 export default function SocialSeoGmbPage() {

@@ -7,21 +7,9 @@ import type { Metadata } from "next";
 import GetConsultationButton from "@/components/custom/GetConsultationButton";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Services in Delhi NCR - SEO, Social Media & More | Techpotli",
-  description: "Elevate your business with our proven digital marketing solutions. Expert SEO services, social media marketing, Google Business Profile optimization, and content marketing in Delhi NCR. Trusted digital marketing company.",
-  keywords: [
-    "digital marketing services",
-    "SEO services Delhi",
-    "social media marketing",
-    "Google Business Profile",
-    "content marketing",
-    "digital marketing company Delhi NCR"
-  ],
-  openGraph: {
-    title: "Digital Marketing Services in Delhi NCR - SEO, Social Media & More | Techpotli",
-    description: "Elevate your business with our proven digital marketing solutions. Expert SEO, social media marketing, and more in Delhi NCR.",
-    url: "https://www.techpotlidigital.com/services/digital-marketing",
-  },
+  title: "Affordable Digital Marketing Services India | Complete Growth Solutions",
+  description:
+    "Get affordable digital marketing services in India including SEO, SMM, PPC, content marketing, and website development tailored for startups and SMEs.",
   alternates: {
     canonical: "https://www.techpotlidigital.com/services/digital-marketing",
   },

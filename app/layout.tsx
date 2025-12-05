@@ -1,6 +1,7 @@
 import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/Navbar";
 import { WhatsAppChatbot } from "@/components/custom/WhatsAppChatbot";
+import { GTM } from "@/components/custom/GTM";
 import { SimpleAuthProvider } from "@/lib/auth/SimpleAuthProvider";
 import { defaultMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <GTM />
         <SimpleAuthProvider>
           <div className="min-h-screen w-full">
             <Navbar />
