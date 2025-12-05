@@ -5,8 +5,12 @@ import { oneTimeSetupPackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "One-Time Website Setup Packages - Techpotli",
-  description: "One-time website development packages for business websites, e-commerce stores, and custom solutions. Choose from basic to enterprise-level packages.",
+  title: "One-Time Website Setup Services India | Fast & Affordable Web Development",
+  description:
+    "Get your business website live quickly with one-time website setup services in India. Includes domain, hosting, setup, essential pages, and mobile-friendly design.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages/one-time-setup",
+  },
 };
 
 export default function OneTimeSetupPage() {

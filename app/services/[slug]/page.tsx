@@ -14,6 +14,60 @@ export async function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
+// Service metadata mapping
+const serviceMetadataMap: Record<string, { title: string; description: string }> = {
+  "website-design-development": {
+    title: "Affordable Website Design Services in Delhi | Best Web Design for SMBs",
+    description:
+      "Affordable website design services in Delhi for small businesses and startups. Fast, responsive, SEO-friendly websites built with clean UI/UX to help your business grow online.",
+  },
+  "seo-services": {
+    title: "SEO Services in Delhi for Startups | Low Cost SEO Services India",
+    description:
+      "Get affordable SEO services in Delhi for startups. Low cost SEO services India with proven results. Boost your Google rankings and drive organic traffic to your website.",
+  },
+  "social-media-marketing": {
+    title: "Best Social media Agency in Delhi NCR | Social Media Marketing for Small Businesses",
+    description:
+      "Boost your brand with the best social media marketing (SMM) agency in Delhi NCR. Affordable Instagram & Facebook marketing for small businesses, startups, and growing brands across India.",
+  },
+  "google-meta-ads": {
+    title: "Google Ads Management Services India | PPC Lead Generation for SMBs",
+    description:
+      "Get high-ROI Google Ads management services in India. We create profitable PPC campaigns for small businesses and startups to drive leads, calls, and conversions at a low cost.",
+  },
+  "branding-creative-design": {
+    title: "Branding & Creative Design Services India | TechPotli Digital",
+    description:
+      "Transform your brand identity with expert branding and creative design services - logos, brand style, graphics and visual identity tailored for small businesses in India. Stand out and attract customers with professional design.",
+  },
+  "domain-hosting-support": {
+    title: "Domain, Hosting & Support Services India | Reliable Web Hosting & Maintenance",
+    description:
+      "Get affordable domain registration, secure hosting and 24/7 support services for businesses in India. We ensure fast loading, high uptime and hassle-free website maintenance so you stay online confidently.",
+  },
+  "full-stack-development": {
+    title: "Best Website Development Agency in Delhi NCR | Custom Web Solutions",
+    description:
+      "Custom website development services in Delhi NCR for startups and SMEs. We build high-performance websites, landing pages, and complete digital solutions at affordable prices.",
+  },
+  "custom-software-development": {
+    title: "Custom Software Development Services India | Tailored Web & Mobile Apps",
+    description:
+      "Build custom web and mobile applications with our expert software development team. From concept to deployment we deliver tailored, scalable and secure solutions for startups and enterprises in India.",
+  },
+  "crm-development": {
+    title: "CRM Development Services India | Business CRM & Automation Solutions",
+    description:
+      "Transform your business with custom CRM development services in India. Streamline customer management, sales tracking and automation ideal for small and medium businesses aiming for growth.",
+  },
+  "it-services": {
+    title: "IT Services & Support India | Complete Tech Solutions for Businesses",
+    description:
+      "Get comprehensive IT services and support for your business in India including network setup, maintenance, software updates, security and ongoing technical assistance to keep operations smooth.",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -26,25 +80,14 @@ export async function generateMetadata({
     return generatePageMetadata("home");
   }
 
-  return {
+  const seoData = serviceMetadataMap[slug] || {
     title: `${service.title} - Techpotli`,
     description: service.description,
-    keywords: [
-      service.title.toLowerCase(),
-      "Techpotli",
-      "New Delhi",
-      "India"
-    ],
-    openGraph: {
-      title: `${service.title} - Techpotli`,
-      description: service.description,
-      url: `https://www.techpotlidigital.com/services/${slug}`,
-      images: service.serviceImage ? [service.serviceImage] : [],
-    },
-    twitter: {
-      title: `${service.title} - Techpotli`,
-      description: service.description,
-    },
+  };
+
+  return {
+    title: seoData.title,
+    description: seoData.description,
     alternates: {
       canonical: `https://www.techpotlidigital.com/services/${slug}`,
     },

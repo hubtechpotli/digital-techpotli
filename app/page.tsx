@@ -31,7 +31,33 @@ const ContactSection = dynamic(() => import("@/components/landing/ContactSection
 });
 
 export const metadata: Metadata = {
-  ...generatePageMetadata("home"),
+  title: "Best Digital Marketing Company in Delhi | Website Design Services | SEO, SMO, PPC",
+  description:
+    "Looking for the best digital marketing agency in Delhi? We help small businesses grow with web Development services, SEO, SMM, Google Ads, and Best website design company in Delhi.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/",
+  },
+  openGraph: {
+    title: "Best Digital Marketing Company in Delhi |Website Design Services |SEO,SMO,PCC",
+    description:
+      "Looking for the best digital marketing agency in Delhi?We help small businesses grow with web Development services, SEO,SMM,Google Ads, and Best website design company in Delhi.",
+    type: "website",
+    url: "https://www.techpotlidigital.com/",
+    siteName: "TechPotli Digital",
+    images: [
+      {
+        url: "https://techpotli.com/wp-content/uploads/2025/06/New_Techpotli_Logo_22-1400x460.png",
+        alt: "TechPotli Digital — Best Digital Marketing Agency in Delhi NCR",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Digital Marketing Company in Delhi |Website Design Services |SEO,SMO,PCC",
+    description:
+      "Looking for the best digital marketing agency in Delhi?We help small businesses grow with web Development services, SEO,SMM,Google Ads, and Best website design company in Delhi.",
+    images: ["https://techpotli.com/wp-content/uploads/2025/06/New_Techpotli_Logo_22-1400x460.png"],
+  },
   other: {
     "preload-video": "/Video Project 1.mp4",
   },
@@ -41,40 +67,24 @@ export default function Home() {
   const organizationStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Techpotli",
-    "description": "Complete digital solutions company in New Delhi, India. We provide website development, e-commerce platforms, SEO services, social media marketing, Google & Meta ads, custom software, CRM development, and full IT services.",
-    "url": "https://www.techpotlidigital.com",
-    "logo": "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "C52A, LGF, Kalka Ji",
-      "addressLocality": "New Delhi",
-      "postalCode": "110019",
-      "addressCountry": "IN"
-    },
+    "name": "Techpotli Digital",
+    "alternateName": "Techpotli Digital Marketing  Company  in India",
+    "url": "https://www.techpotlidigital.com/",
+    "logo": "",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+91-9810659666",
-      "contactType": "customer service",
+      "telephone": "011-47200987, +91-9911475599",
+      "contactType": "technical support",
+      "contactOption": "TollFree",
       "areaServed": "IN",
-      "availableLanguage": "en"
+      "availableLanguage": ["en", "Hindi"],
     },
     "sameAs": [
-      "https://www.techpotlidigital.com"
+      "https://www.facebook.com/profile.php?id=61584717418829",
+      "https://www.instagram.com/techpotlidigitalofficial/",
+      "https://www.youtube.com/@TechPotliDigital",
+      "https://www.pinterest.com/TechpotliDigital/",
     ],
-    "knowsAbout": [
-      "Website Development",
-      "E-Commerce Development",
-      "SEO Services",
-      "Social Media Marketing",
-      "Google Ads Management",
-      "Meta Ads Management",
-      "Custom Software Development",
-      "CRM Development",
-      "Full Stack Development",
-      "IT Services",
-      "Digital Marketing"
-    ]
   };
 
   const websiteStructuredData = {

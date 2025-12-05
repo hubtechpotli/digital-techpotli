@@ -5,8 +5,12 @@ import { ecommercePackages } from "@/lib/packages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "E-Commerce Website Services With Admin Panel - Techpotli",
-  description: "Complete e-commerce solutions with admin panel, payment gateway integration, SEO, and social media marketing. Choose from Basic and Standard plans.",
+  title: "Ecommerce Website Design With Admin Panel India | Online Store Experts",
+  description:
+    "Launch your online store with expert ecommerce website design services in India. Includes a full admin panel, product management, secure checkout, and payment gateway setup.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages/ecommerce",
+  },
 };
 
 export default function EcommercePage() {

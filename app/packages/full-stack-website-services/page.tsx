@@ -5,8 +5,12 @@ import type { Metadata } from "next";
 import WhatsAppContactButton from "@/components/custom/WhatsAppContactButton";
 
 export const metadata: Metadata = {
-  title: "Full Stack Website Services Packages - Techpotli",
-  description: "Complete full stack website solutions with e-commerce, social media marketing, and lead generation. Choose from Basic, Standard, and Premium packages.",
+  title: "Full Stack Web Development Services India | End-to-End Web Solutions",
+  description:
+    "Get full stack web development services in India for custom websites, web apps, ecommerce, CRM integrations, and complete digital infrastructure setup.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages/full-stack-website-services",
+  },
 };
 
 export default function FullStackWebsiteServicesPage() {

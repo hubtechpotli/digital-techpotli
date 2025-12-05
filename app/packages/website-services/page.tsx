@@ -9,8 +9,12 @@ export const dynamic = 'force-static';
 export const revalidate = 3600; // Revalidate every hour
 
 export const metadata: Metadata = {
-  title: "Website Services Packages - Techpotli",
-  description: "Choose from our website service packages - Basic, Standard, and Premium plans with hosting, SEO, and social media marketing.",
+  title: "Website Design Services Packages in India | Affordable Website Plans",
+  description:
+    "Choose from affordable website design service packages in India crafted for startups and small businesses. Fast, mobile-friendly and SEO-ready websites with clean UI/UX.",
+  alternates: {
+    canonical: "https://www.techpotlidigital.com/packages/website-services",
+  },
 };
 
 export default function WebsiteServicesPage() {
