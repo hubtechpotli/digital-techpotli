@@ -78,56 +78,83 @@ export const caseStudies = [
   {
     main_image_src:
       "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
-    project_title: "Getting More Customers Without Wasting Money on Ads",
+    project_title: "Astrology Website That's Earning Real Money Through Smart Marketing",
     logo_src:
       "/New_Techpotli_Logo_(2)[2].png",
     description:
-      "A business owner was spending money on Google and Facebook ads but wasn't getting results. We took over their ad campaigns, fixed the targeting, and started getting actual customers who were interested in buying.",
+      "Occult Star, an astrology website, came to Techpotli looking to establish a strong online presence. We built them a professional website and implemented a comprehensive marketing strategy. Today, they're earning significantly more through their online presence and our marketing efforts.",
     features: [
-      "Fixed their Google Ads so they only showed up to people actually searching for their services",
-      "Set up Facebook and Instagram ads that reached the right people at the right time",
-      "Made sure the ads only showed to people who might actually become customers",
-      "Started getting real phone calls and inquiries instead of just wasting ad budget",
+      "Built a professional astrology website with easy navigation and beautiful design",
+      "Implemented SEO strategies to rank higher on Google for astrology-related searches",
+      "Created social media marketing campaigns that drive real traffic and inquiries",
+      "Set up conversion-optimized pages that turn visitors into paying customers",
+      "Ongoing marketing support that keeps bringing in new clients regularly",
     ],
     case_study_link: "#",
-    name: "Google & Meta Ads",
+    name: "Website Development & Digital Marketing",
     demo_images: [
-      "https://i.pinimg.com/originals/a8/6b/4c/a86b4c29b404e30d338075fa0c8931cd.jpg",
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
-    ],
-    test_img:
-      "https://i.pinimg.com/originals/a8/6b/4c/a86b4c29b404e30d338075fa0c8931cd.jpg",
-    testimonial: `"I was throwing money away on ads that weren't working. Techpotli came in, figured out what was wrong, and fixed it. Now my ads actually bring in customers. They know how to make advertising work without wasting your money."`,
-    founder_name: "Vikram Singh",
-    position: "Business Owner",
-  },
-  {
-    main_image_src:
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
-    project_title: "Creating a Brand Look That People Remember",
-    logo_src:
-      "/New_Techpotli_Logo_(2)[2].png",
-    description:
-      "A new business needed a logo and brand look that would make people remember them. We designed everything from scratch - logo, colors, fonts, and even their business cards. Now they have a consistent look everywhere.",
-    features: [
-      "Designed a logo that actually looks professional and stands out from competitors",
-      "Picked colors and fonts that work well together and match their business vibe",
-      "Made business cards, social media posts, and other materials all look consistent",
-      "People started recognizing their brand when they saw the logo or colors anywhere",
-    ],
-    case_study_link: "#",
-    name: "Branding & Design",
-    demo_images: [
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804376/fasimage_skodum.png",
       "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
       "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
     ],
     test_img:
-      "https://i.pinimg.com/736x/14/e5/e7/14e5e77bfecf23e4333f09dd8cbfbc54.jpg",
-    testimonial: `"Starting a business, I had no idea how important branding was. Techpotli created our logo and brand style, and it just clicked. Now when people see our logo anywhere, they know it's us. The design really represents what we're about."`,
-    founder_name: "Neha Gupta",
-    position: "Creative Director",
+      "/review/WhatsApp Image 2025-11-27 at 15.55.22_b85b066e.jpg",
+    testimonial: `"After taking services from Techpotli, they built my website for Occult Star. Now I am earning a good amount through their marketing strategy and new website. The team really understands how to grow an online business. Highly recommended!"`,
+    founder_name: "Occult Star",
+    position: "Astrology Website Owner",
+  },
+  {
+    main_image_src:
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+    project_title: "Multi-Branch Lab Website That Expanded Reach and Patient Reviews",
+    logo_src:
+      "/New_Techpotli_Logo_(2)[2].png",
+    description:
+      "Wellcare Lab, with 10 branches across the city, needed a professional website to connect with patients and showcase their services. Techpotli built them a comprehensive website that improved their online reach significantly. Today, they're receiving positive patient reviews and increased inquiries from all their locations.",
+    features: [
+      "Built a professional multi-branch lab website with easy location finder",
+      "Created patient-friendly interface for booking appointments and viewing services",
+      "Implemented SEO strategies to help patients find their nearest branch easily",
+      "Set up review system that encourages patients to share their positive experiences",
+      "Improved online visibility leading to increased patient inquiries across all 10 branches",
+    ],
+    case_study_link: "#",
+    name: "Healthcare Website Development",
+    demo_images: [
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    ],
+    test_img:
+      "/review/WhatsApp Image 2025-12-01 at 17.11.08_7b807ad1.jpg",
+    testimonial: `"The service is too good. They built my website for Wellcare Lab. I have 10 branches of lab in my city. After building my website, my reach improved significantly and many more patients are writing positive reviews. Techpotli's team delivered exactly what we needed!"`,
+    founder_name: "Wellcare Lab",
+    position: "Lab Owner",
+  },
+  {
+    main_image_src:
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+    project_title: "Forex Exchange Platform That Streamlines Currency Exchange Operations",
+    logo_src:
+      "/New_Techpotli_Logo_(2)[2].png",
+    description:
+      "Shivalix Forex, a money exchange service provider, needed a robust software solution to manage currency exchange operations efficiently. Techpotli's software team built them a comprehensive platform that handles multiple currency conversions, transaction management, and customer operations seamlessly.",
+    features: [
+      "Built a secure and reliable forex exchange software platform",
+      "Created user-friendly interface for currency conversion and transaction management",
+      "Implemented real-time exchange rate updates and calculations",
+      "Developed secure payment processing and transaction tracking system",
+      "Built admin dashboard for managing operations and customer data efficiently",
+    ],
+    case_study_link: "#",
+    name: "Forex Exchange Software Development",
+    demo_images: [
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    ],
+    test_img:
+      "/review/WhatsApp Image 2025-11-25 at 12.47.31_f10c7b9e.jpg",
+    testimonial: `"Techpotli's software team is exceptional! They built a complete forex exchange platform for Shivalix Forex that handles all our currency exchange operations smoothly. The team's expertise in software development is outstanding, and they delivered exactly what we needed. The platform is secure, user-friendly, and has made our operations so much more efficient. Highly professional team and excellent service!"`,
+    founder_name: "Shivalix Forex",
+    position: "Forex Exchange Owner",
   },
 ];
 
