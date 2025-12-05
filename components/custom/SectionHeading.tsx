@@ -79,7 +79,7 @@ const sizeVariants = {
     spacing: "space-y-1 ",
   },
   lg: {
-    badge: "text-sm px-4 py-1 sm:px-6",
+    badge: "text-xs sm:text-sm px-3 py-1 sm:px-4 md:px-6",
     heading: "text-3xl sm:text-4xl md:text-5xl leading-tight",
     description: "text-base sm:text-md leading-snug",
     spacing: "space-y-4 sm:space-y-6",
@@ -131,20 +131,20 @@ const SectionHeading = forwardRef<HTMLDivElement, SectionHeadingProps>(
         {/* Badge */}
         <div
           className={cn(
-            "bg-tag-bg w-fit rounded-3xl",
+            "bg-tag-bg w-fit max-w-full rounded-3xl mx-auto sm:mx-0",
             variant.badge,
             align === "center" && "md:mx-auto",
             badgeClassName
           )}
           role="banner"
         >
-          <p className="text-tag align-middle font-medium [&_svg]:text-current">
+          <p className="text-tag align-middle font-medium [&_svg]:text-current break-words whitespace-normal text-center sm:text-left">
             {Icon && (
               <span className="mt-1.5 mr-2 inline-block self-center">
                 <Icon height={12} width={12} aria-hidden="true" className="text-current" />
               </span>
             )}
-            {badge}
+            <span className="inline-block">{badge}</span>
           </p>
         </div>
 
