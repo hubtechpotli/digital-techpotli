@@ -196,6 +196,28 @@ function Navbar() {
     }
   }, [isMenuOpen]);
 
+  // Reset header visibility on route change
+  useEffect(() => {
+    const headerEl = navRef.current;
+    if (!headerEl) return;
+
+    // Reset header position to visible when navigating to a new page
+    // This ensures the header is always visible when you navigate to a new route
+    gsap.to(headerEl, { 
+      y: 0, 
+      duration: 0.3, 
+      ease: "power2.out",
+      overwrite: "auto"
+    });
+    
+    // Small delay to ensure DOM is ready, then refresh ScrollTrigger
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
   useGSAP(() => {
     const headerEl = navRef.current;
     if (!headerEl) return;
