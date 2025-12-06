@@ -243,9 +243,7 @@ export function generateBlogPostMetadata(
 }
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.name,
-  },
+  title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
     ...siteConfig.keywords,
