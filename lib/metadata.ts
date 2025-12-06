@@ -267,6 +267,11 @@ export const defaultMetadata: Metadata = {
   verification: siteConfig.verification,
   alternates: siteConfig.alternates,
   category: siteConfig.category,
+  icons: {
+    icon: "/WhatsApp Image 2025-12-06 at 18.41.42_19962b05.jpg",
+    apple: "/WhatsApp Image 2025-12-06 at 18.41.42_19962b05.jpg",
+    shortcut: "/WhatsApp Image 2025-12-06 at 18.41.42_19962b05.jpg",
+  },
   other: {
     "author": "TechPotli Digital",
     "language": "English",
