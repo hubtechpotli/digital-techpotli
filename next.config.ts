@@ -104,8 +104,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons', 'gsap', '@gsap/react'],
   },
-  // Production optimizations
-  swcMinify: true,
   // Remove console.logs in production
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
