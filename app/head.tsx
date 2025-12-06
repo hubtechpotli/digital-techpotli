@@ -3,8 +3,8 @@ export default function Head() {
     <>
       <title>Techpotli — Web & Digital Services</title>
       <meta name="description" content="Techpotli — web design, development, and digital marketing services to grow your business." />
-      <link rel="icon" href="/New_Techpotli_Logo_(2)[2].png" />
-      <link rel="apple-touch-icon" href="/New_Techpotli_Logo_(2)[2].png" />
+      <link rel="icon" href="/WhatsApp Image 2025-12-06 at 18.41.42_19962b05.jpg" />
+      <link rel="apple-touch-icon" href="/WhatsApp Image 2025-12-06 at 18.41.42_19962b05.jpg" />
       {/* Preconnect common external image host to reduce DNS/TCP latency */}
       <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
       <link rel="dns-prefetch" href="https://res.cloudinary.com" />
