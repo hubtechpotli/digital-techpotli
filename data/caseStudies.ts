@@ -17,8 +17,7 @@ export const caseStudies = [
     case_study_link: "#",
     name: "Website Development & Digital Marketing",
     demo_images: [
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+      "https://tse4.mm.bing.net/th/id/OIP.CGVke5SXCGwGVGFX5dVo9wHaEP?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
     ],
     test_img:
       "/review/WhatsApp Image 2025-11-27 at 15.55.22_b85b066e.jpg",
@@ -44,8 +43,7 @@ export const caseStudies = [
     case_study_link: "#",
     name: "Healthcare Website Development",
     demo_images: [
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+      "https://tse2.mm.bing.net/th/id/OIP.Voou7VXHpaVffz60V-W60wHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
     ],
     test_img:
       "/review/WhatsApp Image 2025-12-01 at 17.11.08_7b807ad1.jpg",
@@ -71,14 +69,40 @@ export const caseStudies = [
     case_study_link: "#",
     name: "Forex Exchange Software Development",
     demo_images: [
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
-      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+      "https://tse1.mm.bing.net/th/id/OIP.0M5hpDRpHDGjizYCEGT-HAHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
     ],
     test_img:
       "/review/WhatsApp Image 2025-11-25 at 12.47.31_f10c7b9e.jpg",
     testimonial: `"Techpotli's software team is exceptional! They built a complete forex exchange platform for Shivalix Forex that handles all our currency exchange operations smoothly. The team's expertise in software development is outstanding, and they delivered exactly what we needed. The platform is secure, user-friendly, and has made our operations so much more efficient. Highly professional team and excellent service!"`,
     founder_name: "Shivalix Forex",
     position: "Forex Exchange Owner",
+  },
+  {
+    main_image_src:
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+    project_title: "Astrology Business Website That's Growing Online Presence",
+    logo_src:
+      "/New_Techpotli_Logo_(2)[2].png",
+    description:
+      "Astro Abhishek came to Techpotli to establish a strong online presence for his astrology business. We built him a professional website and implemented digital marketing strategies that helped him reach more clients and grow his business online.",
+    features: [
+      "Built a professional astrology website with beautiful design and easy navigation",
+      "Implemented SEO strategies to help clients find his services on Google",
+      "Created social media marketing campaigns that drive real inquiries",
+      "Set up conversion-optimized pages that turn visitors into clients",
+      "Ongoing support and marketing that keeps bringing in new customers",
+    ],
+    case_study_link: "#",
+    name: "Astrology Website & Digital Marketing",
+    demo_images: [
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755799085/ssimage_bxr8i6.png",
+      "https://res.cloudinary.com/dieth2xb3/image/upload/v1755804235/aaaimage_zbypst.png",
+    ],
+    test_img:
+      "/review/WhatsApp Image 2025-12-05 at 19.01.24_efb4207b.jpg",
+    testimonial: `"I'm really happy with Techpotli's services. They built my astrology website and helped me with digital marketing. The website looks professional and my online presence has improved a lot. Now I'm getting more clients through their marketing efforts. The team is very responsive and they understand what I need. I would definitely recommend Techpotli to anyone looking for website and marketing services!"`,
+    founder_name: "Astro Abhishek",
+    position: "Astrologer",
   },
 ];
 
