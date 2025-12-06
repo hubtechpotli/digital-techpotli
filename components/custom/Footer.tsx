@@ -28,8 +28,10 @@ function Footer() {
   const contactInfo = {
     phone: "011-47200987",
     mobile: "9911475599",
+    mobile2: "9211405666",
+    mobile3: "9211404666",
     email: "info@techpotlidigital.com",
-    address: "C52A, LGF, Kalka Ji, New Delhi 110019",
+    address: "Techpotli E commerce Pvt Limited, C52A, LGF, Kalka Ji, New Delhi 110019",
     website: "www.techpotlidigital.com",
   };
 
@@ -76,7 +78,7 @@ function Footer() {
                 <Facebook className="h-6 w-6" />
               </a>
               <a
-                href="https://www.instagram.com/techpotlidigitalofficial/"
+                href="https://www.instagram.com/techpotlidigital/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-pink-500 transition-colors duration-200"
@@ -214,6 +216,18 @@ function Footer() {
                     className="block text-gray-300 hover:text-teal-400 transition-colors"
                   >
                     {contactInfo.mobile}
+                  </a>
+                  <a
+                    href={`tel:+91${contactInfo.mobile2}`}
+                    className="block text-gray-300 hover:text-teal-400 transition-colors"
+                  >
+                    +91 {contactInfo.mobile2}
+                  </a>
+                  <a
+                    href={`tel:+91${contactInfo.mobile3}`}
+                    className="block text-gray-300 hover:text-teal-400 transition-colors"
+                  >
+                    +91 {contactInfo.mobile3}
                   </a>
                 </div>
               </div>

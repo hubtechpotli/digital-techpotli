@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Introduction</h2>
               <p className="text-gray-600 mb-6">
-                At TechPotli Digital, operated by MATOSIA INFOTECH ("we", "our", "us"), your privacy is of utmost importance. This Privacy Policy explains how we collect, store, use, and protect your personal information when you access or use our website https://www.techpotlidigital.com (hereinafter referred to as "Platform") and its services. By using this Platform, you agree to the practices outlined in this Privacy Policy, along with our Terms of Use and applicable service or product terms.
+                At TechPotli Digital, operated by Techpotli E commerce Private Limited ("we", "our", "us"), your privacy is of utmost importance. This Privacy Policy explains how we collect, store, use, and protect your personal information when you access or use our website https://www.techpotlidigital.com (hereinafter referred to as "Platform") and its services. By using this Platform, you agree to the practices outlined in this Privacy Policy, along with our Terms of Use and applicable service or product terms.
               </p>
               <p className="text-gray-600 mb-6">
                 Please note: Some sections of our Platform may be accessed without registration. However, certain services require you to create an account or provide personal information. This Platform and its services are offered only within India, and all personal data will primarily be processed and stored in India in accordance with applicable Indian laws, including the Information Technology Act, 2000.

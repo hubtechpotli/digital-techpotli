@@ -160,7 +160,7 @@
 2. Verify social media icons are visible
 3. Click each icon and verify links:
    - Facebook: `https://www.facebook.com/profile.php?id=61584717418829`
-   - Instagram: `https://www.instagram.com/techpotlidigitalofficial/`
+   - Instagram: `https://www.instagram.com/techpotlidigital/`
    - Pinterest: `https://www.pinterest.com/TechpotliDigital/`
    - YouTube: `https://www.youtube.com/@TechPotliDigital`
 
@@ -348,7 +348,7 @@ console.log('Author:', document.querySelector('meta[name="author"]')?.content);
 
 **Social Media Links:**
 - Facebook: https://www.facebook.com/profile.php?id=61584717418829
-- Instagram: https://www.instagram.com/techpotlidigitalofficial/
+- Instagram: https://www.instagram.com/techpotlidigital/
 - Pinterest: https://www.pinterest.com/TechpotliDigital/
 - YouTube: https://www.youtube.com/@TechPotliDigital
 
