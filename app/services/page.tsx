@@ -20,50 +20,8 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   const services = getAllServices();
 
-  const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Digital Marketing and Web Development Services",
-    "provider": {
-      "@type": "Organization",
-      "name": "Techpotli",
-      "url": "https://www.techpotlidigital.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "C52A, LGF, Kalka Ji",
-        "addressLocality": "New Delhi",
-        "postalCode": "110019",
-        "addressCountry": "IN"
-      }
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "India"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Services",
-      "itemListElement": services.map((service, index) => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": service.title,
-          "description": service.description
-        },
-        "position": index + 1
-      }))
-    }
-  };
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-teal-50/20 to-cyan-50/20">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceStructuredData),
-        }}
-      />
       {/* Hero Section */}
       <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 pt-24 pb-16 sm:pt-28 sm:pb-20 md:py-24 overflow-hidden">
         {/* Animated Background Elements */}

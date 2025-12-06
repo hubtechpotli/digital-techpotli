@@ -1,7 +1,7 @@
 import { AnimatedHeroSection } from "@/components/custom/AnimatedHeroSection";
 import { AnimatedMainContent } from "@/components/custom/AnimatedMainContent";
 import { getBlogPosts, getPost } from "@/lib/blog";
-import { generateBlogPostMetadata, generateBlogPostStructuredData } from "@/lib/metadata";
+import { generateBlogPostMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -39,22 +39,8 @@ export default async function Blog({
     notFound();
   }
 
-  const structuredData = generateBlogPostStructuredData(
-    post.metadata.title,
-    post.metadata.summary,
-    post.metadata.publishedAt,
-    slug
-  );
-
   return (
     <div className="min-h-screen w-full relative">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
 
       {/* Header Section */}
       <AnimatedHeroSection post={post} />

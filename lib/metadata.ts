@@ -136,36 +136,6 @@ export const pageMetadata = {
     },
     alternates: {
       canonical: "https://www.techpotlidigital.com/about",
-    },
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Techpotli",
-      "description": "Complete digital solutions company providing e-commerce platforms, IT services, and digital marketing solutions",
-      "url": "https://www.techpotlidigital.com",
-      "logo": "https://www.techpotlidigital.com/New_Techpotli_Logo_(2)[2].png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "C52A, LGF, Kalka Ji",
-        "addressLocality": "New Delhi",
-        "postalCode": "110019",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-11-47200987",
-        "contactType": "customer service"
-      },
-      "knowsAbout": [
-        "E-Commerce Development",
-        "Full Stack Development",
-        "IT Services",
-        "Digital Marketing",
-        "SEO Services",
-        "Social Media Marketing",
-        "CRM Development",
-        "Custom Software Development"
-      ]
     }
   },
   blog: {
@@ -271,43 +241,6 @@ export function generateBlogPostMetadata(
     verification: siteConfig.verification,
   };
 }
-
-
-export function generateBlogPostStructuredData(
-  title: string,
-  description: string,
-  publishedTime: string,
-  slug: string,
-  author?: string
-) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: title,
-    datePublished: publishedTime,
-    dateModified: publishedTime,
-    description,
-    url: `https://www.techpotlidigital.com/blog/${slug}`,
-    author: {
-      "@type": "Person",
-      name: author || "Techpotli Team",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Techpotli",
-      logo: {
-        "@type": "ImageObject",
-        url: siteConfig.logo,
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://www.techpotlidigital.com/blog/${slug}`,
-    },
-  };
-}
-
-
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
