@@ -110,8 +110,6 @@ const nextConfig: NextConfig = {
       exclude: ['error', 'warn'], // Keep error and warn logs
     } : false,
   },
-  // Output configuration
-  output: 'standalone',
   // Power optimizations
   poweredByHeader: false,
   // Headers for caching and performance
