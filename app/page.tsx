@@ -87,18 +87,6 @@ export default function Home() {
     ],
   };
 
-  const websiteStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Techpotli",
-    "url": "https://www.techpotlidigital.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.techpotlidigital.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  };
-
   return (
     <main id="main-content" role="main" className="relative overflow-x-hidden">
       <script
@@ -106,13 +94,6 @@ export default function Home() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(organizationStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteStructuredData),
         }}
       />
       {/* Full-width video section after header - edge to edge */}
