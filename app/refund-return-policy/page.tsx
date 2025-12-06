@@ -51,7 +51,7 @@ export default function RefundReturnPolicyPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Introduction</h2>
               <p className="text-gray-600 mb-6">
-                At TechPotli Digital, operated by MATOSIA INFOTECH, we value our customers and strive to provide the best online shopping experience. This Refund and Return Policy outlines the conditions under which you can return products purchased from our Platform and the process for receiving a refund. By making a purchase on https://www.techpotlidigital.com/, you agree to comply with this policy.
+                At TechPotli Digital, operated by Techpotli E commerce Private Limited, we value our customers and strive to provide the best online shopping experience. This Refund and Return Policy outlines the conditions under which you can return products purchased from our Platform and the process for receiving a refund. By making a purchase on https://www.techpotlidigital.com/, you agree to comply with this policy.
               </p>
             </div>
 

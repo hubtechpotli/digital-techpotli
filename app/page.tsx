@@ -81,7 +81,7 @@ export default function Home() {
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61584717418829",
-      "https://www.instagram.com/techpotlidigitalofficial/",
+      "https://www.instagram.com/techpotlidigital/",
       "https://www.youtube.com/@TechPotliDigital",
       "https://www.pinterest.com/TechpotliDigital/",
     ],

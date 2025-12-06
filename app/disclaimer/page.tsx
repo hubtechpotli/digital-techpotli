@@ -51,7 +51,7 @@ export default function DisclaimerPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Introduction</h2>
               <p className="text-gray-600 mb-6">
-                The information provided on TechPotli Digital (https://www.techpotlidigital.com/) owned and operated by MATOSIA INFOTECH, is for general informational purposes only. By accessing or using this website, you agree to the terms of this Disclaimer.
+                The information provided on TechPotli Digital (https://www.techpotlidigital.com/) owned and operated by Techpotli E commerce Private Limited, is for general informational purposes only. By accessing or using this website, you agree to the terms of this Disclaimer.
               </p>
             </div>
 
@@ -65,7 +65,7 @@ export default function DisclaimerPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 mt-8">Accuracy of Information</h2>
               <p className="text-gray-600 mb-6">
-                While we strive to ensure that the information on this website is accurate and up-to-date, MATOSIA INFOTECH does not guarantee the completeness, reliability, or accuracy of any content. Any reliance you place on such information is strictly at your own risk.
+                While we strive to ensure that the information on this website is accurate and up-to-date, Techpotli E commerce Private Limited does not guarantee the completeness, reliability, or accuracy of any content. Any reliance you place on such information is strictly at your own risk.
               </p>
             </div>
 
@@ -79,14 +79,14 @@ export default function DisclaimerPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 mt-8">Limitation of Liability</h2>
               <p className="text-gray-600 mb-6">
-                MATOSIA INFOTECH, its affiliates, and partners shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, or any loss of profit or revenue, arising out of or in connection with your use of this website or reliance on its content.
+                Techpotli E commerce Private Limited, its affiliates, and partners shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, or any loss of profit or revenue, arising out of or in connection with your use of this website or reliance on its content.
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 mt-8">Intellectual Property</h2>
               <p className="text-gray-600 mb-6">
-                All content on this Platform, including logos, graphics, images, text, and designs, is the property of MATOSIA INFOTECH or its licensors and is protected under applicable trademark and intellectual property laws. Unauthorized use of any content without previous written authorization is strictly prohibited.
+                All content on this Platform, including logos, graphics, images, text, and designs, is the property of Techpotli E commerce Private Limited or its licensors and is protected under applicable trademark and intellectual property laws. Unauthorized use of any content without previous written authorization is strictly prohibited.
               </p>
             </div>
 

@@ -70,7 +70,6 @@ function Testimonial() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLElement>(null);
 
   const testimonials = caseStudies.filter((cs) => cs.testimonial);
 
@@ -91,18 +90,6 @@ function Testimonial() {
           start: "top 92%",
           duration: 0.7,
           delay: Math.min(index * 0.04, 0.3),
-          markers: false,
-        });
-      });
-    }
-
-    if (statsRef.current && gsap.effects?.fadeUpOnScroll) {
-      const items = statsRef.current.querySelectorAll('[data-stat-item="true"]');
-      items.forEach((el) => {
-        gsap.effects.fadeUpOnScroll(el as Element, {
-          start: "top 95%",
-          duration: 0.6,
-          // delay: index * 0.08,
           markers: false,
         });
       });
@@ -150,56 +137,6 @@ function Testimonial() {
             </div>
           ))}
         </div>
-
-        <section
-          className="mt-10 sm:mt-12 md:mt-14 lg:mt-16"
-          aria-labelledby="stats-heading"
-          role="region"
-          ref={statsRef}
-        >
-          <h3 id="stats-heading" className="sr-only">
-            Impact metrics
-          </h3>
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col divide-y divide-gray-200 sm:divide-y-0 sm:flex-row sm:divide-x">
-              <div
-                className="flex flex-1 flex-col items-start px-4 py-4 sm:items-center sm:px-6 sm:py-6 md:py-0"
-                data-stat-item="true"
-              >
-                <div className="text-heading text-3xl font-semibold sm:text-4xl md:text-5xl">
-                  1200+
-                </div>
-                <p className="text-label mt-1 text-sm sm:mt-2 sm:text-base">
-                  AI-powered projects delivered
-                </p>
-              </div>
-
-              <div
-                className="flex flex-1 flex-col items-start px-4 py-4 sm:items-center sm:px-6 sm:py-6 md:py-0"
-                data-stat-item="true"
-              >
-                <div className="text-heading text-3xl font-semibold sm:text-4xl md:text-5xl">
-                  50+
-                </div>
-                <p className="text-label mt-1 text-sm sm:mt-2 sm:text-base">
-                  Global clients we've partnered with
-                </p>
-              </div>
-
-              <div
-                className="flex flex-1 flex-col items-start px-4 py-4 sm:items-center sm:px-6 sm:py-6 md:py-0"
-                data-stat-item="true"
-              >
-                <div className="text-heading text-3xl font-semibold sm:text-4xl md:text-5xl">
-                  $50k+
-                </div>
-                <p className="text-label mt-1 text-sm sm:mt-2 sm:text-base">
-                  Monthly recurring revenue generated
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </section>
     </>
   );

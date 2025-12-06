@@ -1735,7 +1735,7 @@ export default function OrderFormPage() {
                       <div className="bg-white rounded-lg p-4 mt-3">
                         <p><strong>Agent Contact:</strong> 011-47200987</p>
                         <p><strong>Customer Care:</strong> 9911475599</p>
-                        <p><strong>Payment Location:</strong> Matosia Infotech, C52A Basement, Kalka Ji, New Delhi 110019</p>
+                        <p><strong>Payment Location:</strong> Techpotli E commerce Private Limited, C52A Basement, Kalka Ji, New Delhi 110019</p>
                         <p><strong>Note:</strong> Please bring exact amount and collect receipt</p>
                       </div>
                     </div>
@@ -1899,7 +1899,7 @@ export default function OrderFormPage() {
                           <p><strong>Agent Contact:</strong> <span className="text-orange-600 font-mono">011-47200987</span></p>
                           <p><strong>Customer Care:</strong> <span className="text-orange-600 font-mono">9911475599</span></p>
                           <p><strong>Payment Location:</strong></p>
-                          <p className="text-xs sm:text-sm text-gray-600 ml-4">Matosia Infotech, C52A Basement, Kalka Ji, New Delhi 110019</p>
+                          <p className="text-xs sm:text-sm text-gray-600 ml-4">Techpotli E commerce Private Limited, C52A Basement, Kalka Ji, New Delhi 110019</p>
                           <p><strong>Amount to Pay:</strong> <span className="text-green-600 font-bold">₹{total}</span></p>
                           <p><strong>Note:</strong> Please bring exact amount and collect receipt</p>
                         </div>
