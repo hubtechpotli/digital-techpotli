@@ -21,6 +21,28 @@ export const blogPosts: BlogPost[] = [
     slug: "why-digital-marketing-services-essential-online-businesses",
     isTopPick: true,
   },
+  {
+    id: "2",
+    title: "How to Use AI to Grow Your Small Business Online",
+    date: "8 Dec 2025",
+    tag: "Digital Marketing",
+    image: "/Blog/Blog 2.png",
+    excerpt:
+      "Find the best low budget digital marketing tools for startups. Explore affordable online marketing tools and free beginner tools for small business growth.",
+    slug: "how-to-use-ai-to-grow-your-small-business-online",
+    isTopPick: true,
+  },
+  {
+    id: "3",
+    title: "Best Low-Budget Tools for Startups to Start Online Marketing",
+    date: "9 Dec 2025",
+    tag: "Digital Marketing",
+    image: "/Blog/Blog3.png",
+    excerpt:
+      "Discover the best low-budget digital marketing tools for startups. Explore affordable online marketing tools, free beginner tools, and solutions for small businesses.",
+    slug: "best-low-budget-tools-for-startups-to-start-online-marketing",
+    isTopPick: true,
+  },
 ];
 
 export const blogTags = [
