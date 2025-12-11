@@ -14,7 +14,7 @@ interface VideoPlayerProps {
 export function VideoPlayer({ src, className, style, priority = false, poster, webmSrc }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(priority); // Start visible if priority
+  const [isVisible, setIsVisible] = useState(true); // Always load immediately for fastest start
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,35 +22,8 @@ export function VideoPlayer({ src, className, style, priority = false, poster, w
     const container = containerRef.current;
     if (!video || !container) return;
 
-    // For priority videos (hero), load immediately
-    if (priority) {
-      setIsVisible(true);
-      video.load();
-    } else {
-      // Use Intersection Observer for lazy loading below-the-fold videos
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setIsVisible(true);
-              // Start loading video when visible
-              video.load();
-              observer.disconnect();
-            }
-          });
-        },
-        {
-          rootMargin: "50px", // Start loading 50px before entering viewport
-          threshold: 0.01,
-        }
-      );
-
-      observer.observe(container);
-
-      return () => {
-        observer.disconnect();
-      };
-    }
+    // Always load immediately for hero video
+    video.load();
   }, [priority]);
 
   useEffect(() => {
@@ -111,21 +84,13 @@ export function VideoPlayer({ src, className, style, priority = false, poster, w
 
   return (
     <div ref={containerRef} className="relative w-full">
-      {/* Placeholder/Poster while loading */}
-      {!isLoaded && (
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-teal-500/20 via-cyan-500/20 to-blue-500/20 animate-pulse z-10"
-          style={style}
-          aria-hidden="true"
-        />
-      )}
       <video
         ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        preload={priority ? "auto" : isVisible ? "metadata" : "none"}
+        preload="auto"
         poster={poster}
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
@@ -135,8 +100,8 @@ export function VideoPlayer({ src, className, style, priority = false, poster, w
           width: "100%",
           height: "auto",
           objectFit: "cover",
-          opacity: isLoaded ? 1 : 0,
-          transition: "opacity 0.5s ease-in",
+          opacity: 1,
+          transition: isLoaded ? "opacity 0.2s ease-in" : undefined,
           ...style,
         } as React.CSSProperties}
         aria-label="Background animation video"
