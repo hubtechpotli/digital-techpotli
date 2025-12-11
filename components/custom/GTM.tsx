@@ -43,6 +43,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gtag('config', 'G-C1CVPMMB5K', {
               page_path: window.location.pathname,
             });
+            gtag('config', 'G-J7BFN4WEM3', {
+              page_path: window.location.pathname,
+            });
           `,
         }}
       />
