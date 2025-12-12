@@ -151,105 +151,133 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
         )}
 
         {/* Content */}
-        <div ref={contentRef} className={`relative p-6 sm:p-8 space-y-6 ${pkg.popular ? "pt-8 sm:pt-10" : ""}`}>
-
-          {/* Image if provided */}
-          {pkg.image && (
-            <div className="relative w-full h-48 sm:h-56 rounded-lg overflow-hidden mb-4">
+        {pkg.id === "logo-designing" ? (
+          <div className="relative p-4 sm:p-6">
+            <div className="relative w-full h-56 sm:h-64 rounded-lg overflow-hidden shadow-md bg-white">
               <Image
-                src={pkg.image}
-                alt={pkg.name}
+                src="/WhatsApp Image 2025-12-12 at 14.06.59.jpeg"
+                alt="Logo Designing"
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
-          )}
+          </div>
+        ) : pkg.id === "google-my-business" ? (
+          <div className="relative p-4 sm:p-6">
+            <div className="relative w-full h-56 sm:h-64 rounded-lg overflow-hidden shadow-md bg-white">
+              <Image
+                src="/WhatsApp Image 2025-12-12 at 14.07.00.jpeg"
+                alt="Google My Business / GBP"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+              />
+            </div>
+          </div>
+        ) : (
+          <div ref={contentRef} className={`relative p-6 sm:p-8 space-y-6 ${pkg.popular ? "pt-8 sm:pt-10" : ""}`}>
 
-          {/* Header */}
-          <div className="space-y-3 pt-2">
-            <h3 className={`text-2xl sm:text-3xl font-bold leading-tight ${
-              pkg.popular ? "text-white" : "text-gray-900"
-            }`}>
-              {pkg.name}
-            </h3>
-            {pkg.description && (
-              <p className={`text-sm sm:text-base leading-relaxed ${
-                pkg.popular ? "text-gray-300" : "text-gray-600"
-              }`}>
-                {pkg.description}
-              </p>
+            {/* Image if provided */}
+            {pkg.image && (
+              <div className="relative w-full h-48 sm:h-56 rounded-lg overflow-hidden mb-4">
+                <Image
+                  src={pkg.image}
+                  alt={pkg.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
             )}
-          </div>
 
-          {/* Pricing */}
-          <div className={`flex items-baseline gap-2 pb-4 border-b ${
-            pkg.popular ? "border-gray-600/50" : "border-gray-200"
-          }`}>
-            <span className={`text-4xl sm:text-5xl font-extrabold ${
-              pkg.popular
-                ? "bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent"
-                : "bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent"
-            }`}>
-              {pkg.price}
-            </span>
-            {pkg.priceNote && (
-              <span className={`text-base sm:text-lg font-medium ${
-                pkg.popular ? "text-gray-300" : "text-gray-600"
+            {/* Header */}
+            <div className="space-y-3 pt-2">
+              <h3 className={`text-2xl sm:text-3xl font-bold leading-tight ${
+                pkg.popular ? "text-white" : "text-gray-900"
               }`}>
-                {pkg.priceNote}
-              </span>
-            )}
-          </div>
+                {pkg.name}
+              </h3>
+              {pkg.description && (
+                <p className={`text-sm sm:text-base leading-relaxed ${
+                  pkg.popular ? "text-gray-300" : "text-gray-600"
+                }`}>
+                  {pkg.description}
+                </p>
+              )}
+            </div>
 
-          {/* Features */}
-          <div className="space-y-4">
-            <h4 className={`text-lg font-semibold ${
-              pkg.popular ? "text-white" : "text-gray-900"
+            {/* Pricing */}
+            <div className={`flex items-baseline gap-2 pb-4 border-b ${
+              pkg.popular ? "border-gray-600/50" : "border-gray-200"
             }`}>
-              What's Included:
-            </h4>
-            <ul className="space-y-3">
-              {pkg.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 ${
-                      pkg.popular
-                        ? "bg-gradient-to-r from-orange-500 to-red-500"
-                        : "bg-gradient-to-r from-teal-500 to-cyan-500"
-                    }`}>
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                  </div>
-                  <span className={`text-sm sm:text-base leading-relaxed flex-1 ${
-                    pkg.popular ? "text-gray-200" : "text-gray-700"
-                  }`}>
-                    {feature.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CTA Button */}
-          <div className="pt-4">
-            <Button
-              onClick={() => {
-                const message = encodeURIComponent(
-                  `Hello! I'm interested in the *${pkg.name}* package from Techpotli.\n\nPrice: ${pkg.price}${pkg.priceNote ? ` ${pkg.priceNote}` : ""}\n\nCould you please provide more details and help me get started?`
-                );
-                window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
-              }}
-              className={`w-full font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+              <span className={`text-4xl sm:text-5xl font-extrabold ${
                 pkg.popular
-                  ? "bg-gradient-to-r from-[#ff6547] via-[#ffb144] to-[#ff7053] hover:from-[#ff7053] hover:via-[#ffb144] hover:to-[#ff6547] text-white"
-                  : "bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-gray-950 text-white"
-              }`}
-            >
-              Get Started
-            </Button>
+                  ? "bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent"
+                  : "bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent"
+              }`}>
+                {pkg.price}
+              </span>
+              {pkg.priceNote && (
+                <span className={`text-base sm:text-lg font-medium ${
+                  pkg.popular ? "text-gray-300" : "text-gray-600"
+                }`}>
+                  {pkg.priceNote}
+                </span>
+              )}
+            </div>
+
+            {/* Features */}
+            <div className="space-y-4">
+              <h4 className={`text-lg font-semibold ${
+                pkg.popular ? "text-white" : "text-gray-900"
+              }`}>
+                What's Included:
+              </h4>
+              <ul className="space-y-3">
+                {pkg.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-0.5">
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 ${
+                        pkg.popular
+                          ? "bg-gradient-to-r from-orange-500 to-red-500"
+                          : "bg-gradient-to-r from-teal-500 to-cyan-500"
+                      }`}>
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <span className={`text-sm sm:text-base leading-relaxed flex-1 ${
+                      pkg.popular ? "text-gray-200" : "text-gray-700"
+                    }`}>
+                      {feature.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-4">
+              <Button
+                onClick={() => {
+                  const message = encodeURIComponent(
+                    `Hello! I'm interested in the *${pkg.name}* package from Techpotli.\n\nPrice: ${pkg.price}${pkg.priceNote ? ` ${pkg.priceNote}` : ""}\n\nCould you please provide more details and help me get started?`
+                  );
+                  window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
+                }}
+                className={`w-full font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+                  pkg.popular
+                    ? "bg-gradient-to-r from-[#ff6547] via-[#ffb144] to-[#ff7053] hover:from-[#ff7053] hover:via-[#ffb144] hover:to-[#ff6547] text-white"
+                    : "bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-gray-950 text-white"
+                }`}
+              >
+                Get Started
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Decorative gradient border on hover */}
         {!pkg.popular && (
