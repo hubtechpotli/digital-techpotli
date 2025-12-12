@@ -34,7 +34,7 @@ const ProcessCards: React.FC = () => {
       `Hello Techpotli Team! 👋\n\nI'm interested in learning more about Step ${stepNumber} of your process: *${processStep.title}*\n\n*Process Step Details:*\n${processStep.tagline}\n\n${processStep.description}\n\n*What's Included in This Step:*\n${deliverablesList}\n\nCould you please provide more information about this step and how it works? Thank you!`
     );
     
-    window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+    window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
   };
 
   const process: processType[] = [

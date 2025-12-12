@@ -78,6 +78,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'www.pepperanimation.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.intellectoutsource.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.rawpixel.com',
       },
       {

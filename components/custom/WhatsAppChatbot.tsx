@@ -69,7 +69,7 @@ export function WhatsAppChatbot() {
         const whatsappMessage = encodeURIComponent(
           `Hello! I'm interested in *${service.title}* service from Techpotli.\n\nCould you please provide more information about this service and discuss how it can help my business?`
         );
-        window.open(`https://wa.me/919810659666?text=${whatsappMessage}`, "_blank");
+        window.open(`https://wa.me/919911475599?text=${whatsappMessage}`, "_blank");
       }, 2000);
     }, 1500);
   };

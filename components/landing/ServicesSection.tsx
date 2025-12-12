@@ -19,7 +19,7 @@ const ServicesCards: React.FC = () => {
       `Hello Techpotli Team! 👋\n\nI'm interested in learning more about your *${service.title}* service.\n\n*Service Details:*\n${service.tagline}\n\n${service.description}\n\n*What's Included:*\n${deliverablesList}\n\nCould you please provide more information and help me get started? Thank you!`
     );
     
-    window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+    window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
   };
 
   return (

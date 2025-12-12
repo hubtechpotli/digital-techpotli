@@ -12,6 +12,7 @@ export interface Package {
   popular?: boolean;
   category: string;
   description?: string;
+  image?: string;
 }
 
 export const websiteServicesPackages: Package[] = [
@@ -407,6 +408,40 @@ export const fullStackWebsitePackages: Package[] = [
     ],
   },
 ];
+
+export const logoDesigningPackage: Package = {
+  id: "logo-designing",
+  name: "Logo Designing",
+  price: "₹49",
+  priceNote: "Only",
+  category: "Design Services",
+  description: "Professional logo design at an unbeatable price",
+  image: "https://www.pepperanimation.com/wp-content/uploads/2019/04/redback-logo-design-1024x353.jpg",
+  features: [
+    { name: "Professional Logo Design", included: true },
+    { name: "Multiple Design Concepts", included: true },
+    { name: "High Resolution Files", included: true },
+    { name: "Source Files Included", included: true },
+    { name: "Quick Turnaround", included: true },
+  ],
+};
+
+export const gmbPackage: Package = {
+  id: "google-my-business",
+  name: "Google My Business / GBP",
+  price: "₹199",
+  priceNote: "Only",
+  category: "Digital Marketing Services",
+  description: "Get your business listed and optimized on Google My Business",
+  image: "https://www.intellectoutsource.com/blog/images/adding-products-in-google-business-profile.jpg",
+  features: [
+    { name: "Google Business Profile Setup", included: true },
+    { name: "Business Information Optimization", included: true },
+    { name: "Photos & Posts Management", included: true },
+    { name: "Review Management", included: true },
+    { name: "Local SEO Optimization", included: true },
+  ],
+};
 
 export function getAllPackages(): Package[] {
   return [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages, ...fullStackWebsitePackages];

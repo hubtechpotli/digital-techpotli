@@ -140,7 +140,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index }) => {
             const message = encodeURIComponent(
               `Hello! I'm interested in learning more about your ${caseStudy.name} case study. Could you please share more details about this project?`
             );
-            window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+            window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
           }}
         >
           View case study

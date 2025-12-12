@@ -194,7 +194,7 @@ export default function OrderFormPage() {
 
   // Environment variables
   const UPI_VPA = process.env.NEXT_PUBLIC_UPI_VPA || "techpotli@paytm"
-  const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919810659666"
+  const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919911475599"
 
   // Auto-save draft functionality
   const saveDraft = useCallback(async (data: any) => {
@@ -2191,7 +2191,7 @@ ${data.payment_screenshot_url ? '📎 Payment screenshot uploaded' : ''}
 
 Please let me know the next steps. Thank you!`
 
-  const whatsappUrl = `https://wa.me/919810659666?text=${encodeURIComponent(whatsappMessage)}`
+  const whatsappUrl = `https://wa.me/919911475599?text=${encodeURIComponent(whatsappMessage)}`
   
   const handleWhatsAppRedirect = () => {
     if (typeof window !== 'undefined') {
@@ -2201,7 +2201,7 @@ Please let me know the next steps. Thank you!`
   
   const handleCallRedirect = () => {
     if (typeof window !== 'undefined') {
-      window.location.href = 'tel:+919810659666'
+      window.location.href = 'tel:+919911475599'
     }
   }
   
