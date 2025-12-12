@@ -434,3 +434,22 @@ width: 3rem;
 .scroll-pause-on-hover:hover {
   animation-play-state: paused;
 }
+
+/* First Visit Banner Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

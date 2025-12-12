@@ -431,7 +431,7 @@ export default function LiveProjectsPage() {
                 const message = encodeURIComponent(
                   "Hello! I've viewed your live projects and I'm interested in getting started with Techpotli. Could you please provide more information about your services?"
                 );
-                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
               }}
               className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
             >

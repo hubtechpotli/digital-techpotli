@@ -114,7 +114,7 @@ const AboutPage = () => {
     const message = encodeURIComponent(
       `Hello Techpotli Team! 👋\n\nI'm interested in learning more about your *${serviceTitle}* services.\n\n${serviceDescription}\n\nCould you please provide more information and help me get started? Thank you!`
     );
-    window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+    window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
   };
 
   const services = [
@@ -554,7 +554,7 @@ const AboutPage = () => {
                         const message = encodeURIComponent(
                           "Hello! I've read about Techpotli and I'd like to get in touch. Could you please provide more information about your services?"
                         );
-                        window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                        window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
                       }}
                       className="w-full bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 hover:from-teal-600 hover:via-cyan-600 hover:to-blue-600 text-white font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
                     >

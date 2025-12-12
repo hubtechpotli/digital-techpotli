@@ -3,6 +3,8 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { Marquee } from "@/components/magicui/marquee";
 import { Button } from "@/components/ui/button";
+import { PackageCard } from "@/components/landing/PackageCard";
+import { logoDesigningPackage, gmbPackage } from "@/lib/packages";
 import { Sparkles } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
@@ -101,6 +103,16 @@ function HomePage() {
             showDescriptionToScreenReaders={true}
           />
 
+          {/* Special Offers - Logo Designing & GMB */}
+          <div className="mt-8 mb-8 flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="w-full max-w-sm">
+              <PackageCard pkg={logoDesigningPackage} index={0} />
+            </div>
+            <div className="w-full max-w-sm">
+              <PackageCard pkg={gmbPackage} index={1} />
+            </div>
+          </div>
+
           <div
             aria-label="Call to action buttons"
             className="mt-8 flex flex-col gap-3 md:flex-row md:items-center md:justify-center md:flex-wrap"
@@ -113,7 +125,7 @@ function HomePage() {
                 const message = encodeURIComponent(
                   "Hello! I'm interested in getting a free consultation for digital services. Could you please provide more information?"
                 );
-                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
               }}
             >
               Get a Free Consultation
@@ -149,7 +161,7 @@ function HomePage() {
                 const message = encodeURIComponent(
                   "Hello! I'd like to talk to an expert about my digital transformation needs. When would be a good time to discuss?"
                 );
-                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
               }}
             >
               Talk to an Expert

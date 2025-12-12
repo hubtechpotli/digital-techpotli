@@ -74,7 +74,7 @@ export default function FullStackPage() {
     const message = encodeURIComponent(
       "Hello Techpotli Team! 👋\n\nI'm interested in learning more about your Full Stack Website Development services. Could you please provide more information about the features and pricing? Thank you!"
     );
-    window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+    window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
   };
 
   const mainFeatures = [

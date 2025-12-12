@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Package } from "@/lib/packages";
 import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
@@ -152,6 +153,19 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
         {/* Content */}
         <div ref={contentRef} className={`relative p-6 sm:p-8 space-y-6 ${pkg.popular ? "pt-8 sm:pt-10" : ""}`}>
 
+          {/* Image if provided */}
+          {pkg.image && (
+            <div className="relative w-full h-48 sm:h-56 rounded-lg overflow-hidden mb-4">
+              <Image
+                src={pkg.image}
+                alt={pkg.name}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+          )}
+
           {/* Header */}
           <div className="space-y-3 pt-2">
             <h3 className={`text-2xl sm:text-3xl font-bold leading-tight ${
@@ -224,7 +238,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
                 const message = encodeURIComponent(
                   `Hello! I'm interested in the *${pkg.name}* package from Techpotli.\n\nPrice: ${pkg.price}${pkg.priceNote ? ` ${pkg.priceNote}` : ""}\n\nCould you please provide more details and help me get started?`
                 );
-                window.open(`https://wa.me/919810659666?text=${message}`, "_blank");
+                window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
               }}
               className={`w-full font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
                 pkg.popular

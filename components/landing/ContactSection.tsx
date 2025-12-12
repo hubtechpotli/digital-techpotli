@@ -184,7 +184,7 @@ function ContactUs() {
                   const whatsappMessage = encodeURIComponent(
                     `Hello Techpotli Team! 👋\n\nI would like to get in touch with you.\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}\n\nPlease get back to me at your earliest convenience. Thank you!`
                   );
-                  window.open(`https://wa.me/919810659666?text=${whatsappMessage}`, "_blank");
+                  window.open(`https://wa.me/919911475599?text=${whatsappMessage}`, "_blank");
                 }}
               >
                 <div className="space-y-2">

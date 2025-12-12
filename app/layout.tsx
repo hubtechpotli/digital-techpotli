@@ -1,6 +1,7 @@
 import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/Navbar";
 import { WhatsAppChatbot } from "@/components/custom/WhatsAppChatbot";
+import { FirstVisitBanner } from "@/components/custom/FirstVisitBanner";
 import { GTM } from "@/components/custom/GTM";
 import { SimpleAuthProvider } from "@/lib/auth/SimpleAuthProvider";
 import { defaultMetadata } from "@/lib/metadata";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <SimpleAuthProvider>
           <div className="min-h-screen w-full">
             <Navbar />
+            <FirstVisitBanner />
             {children}
             <Footer />
             <WhatsAppChatbot />

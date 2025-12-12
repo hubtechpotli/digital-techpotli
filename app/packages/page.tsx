@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/components/custom/SectionHeading";
 import { PackageCard } from "@/components/landing/PackageCard";
 import WhatsAppContactButton from "@/components/custom/WhatsAppContactButton";
-import { websiteServicesPackages, websiteLeadsPackages, ecommercePackages, socialSeoGmbPackages, oneTimeSetupPackages, fullStackWebsitePackages } from "@/lib/packages";
+import { websiteServicesPackages, websiteLeadsPackages, ecommercePackages, socialSeoGmbPackages, oneTimeSetupPackages, fullStackWebsitePackages, logoDesigningPackage, gmbPackage } from "@/lib/packages";
 import type { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -34,6 +34,24 @@ export default function PackagesPage() {
             badgeClassName="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 !text-white border-0 shadow-lg"
             showDescriptionToScreenReaders={true}
           />
+        </div>
+      </section>
+
+      {/* Special Offers Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-orange-50 via-red-50 to-pink-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              Special Offers
+            </h2>
+            <p className="text-lg text-gray-600">
+              Limited time offers - Get started today!
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <PackageCard pkg={logoDesigningPackage} index={0} />
+            <PackageCard pkg={gmbPackage} index={1} />
+          </div>
         </div>
       </section>
 

@@ -15,7 +15,7 @@ export default function WhatsAppContactButton({ className, message, children }: 
 
   const handleClick = () => {
     const encoded = encodeURIComponent(message ?? defaultMessage);
-    window.open(`https://wa.me/919810659666?text=${encoded}`, "_blank");
+    window.open(`https://wa.me/919911475599?text=${encoded}`, "_blank");
   };
 
   return (
