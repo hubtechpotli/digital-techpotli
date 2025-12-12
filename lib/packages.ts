@@ -433,7 +433,7 @@ export const gmbPackage: Package = {
   priceNote: "Only",
   category: "Digital Marketing Services",
   description: "Get your business listed and optimized on Google My Business",
-  image: "https://www.intellectoutsource.com/blog/images/adding-products-in-google-business-profile.jpg",
+  image: "/WhatsApp Image 2025-12-12 at 14.07.00.jpeg",
   features: [
     { name: "Google Business Profile Setup", included: true },
     { name: "Business Information Optimization", included: true },
@@ -446,4 +446,3 @@ export const gmbPackage: Package = {
 export function getAllPackages(): Package[] {
   return [...websiteServicesPackages, ...websiteLeadsPackages, ...ecommercePackages, ...socialSeoGmbPackages, ...oneTimeSetupPackages, ...fullStackWebsitePackages];
 }
-

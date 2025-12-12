@@ -7,6 +7,12 @@ import { gmbPackage } from "@/lib/packages";
 
 export function FirstVisitBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [
+    "/WhatsApp Image 2025-12-12 at 14.06.59.jpeg",
+    "/WhatsApp Image 2025-12-12 at 14.07.00.jpeg",
+  ];
 
   useEffect(() => {
     // Check if user has seen the banner before
@@ -22,6 +28,17 @@ export function FirstVisitBanner() {
     }
   }, []);
 
+  // Auto-switch between images every 3 seconds
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isVisible, images.length]);
+
   const handleClose = () => {
     setIsVisible(false);
     localStorage.setItem("hasSeenGMBanner", "true");
@@ -29,7 +46,7 @@ export function FirstVisitBanner() {
 
   const handleClick = () => {
     const message = encodeURIComponent(
-      `Hello! I'm interested in the *${gmbPackage.name}* package from Techpotli.\n\nPrice: ${gmbPackage.price} ${gmbPackage.priceNote || ""}\n\nCould you please provide more details and help me get started?`
+      `Hello Techpotli Team,\n\nI'm interested in:\n• Logo Designing\n• Google Business Profile / GMB services\n\nPlease share details, pricing, and next steps to get started.`
     );
     window.open(`https://wa.me/919911475599?text=${message}`, "_blank");
     handleClose();
@@ -38,62 +55,47 @@ export function FirstVisitBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ animation: 'fadeIn 0.3s ease-out' }}>
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/30"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ animation: "fadeIn 0.3s ease-out" }}
+    >
+      {/* Click outside to close */}
+      <div
+        className="absolute inset-0 bg-transparent"
         onClick={handleClose}
+        aria-hidden="true"
       />
-      
-      {/* Banner Card */}
-      <div className="relative bg-white rounded-lg shadow-2xl border-2 border-teal-500 overflow-hidden max-w-sm w-full" style={{ animation: 'slideDown 0.3s ease-out' }}>
+
+      <div className="relative w-full max-w-5xl bg-white/95 border border-gray-200 shadow-2xl rounded-2xl overflow-hidden">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-2 right-2 z-10 bg-gray-100 hover:bg-gray-200 rounded-full p-1.5 transition-colors"
+          className="absolute top-3 right-3 z-20 bg-white hover:bg-gray-100 rounded-full p-2 transition-colors shadow"
           aria-label="Close banner"
         >
-          <X className="w-4 h-4 text-gray-600" />
+          <X className="w-4 h-4 text-gray-700" />
         </button>
 
-        {/* Content */}
-        <div 
-          onClick={handleClick}
-          className="cursor-pointer"
-        >
-          {/* Image */}
-          {gmbPackage.image && (
-            <div className="relative w-full h-48 overflow-hidden">
+        {/* Banner images - one by one */}
+        <div className="relative h-64 sm:h-80 md:h-96 px-4 py-3">
+          {images.map((src, index) => (
+            <div
+              key={index}
+              onClick={handleClick}
+              className={`absolute inset-4 rounded-xl overflow-hidden shadow-md bg-white cursor-pointer transition-opacity duration-500 ${
+                currentImage === index ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
               <Image
-                src={gmbPackage.image}
-                alt={gmbPackage.name}
+                src={src}
+                alt={`Techpotli Banner ${index + 1}`}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 384px"
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={index === 0}
               />
             </div>
-          )}
-
-          {/* Package Info */}
-          <div className="p-4 bg-gradient-to-br from-teal-50 to-cyan-50">
-            <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-3xl font-extrabold bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                {gmbPackage.price}
-              </span>
-              <span className="text-sm font-medium text-gray-600">
-                {gmbPackage.priceNote}
-              </span>
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-1">
-              {gmbPackage.name}
-            </h3>
-            <p className="text-sm text-gray-600 mb-3">
-              {gmbPackage.description}
-            </p>
-            <div className="bg-teal-500 text-white text-center py-2 rounded-lg font-semibold text-sm hover:bg-teal-600 transition-colors">
-              Get Started Now →
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
