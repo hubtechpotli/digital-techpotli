@@ -9,7 +9,7 @@ export function FirstVisitBanner() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "/WhatsApp Image 2025-12-12 at 14.06.59.jpeg",
+    "/1st ad banner.png",
     "/2nd ad banner.png",
   ];
 
