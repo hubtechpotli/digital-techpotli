@@ -10,7 +10,7 @@ export function FirstVisitBanner() {
 
   const images = [
     "/WhatsApp Image 2025-12-12 at 14.06.59.jpeg",
-    "/WhatsApp Image 2025-12-12 at 14.07.00.jpeg",
+    "/2nd ad banner.png",
   ];
 
   useEffect(() => {
