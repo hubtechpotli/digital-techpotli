@@ -11,8 +11,15 @@ import "@/lib/GSAPAnimations";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const gmdImages = [
+  { src: "/Gmdprofileandlogo/2nd page of logo.jpeg", alt: "Logo design showcase" },
+  { src: "/Gmdprofileandlogo/3rd page of logo.jpeg", alt: "Logo concepts showcase" },
+  { src: "/Gmdprofileandlogo/WhatsApp Image 2025-12-15 at 11.35.14.jpeg", alt: "Google Business Profile showcase" },
+];
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -24,6 +31,7 @@ export default function LiveProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isFilterSticky, setIsFilterSticky] = useState(false);
+  const [gmdIndex, setGmdIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
@@ -44,6 +52,15 @@ export default function LiveProjectsPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Rotate GMD showcase images
+  useEffect(() => {
+    if (!isClient) return;
+    const timer = setInterval(() => {
+      setGmdIndex((prev) => (prev + 1) % gmdImages.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isClient]);
 
   // Scroll to category
   const scrollToCategory = (category: string) => {
@@ -151,6 +168,48 @@ export default function LiveProjectsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-teal-50/20 to-cyan-50/20">
+      {/* GMD showcase - full width, responsive height */}
+      <section
+        className="relative w-full overflow-hidden pt-24 sm:pt-28"
+        style={{
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+        }}
+      >
+        <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] max-h-[90vh] bg-white">
+          {gmdImages.map((image, index) => (
+            <div
+              key={image.src}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                gmdIndex === index ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority={index === 0}
+                className="object-contain"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
+            </div>
+          ))}
+          <div className="absolute bottom-4 right-4 flex gap-2">
+            {gmdImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setGmdIndex(i)}
+                className={`h-2.5 w-8 rounded-full transition-colors ${
+                  gmdIndex === i ? "bg-white" : "bg-white/50"
+                }`}
+                aria-label={`Showcase slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-16 sm:py-20 md:py-24 overflow-hidden">
         {/* Animated Background Elements */}
