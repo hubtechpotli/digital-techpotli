@@ -21,6 +21,7 @@ interface PackageCardProps {
 export function PackageCard({ pkg, index }: PackageCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const isShowcaseImage = pkg.id === "logo-designing" || pkg.id === "google-my-business";
 
   useGSAP(() => {
     if (!cardRef.current) return;
@@ -94,6 +95,28 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
       );
     }
   }, [index]);
+
+  // Simple image-only presentation for highlighted showcase packages
+  if (isShowcaseImage) {
+    return (
+      <div ref={cardRef} className="relative">
+        <div className="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-2xl shadow-lg">
+          <Image
+            src={
+              pkg.id === "logo-designing"
+                ? "/WhatsApp Image 2025-12-12 at 14.06.59.jpeg"
+                : "/WhatsApp Image 2025-12-12 at 14.07.00.jpeg"
+            }
+            alt={pkg.name}
+            fill
+            className="object-contain bg-white"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

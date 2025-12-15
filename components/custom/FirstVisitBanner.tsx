@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { gmbPackage } from "@/lib/packages";
 
 export function FirstVisitBanner() {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,7 +55,7 @@ export function FirstVisitBanner() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
       style={{ animation: "fadeIn 0.3s ease-out" }}
     >
       {/* Click outside to close */}
@@ -66,36 +65,38 @@ export function FirstVisitBanner() {
         aria-hidden="true"
       />
 
-      <div className="relative w-full max-w-5xl bg-white/95 border border-gray-200 shadow-2xl rounded-2xl overflow-hidden">
+      <div className="relative w-full max-w-5xl pointer-events-auto">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 z-20 bg-white hover:bg-gray-100 rounded-full p-2 transition-colors shadow"
+          className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-20 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-colors backdrop-blur"
           aria-label="Close banner"
         >
           <X className="w-4 h-4 text-gray-700" />
         </button>
 
         {/* Banner images - one by one */}
-        <div className="relative h-64 sm:h-80 md:h-96 px-4 py-3">
-          {images.map((src, index) => (
-            <div
-              key={index}
-              onClick={handleClick}
-              className={`absolute inset-4 rounded-xl overflow-hidden shadow-md bg-white cursor-pointer transition-opacity duration-500 ${
-                currentImage === index ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            >
-              <Image
-                src={src}
-                alt={`Techpotli Banner ${index + 1}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={index === 0}
-              />
-            </div>
-          ))}
+        <div className="relative w-full overflow-hidden rounded-xl">
+          <div className="relative w-full aspect-[4/5] sm:aspect-[16/9] max-h-[85vh]">
+            {images.map((src, index) => (
+              <div
+                key={index}
+                onClick={handleClick}
+                className={`absolute inset-0 cursor-pointer transition-opacity duration-500 ${
+                  currentImage === index ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
+              >
+                <Image
+                  src={src}
+                  alt={`Techpotli Banner ${index + 1}`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index === 0}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
