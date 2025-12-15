@@ -105,7 +105,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
             src={
               pkg.id === "logo-designing"
                 ? "/WhatsApp Image 2025-12-12 at 14.06.59.jpeg"
-                : "/WhatsApp Image 2025-12-12 at 14.07.00.jpeg"
+                : "/2nd ad banner.png"
             }
             alt={pkg.name}
             fill
@@ -191,7 +191,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
           <div className="relative p-4 sm:p-6">
             <div className="relative w-full h-56 sm:h-64 rounded-lg overflow-hidden shadow-md bg-white">
               <Image
-                src="/WhatsApp Image 2025-12-12 at 14.07.00.jpeg"
+                src="/2nd ad banner.png"
                 alt="Google My Business / GBP"
                 fill
                 className="object-contain"
