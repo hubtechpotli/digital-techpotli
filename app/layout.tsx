@@ -42,6 +42,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Structured Data - Organization and WebSite Schema (server-side rendered) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.techpotlidigital.com/#organization",
+                  "name": "Techpotli Digital",
+                  "url": "https://www.techpotlidigital.com/",
+                  "logo": "https://www.techpotlidigital.com/_next/image?url=%2FNew_Techpotli_Logo_(2)%5B2%5D.png&w=256&q=75",
+                  "description": "Techpotli Digital is a professional digital marketing agency in India offering SEO, website design, PPC and social media marketing services."
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.techpotlidigital.com/#website",
+                  "url": "https://www.techpotlidigital.com/",
+                  "name": "Techpotli Digital",
+                  "publisher": {
+                    "@id": "https://www.techpotlidigital.com/#organization"
+                  }
+                }
+              ]
+            }),
+          }}
+        />
         <GTM />
         <SimpleAuthProvider>
           <div className="min-h-screen w-full">

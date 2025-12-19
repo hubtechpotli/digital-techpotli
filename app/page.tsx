@@ -64,38 +64,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const organizationStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Techpotli Digital",
-    "alternateName": "Techpotli Digital Marketing  Company  in India",
-    "url": "https://www.techpotlidigital.com/",
-    "logo": "",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "011-47200987, +91-9911475599",
-      "contactType": "technical support",
-      "contactOption": "TollFree",
-      "areaServed": "IN",
-      "availableLanguage": ["en", "Hindi"],
-    },
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61584717418829",
-      "https://www.instagram.com/techpotlidigital/",
-      "https://www.youtube.com/@TechPotliDigital",
-      "https://www.pinterest.com/TechpotliDigital/",
-    ],
-  };
-
   return (
     <main id="main-content" role="main" className="relative overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationStructuredData),
-        }}
-      />
       {/* Full-width video section after header - edge to edge */}
       <section 
         className="relative overflow-hidden"

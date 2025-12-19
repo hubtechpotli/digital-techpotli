@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schema Verification Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+        .code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .error {
+            color: #f44336;
+            font-weight: bold;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Schema Verification Guide</h1>
+        
+        <div class="step">
+            <h2>Method 1: View Page Source (Best Method)</h2>
+            <ol>
+                <li>Open your homepage: <code>http://localhost:3000</code></li>
+                <li>Right-click anywhere on the page</li>
+                <li>Select <strong>"View Page Source"</strong> (or press <code>Ctrl+U</code> / <code>Cmd+Option+U</code>)</li>
+                <li>Press <code>Ctrl+F</code> (or <code>Cmd+F</code> on Mac) to open search</li>
+                <li>Search for: <code>application/ld+json</code></li>
+                <li>You should see exactly <strong>ONE</strong> script tag</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>Method 2: Browser Console (Quick Check)</h2>
+            <ol>
+                <li>Open your homepage: <code>http://localhost:3000</code></li>
+                <li>Press <code>F12</code> to open DevTools</li>
+                <li>Go to <strong>"Console"</strong> tab</li>
+                <li>Paste and run this code:</li>
+            </ol>
+            <div class="code">
+document.querySelectorAll('script[type="application/ld+json"]').forEach((script, index) => {
+    console.log(`Schema ${index + 1}:`, JSON.parse(script.textContent));
+});
+console.log(`Total schemas found: ${document.querySelectorAll('script[type="application/ld+json"]').length}`);
+            </div>
+            <p><strong>Expected Result:</strong> <span class="success">Total schemas found: 1</span></p>
+        </div>
+
+        <div class="step">
+            <h2>Method 3: What to Look For</h2>
+            <p>In the page source, you should find this structure:</p>
+            <div class="code">
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.techpotlidigital.com/#organization",
+      "name": "Techpotli Digital",
+      ...
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.techpotlidigital.com/#website",
+      ...
+    }
+  ]
+}
+&lt;/script&gt;
+            </div>
+            <p><strong>✅ Check for:</strong></p>
+            <ul>
+                <li>Only <strong>ONE</strong> script tag with <code>type="application/ld+json"</code></li>
+                <li><code>@graph</code> array present</li>
+                <li>Both <code>Organization</code> and <code>WebSite</code> types</li>
+                <li>Proper <code>@id</code> references</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Method 4: Google Rich Results Test (After Deployment)</h2>
+            <ol>
+                <li>Go to: <a href="https://search.google.com/test/rich-results" target="_blank">Google Rich Results Test</a></li>
+                <li>Enter your URL or paste HTML</li>
+                <li>Check for any errors</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>Quick Verification Checklist</h2>
+            <div id="results">
+                <p>✅ Schema is in <code>app/layout.tsx</code> (server-side)</p>
+                <p>✅ Schema removed from <code>app/page.tsx</code></p>
+                <p>✅ Schema removed from <code>app/head.tsx</code></p>
+                <p>✅ No client-side injection (no useEffect)</p>
+                <p>✅ Only ONE schema on homepage</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-run verification if on localhost
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('🔍 Schema Verification Tool Loaded');
+            console.log('Run this in your homepage console:');
+            console.log(`
+document.querySelectorAll('script[type="application/ld+json"]').forEach((script, index) => {
+    console.log('Schema ' + (index + 1) + ':', JSON.parse(script.textContent));
+});
+console.log('Total schemas: ' + document.querySelectorAll('script[type="application/ld+json"]').length);
+            `);
+        }
+    </script>
+</body>
+</html>
+
