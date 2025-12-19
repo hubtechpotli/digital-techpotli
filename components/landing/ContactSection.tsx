@@ -338,7 +338,7 @@ function ContactUs() {
                         <p className="text-xs font-medium text-white sm:text-sm" itemProp="author">
                           {currentCaseStudy.founder_name}
                         </p>
-                        <p className="text-xs text-gray-300" itemProp="authorPosition">
+                        <p className="text-xs text-gray-300">
                           {currentCaseStudy.position}
                         </p>
                       </div>
