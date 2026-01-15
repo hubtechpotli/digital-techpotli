@@ -9,8 +9,8 @@ export function FirstVisitBanner() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "/1st ad banner.png",
-    "/2nd ad banner.png",
+    "/1st ad banner.png?v=2",
+    "/2nd ad banner.png?v=2",
   ];
 
   useEffect(() => {

@@ -104,8 +104,8 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
           <Image
             src={
               pkg.id === "logo-designing"
-                ? "/1st ad banner.png"
-                : "/2nd ad banner.png"
+                ? "/1st ad banner.png?v=2"
+                : "/2nd ad banner.png?v=2"
             }
             alt={pkg.name}
             fill
@@ -178,7 +178,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
           <div className="relative p-4 sm:p-6">
             <div className="relative w-full h-56 sm:h-64 rounded-lg overflow-hidden shadow-md bg-white">
               <Image
-                src="/1st ad banner.png"
+                src="/1st ad banner.png?v=2"
                 alt="Logo Designing"
                 fill
                 className="object-contain"
@@ -191,7 +191,7 @@ export function PackageCard({ pkg, index }: PackageCardProps) {
           <div className="relative p-4 sm:p-6">
             <div className="relative w-full h-56 sm:h-64 rounded-lg overflow-hidden shadow-md bg-white">
               <Image
-                src="/2nd ad banner.png"
+                src="/2nd ad banner.png?v=2"
                 alt="Google My Business / GBP"
                 fill
                 className="object-contain"
