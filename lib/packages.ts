@@ -433,7 +433,7 @@ export const gmbPackage: Package = {
   priceNote: "Only",
   category: "Digital Marketing Services",
   description: "Get your business listed and optimized on Google My Business",
-  image: "/2nd ad banner.png",
+  image: "/2nd ad banner.png?v=2",
   features: [
     { name: "Google Business Profile Setup", included: true },
     { name: "Business Information Optimization", included: true },
