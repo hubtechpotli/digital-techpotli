@@ -107,24 +107,26 @@ export function AnimatedMainContent({ content }: AnimatedMainContentProps) {
               [&_pre]:bg-muted [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-4
               [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-sm
               [&_img]:rounded-lg [&_img]:shadow-md [&_img]:my-6
-              [&_a]:text-primary [&_a]:hover:underline [&_a]:transition-colors
+              [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800 [&_a]:transition-colors
               [&_strong]:font-semibold [&_strong]:text-text-heading
               [&_em]:italic
               [&_hr]:border-border [&_hr]:my-8"
             dangerouslySetInnerHTML={{
-              __html: content.replace(
-                /<h([1-6])([^>]*)>(.*?)<\/h[1-6]>/gi,
-                (match, level, attrs, content) => {
-                  const id = content
-                    .replace(/<[^>]*>/g, "") // Remove HTML tags
-                    .toLowerCase()
-                    .replace(/[^\w\s-]/g, "")
-                    .replace(/\s+/g, "-")
-                    .replace(/-+/g, "-")
-                    .trim();
-                  return `<h${level}${attrs} id="${id}">${content}</h${level}>`;
-                }
-              ),
+              __html: content
+                .replace(
+                  /<h([1-6])([^>]*)>(.*?)<\/h[1-6]>/gi,
+                  (match, level, attrs, content) => {
+                    const id = content
+                      .replace(/<[^>]*>/g, "") // Remove HTML tags
+                      .toLowerCase()
+                      .replace(/[^\w\s-]/g, "")
+                      .replace(/\s+/g, "-")
+                      .replace(/-+/g, "-")
+                      .trim();
+                    return `<h${level}${attrs} id="${id}">${content}</h${level}>`;
+                  }
+                )
+                .replace(/<a /gi, '<a target="_blank" rel="noopener noreferrer" '),
             }}
           />
         </main>

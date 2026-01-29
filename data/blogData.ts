@@ -33,6 +33,17 @@ export const blogPosts: BlogPost[] = [
     isTopPick: true,
   },
   {
+    id: "4",
+    title: "Top AI Trends Transforming Digital Marketing and SEO in 2026",
+    date: "29 Jan 2026",
+    tag: "Digital Marketing",
+    image: "/Blog/Blog4.png",
+    excerpt:
+      "Artificial Intelligence (AI) has become one of the biggest driving forces in digital marketing today. In 2026 and further, businesses are actively adopting AI-powered strategies to improve visibility, engagement, and return on investment.",
+    slug: "top-ai-trends-transforming-digital-marketing-and-seo-in-2026",
+    isTopPick: true,
+  },
+  {
     id: "3",
     title: "Best Low-Budget Tools for Startups to Start Online Marketing",
     date: "9 Dec 2025",
