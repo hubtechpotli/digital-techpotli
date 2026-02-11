@@ -11,6 +11,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "5",
+    title: "Trending AI Online Digital Marketing Business Changing with Big Opportunities In India",
+    date: "11 Feb 2026",
+    tag: "Digital Marketing",
+    image: "/Blog/Blog5.png",
+    excerpt:
+      "The online digital marketing business is evolving faster than ever ahead. With rapid-fire advancements in technology, artificial intelligence, and changing consumer geste digital marketing has come one of the most profitable industries.",
+    slug: "trending-ai-online-digital-marketing-business-changing-with-big-opportunities-in-india",
+    isTopPick: true,
+  },
+  {
     id: "1",
     title: "Why Digital Marketing Services are Essential for Online Businesses",
     date: "3 Dec 2025",
