@@ -11,6 +11,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "6",
+    title: "How AI Search Changes Website Traffic and Lead Generation in 2026",
+    date: "17 Feb 2026",
+    tag: "Digital Marketing",
+    image: "/Blog/Blog6.png",
+    excerpt:
+      "Artificial intelligence is reshaping the digital marketing geography in 2026. AI-powered hunt machines now deliver smarter, briskly, and more individualized results than ever ahead.",
+    slug: "how-ai-search-changes-website-traffic-and-lead-generation-in-2026",
+    isTopPick: true,
+  },
+  {
     id: "5",
     title: "Trending AI Online Digital Marketing Business Changing with Big Opportunities In India",
     date: "11 Feb 2026",
